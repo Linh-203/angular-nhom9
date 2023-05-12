@@ -1,0 +1,25 @@
+.img-fluid {
+  height: 300px;
+  width: 100%;
+}
+.img-favorite {
+  height: 250px;
+  width: 60%;
+}
+.col-md-4 {
+  text-align: center;
+  padding: 15px;
+}
+.cate {
+  align-items: center;
+  text-align: center;
+  margin-top: 30px;
+}
+.banner-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.banner-bottom img {
+  width: 600px;
+  height: 160px;
+}
