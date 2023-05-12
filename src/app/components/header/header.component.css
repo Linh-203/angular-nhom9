@@ -1,0 +1,28 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+.row {
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 60px;
+  height: 75px;
+}
+.logo {
+  margin-right: 20px;
+}
+.navbar-nav ul {
+  align-items: center;
+}
+.navbar-nav li {
+  width: 120px;
+  align-items: center;
+}
+.form-inline {
+  width: 275px;
+  display: flex;
+  justify-content: space-between;
+}
+.form-control {
+  width: 180px;
+}
