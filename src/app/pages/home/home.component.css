@@ -16,10 +16,10 @@
   margin-top: 30px;
 }
 .banner-bottom {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5em;
 }
 .banner-bottom img {
-  width: 600px;
-  height: 160px;
+  width: 100%;
 }
