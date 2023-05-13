@@ -7,6 +7,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { AdminComponent } from './components/admin/admin.component';
     FooterComponent,
     HeaderComponent,
     AdminComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
