@@ -1,9 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 *{
-    margin: 0 !important;
-    padding: 0 !important;
-    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+:root{
+    --primary-color:"#f4ce0f",
+    
+}
+html{
+    overflow-y: overlay !important;
+  }
+a{
+    text-decoration: none !important;
+    color: inherit !important;
+}
+a:hover{
+    color: inherit !important;
 }
 .w-10{
 width: 10% !important;
@@ -26,3 +38,30 @@ width: 10% !important;
 .w-full{
     width: 100% !important;
 }
+.-left-1{
+    left:-0.5rem;
+}
+.-left-2{
+    left:-1rem;
+}
+.-left-3{
+    left:-1.5rem;
+}
+.text-primary{
+    color: var(--primary-color);
+}
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #ffdfdf;
+  }
+  

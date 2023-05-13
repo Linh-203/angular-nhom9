@@ -6,10 +6,4 @@ import { IUser } from 'src/common/user';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  // user: IUser = {
-  //   name: 'linh',
-  //   msv: 'PH28073',
-  //   age: 20,
-  //   gender: 'male',
-  // };
 }

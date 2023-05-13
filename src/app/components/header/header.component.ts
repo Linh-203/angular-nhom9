@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProductInCartComponent } from '../product-in-cart/product-in-cart.component';
 
 @Component({
   selector: 'app-header',
