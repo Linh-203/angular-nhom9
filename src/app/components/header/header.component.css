@@ -18,11 +18,10 @@
   width: 120px;
   align-items: center;
 }
-.form-inline {
-  width: 275px;
-  display: flex;
-  justify-content: space-between;
+.dropdown:hover>.dropdown-menu {
+  display: block;
 }
-.form-control {
-  width: 180px;
+.dropdown>.dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+    pointer-events: none;
 }
