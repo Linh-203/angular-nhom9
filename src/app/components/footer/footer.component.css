@@ -1,0 +1,29 @@
+* {
+  padding: 0;
+  max-width: 100%;
+}
+ul li {
+  list-style: none;
+  color: #fff;
+}
+h5 {
+  color: #fff;
+}
+a {
+  text-decoration: none;
+  list-style: none;
+  color: white;
+}
+.pt-5 {
+  background-color: #343a40;
+}
+.container {
+  text-align: center;
+  width: 100%;
+}
+.list-inline-item {
+  padding-left: 7px;
+}
+.list-inline-item a {
+  font-size: 30px;
+}
