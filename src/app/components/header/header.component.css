@@ -4,8 +4,13 @@
   align-items: center;
   text-align: center;
   display: grid;
+<<<<<<< HEAD
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 60px;
+=======
+  grid-template-columns: repeat(5, 1fr);
+  /* grid-gap: 60px; */
+>>>>>>> 960a139af327697394938be735c21ca168ff8933
   height: 75px;
 }
 .logo {
