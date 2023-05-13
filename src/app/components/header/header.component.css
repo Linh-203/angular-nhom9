@@ -18,11 +18,30 @@
   width: 120px;
   align-items: center;
 }
-.form-inline {
-  width: 275px;
-  display: flex;
-  justify-content: space-between;
+.dropdown:hover>.dropdown-menu {
+  display: block;
 }
-.form-control {
-  width: 180px;
+.drop-cart{
+  position: absolute; 
+  min-width: 300px;
+  right:0;
+}
+.drop-user{
+  position: absolute;
+  min-width: 100px;
+  right: 0;
+}
+.dropdown>.dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+.cart-body{
+  min-height: 100px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+.cart-footer{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
