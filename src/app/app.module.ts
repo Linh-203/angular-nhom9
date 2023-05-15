@@ -8,6 +8,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { ProductInCartComponent } from './components/product-in-cart/product-in-cart.component';
+import { BannerComponent } from './components/banner/banner.component';
+import { CategoryComponentComponent } from './pages/category/category-component/category-component.component';
+import { NotFoundPageComponentComponent } from './pages/not-found-page/not-found-page-component/not-found-page-component.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import { ProductInCartComponent } from './components/product-in-cart/product-in-
     HeaderComponent,
     AdminComponent,
     ProductInCartComponent,
+    BannerComponent,
+    CategoryComponentComponent,
+    NotFoundPageComponentComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
