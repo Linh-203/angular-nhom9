@@ -1,80 +1,108 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col">
-          <div class="logo">
-            <img
-              src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/logo.png?1676358260059"
-              alt="logo của trang web"
-            />
+  <nav
+    class="px-5 py-4 navbar navbar-expand-lg navbar-light bg-light container-fluid"
+  >
+    <a href="/" class="w-25">
+      <img
+        src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/logo.png?1676358260059"
+        alt="logo của trang web"
+      />
+    </a>
+    <div class="flex-fill">
+      <div class="menu">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a
+                style="font-weight: bold; font-size: 19px; color: black"
+                class="nav-link"
+                href="#"
+                >Trang chủ</a
+              >
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Sản phẩm</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Giới thiệu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Liên hệ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-end gap-3 w-30">
+      <form
+        class="form-inline my-2 my-lg-0 d-flex justify-content-start gap-2 align-items-center"
+      >
+        <input
+          class="form-control mr-sm-2 p-2"
+          type="search"
+          placeholder="Tìm kiếm sản phẩm"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-success fs-6 my-sm-0" type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+      <div class="p-1 dropdown">
+        <a
+          href="#"
+          id="dropdownMenuButton"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+          ><i class="fa fa-shopping-cart fs-5" style="color: #e5d300"></i
+        ></a>
+        <ul
+          class="dropdown-menu drop-cart"
+          aria-labelledby="dropdownMenuButton"
+        >
+          <h3 class="dropdown-header">Cart</h3>
+          <div class="cart-body">
+            <li>
+              <a class="dropdown-item" href="#"
+                ><app-product-in-cart></app-product-in-cart
+              ></a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><app-product-in-cart></app-product-in-cart
+              ></a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><app-product-in-cart></app-product-in-cart
+              ></a>
+            </li>
           </div>
-        </div>
-        <div class="col">
-          <div class="menu">
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a
-                    style="font-weight: bold; font-size: 19px; color: black"
-                    class="nav-link"
-                    href="#"
-                    >Trang chủ</a
-                  >
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Sản phẩm</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Giới thiệu</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Liên hệ</a>
-                </li>
-              </ul>
-            </div>
+          <li>
+            <hr class="dropdown-divider" />
+          </li>
+          <div class="cart-footer">
+            <p>Total:</p>
+            <p>6000 vnd</p>
           </div>
-        </div>
-        <div class="col">
-          <form class="form-inline my-2 my-lg-0">
-            <input
-              class="form-control mr-sm-2"
-              type="search"
-              placeholder="Tìm kiếm sản phẩm"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-              Tìm kiếm
-            </button>
-          </form>
-        </div>
-        <div class="col text-right">
-          <a href="#" class="btn btn-warning ml-2"
-            ><i class="fa fa-shopping-cart"></i> Giỏ hàng</a
-          >
-        </div>
-
-        <!-- <div class="col">
-          <a class="btn btn-primary" href="#" role="button">Login</a>
-          <a class="btn btn-primary" href="#" role="button">Register</a>
-        </div> -->
-
-        <!-- Example single danger button -->
-        <div class="btn-group">
-          <button
-            type="button"
-            class="btn btn-danger dropdown-toggle"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Tài khoản
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Đăng ký</a>
-            <a class="dropdown-item" href="#">Đăng nhập </a>
+        </ul>
+      </div>
+      <div class="p-1 dropdown">
+        <a
+          href="#"
+          id="dropdownUserButton"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+          ><i class="fa-solid fa-user fs-5" style="color: #e5d300"></i
+        ></a>
+        <ul
+          class="dropdown-menu drop-user p-2"
+          aria-labelledby="dropdownUserButton"
+        >
+          <div class="d-flex flex-column align-items-center">
+            <a href="/signin">Sign in</a>
+            <a href="/signup">Sign up</a>
           </div>
-        </div>
+        </ul>
       </div>
     </div>
   </nav>
@@ -87,4 +115,44 @@
       />
     </div>
   </section>
+  <div class="container-fluid py-3">
+    <div class="row">
+      <div class="col-md-4">
+        <img
+          src="https://media.istockphoto.com/id/1306698815/vi/vec-to/giao-h%C3%A0ng-anh-ch%C3%A0ng-tr%C3%AAn-xe-m%C3%A1y-%C4%91ang-mang-b%C6%B0u-ki%E1%BB%87n-thi%E1%BA%BFt-k%E1%BA%BF-phim-ho%E1%BA%A1t-h%C3%ACnh-ph%E1%BA%B3ng.jpg?s=1024x1024&w=is&k=20&c=CTGkQj4ProWeOCB66I6Pi4Jw8pMKPapXs-2V_S4dcuc="
+          alt="icon"
+          class="img-fluid"
+          style="width: 16%"
+        />
+        <div class="col">
+          <p>Giao hàng miễn phí<br />Với các đơn hàng từ 100.000đ trở lên</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/237/237205.png?w=740&t=st=1684150802~exp=1684151402~hmac=427f1f64663644b43feebfeb908f007013bf5ac6b4606a5254c3cccb3c0490bf"
+          alt="icon"
+          class="img-fluid"
+          style="width: 10%"
+        />
+        <div class="col">
+          <p>
+            Phục vụ nhanh 24/7<br />8h00 am - 22h30 pm tất cả các ngày trong
+            tuần
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <img
+          src="https://thumbs.dreamstime.com/b/alcoholic-cocktail-colorful-emblem-vintage-aperol-spritz-ice-cubes-skull-bottom-orange-drink-glass-vector-248658801.jpg"
+          alt="icon"
+          class="img-fluid"
+          style="width: 11.5%"
+        />
+        <div class="col">
+          <p>Đồ uống đa dạng<br />Ding tea, matcha, gongcha, coffes...</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
