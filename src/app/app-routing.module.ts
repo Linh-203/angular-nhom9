@@ -8,9 +8,9 @@ import { RegisterComponent } from './components/register/register.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'category', component: CategoryComponentComponent },
+  {path: 'signin', component: LoginComponent},
+  {path: 'signup', component: RegisterComponent},
   { path: '**', component: NotFoundPageComponentComponent },
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent}
 
 ];
 
