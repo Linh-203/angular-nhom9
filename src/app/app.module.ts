@@ -12,8 +12,8 @@ import { BannerComponent } from './components/banner/banner.component';
 import { CategoryComponentComponent } from './pages/category/category-component/category-component.component';
 import { NotFoundPageComponentComponent } from './pages/not-found-page/not-found-page-component/not-found-page-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-
+import { DefaultLayoutComponent } from './components/default-layout/default-layout.component';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +26,10 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     BannerComponent,
     CategoryComponentComponent,
     NotFoundPageComponentComponent,
+    DefaultLayoutComponent,
+    ProductComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatSlideToggleModule,],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
