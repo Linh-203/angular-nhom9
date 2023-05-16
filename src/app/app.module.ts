@@ -11,6 +11,9 @@ import { ProductInCartComponent } from './components/product-in-cart/product-in-
 import { BannerComponent } from './components/banner/banner.component';
 import { CategoryComponentComponent } from './pages/category/category-component/category-component.component';
 import { NotFoundPageComponentComponent } from './pages/not-found-page/not-found-page-component/not-found-page-component.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,7 @@ import { NotFoundPageComponentComponent } from './pages/not-found-page/not-found
     CategoryComponentComponent,
     NotFoundPageComponentComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatSlideToggleModule,],
   providers: [],
   bootstrap: [AppComponent],
 })
