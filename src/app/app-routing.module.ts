@@ -5,9 +5,11 @@ import { CategoryComponentComponent } from './pages/category/category-component/
 import { NotFoundPageComponentComponent } from './pages/not-found-page/not-found-page-component/not-found-page-component.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { NewComponent } from './pages/new/new.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'category', component: CategoryComponentComponent },
+  {path: 'new', component: NewComponent},
   {path: 'signin', component: LoginComponent},
   {path: 'signup', component: RegisterComponent},
   { path: '**', component: NotFoundPageComponentComponent },
