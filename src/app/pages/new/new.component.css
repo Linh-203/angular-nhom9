@@ -1,0 +1,59 @@
+.container-newsites{
+    margin: 30px 150px;
+   
+}
+.tong{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    
+}
+
+.col-md-6 img{
+width: 300px;
+height: 200px;
+}
+.col-md-6{
+    width: 41%;
+}
+.row{
+    border: 1px solid rgb(197, 196, 196);
+    border-radius: 10px 0;
+}
+.tieude{
+   
+    height: 38px;
+    margin-bottom: 5px;
+}
+
+.trai{
+    width: 300px;
+}
+.phai{
+    width: 850px;
+}
+.col-md-6 p{
+    width: 470px;
+}
+
+.tieudet{
+   text-align: center;
+   font-weight: bold;
+}
+.cardd{
+    margin-top: 25px;
+    border: 1px solid rgb(189, 189, 189);
+    
+    border-radius: 5px;
+}
+.card-bodyd h6 a{
+    color: black;
+    text-decoration: none;
+    padding-left: 15px;
+}
+.card-titled h3{
+    background-color: orange;
+    padding-left: 15px;
+    height: 40px;
+}
+
+
