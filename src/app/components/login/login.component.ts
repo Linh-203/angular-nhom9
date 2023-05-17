@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  credentials = {
+    username: '',
+    password: '',
+  };
 
+  onSubmit() {
+    console.log('Login submitted:', this.credentials);
+    // Goi API
+  }
 }
