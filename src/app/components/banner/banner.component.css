@@ -1,0 +1,74 @@
+.carousel-item {
+  position: relative;
+  display: block;
+  opacity: 0;
+  -webkit-transform: perspective(1200px) rotateY(-90deg);
+  -moz-transform: perspective(1200px) rotateY(-90deg);
+  -o-transform: perspective(1200px) rotateY(-90deg);
+  transform: perspective(1200px) rotateY(-90deg);
+  -webkit-transition: opacity 1s ease-in-out, -webkit-transform 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out, -moz-transform 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out, -o-transform 1s ease-in-out;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.carousel-item.active {
+  opacity: 1;
+  -webkit-transform: perspective(1200px) rotateY(0deg);
+  -moz-transform: perspective(1200px) rotateY(0deg);
+  -o-transform: perspective(1200px) rotateY(0deg);
+  transform: perspective(1200px) rotateY(0deg);
+}
+
+.carousel-item-next,
+.carousel-item-prev {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+}
+/* .carousel-item {
+  position: relative;
+  display: none;
+  opacity: 0;
+  -webkit-transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+  -moz-transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+  -o-transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
+  display: block;
+  opacity: 1;
+}
+
+.carousel-item-next,
+.carousel-item-prev {
+  position: absolute;
+  top: 0;
+}
+
+.carousel-item-next.carousel-item-left,
+.carousel-item-prev.carousel-item-right {
+  transform: translateX(0);
+}
+
+.carousel-item-next.carousel-item-right,
+.carousel-item-prev.carousel-item-left {
+  transform: translateX(0);
+} */
+
+/* .carousel-item {
+  position: relative;
+  display: block;
+  opacity: 0;
+  -webkit-transition: opacity 0.6s ease-in-out;
+  -moz-transition: opacity 0.6s ease-in-out;
+  -o-transition: opacity 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.carousel-item.active {
+  opacity: 1;
+} */

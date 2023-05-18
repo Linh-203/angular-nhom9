@@ -12,10 +12,8 @@ import { BannerComponent } from './components/banner/banner.component';
 import { CategoryComponentComponent } from './pages/category/category-component/category-component.component';
 import { NotFoundPageComponentComponent } from './pages/not-found-page/not-found-page-component/not-found-page-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { DefaultLayoutComponent } from './components/default-layout/default-layout.component';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
   declarations: [
@@ -28,16 +26,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     BannerComponent,
     CategoryComponentComponent,
     NotFoundPageComponentComponent,
-    LoginComponent,
-    RegisterComponent,
+    DefaultLayoutComponent,
+    ProductComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatSlideToggleModule,
-    MatFormFieldModule, // Import MatFormFieldModule ở đây
-  ],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

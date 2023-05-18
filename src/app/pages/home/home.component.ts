@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IProducts } from 'src/common/products';
 import { IUser } from 'src/common/user';
-
+// import $ from 'jquery';
+import 'bootstrap';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
