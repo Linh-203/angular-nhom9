@@ -1,11 +1,14 @@
 <div class="detail">
+  <div class="banner">
+    <img src="http://store.bobapop.com.vn/resource/uploads/2016/09/banner-trong.jpg" alt="">
+  </div>
 <div class="title">
     <p style="margin-top: 30px; margin-left: 70px;"> BobaDink <i style="color: blue;" class="fa-solid fa-angle-right"></i> Đồ uống ưa thích <i style="color: blue;" class="fa-solid fa-angle-right"></i> {{product.name}}</p>
  </div>
 <div class="detailProduct" style="display: flex;padding: 70px;">
    
     <div class="imageProduct" style="text-align: center;">
-    <img id="mainImg" src="{{product.imageUrl}}" width="500px" style="margin-right: 20px;" alt="">
+    <img id="mainImg" src="{{product.imageUrl}}" width="550px" style="margin-right: 20px;" alt="">
     <div class="imageChild">
         <p>
             <img src="{{product.imageUrl}}" alt="">
@@ -38,15 +41,34 @@
         <h3 style="font-size: 25px; color: #ee4d2d;">{{product.price}}$</h3>
         <p>{{product.desc}}</p>
         <h4 class="size" style="display: flex;">Size: <p>M</p> <p>L</p> <p>XL</p> </h4>
-        <h4 style="display: flex;align-items: center;">Số lượng:
+        <h4 style="display: flex;align-items: center;border-bottom: 1px solid #ccc;padding-bottom: 10px;">Số lượng:
             <span (click)="decreaseQuantity()" style="margin-left: 10px;background-color: #ee4d2d;">-</span>
             <input type="text" [(ngModel)]="quantity" style="width: 40px;text-align: center;border: 1px solid #ccc;">
             <span (click)="increaseQuantity()" style="background-color: springgreen;">+</span>
             
           </h4>
           <p style="color: gray;">101 sản phẩm có sẵn</p>
+          <div class="ice-sugar">
+           <div class="ice">
+            <p>Ice-%</p>
+            <span>100</span>
+            <span>70</span>
+            <span>50</span>
+            <span>30</span>
+            <span>10</span>
+           </div>
+           <div class="sugar" style="margin-top: 20px;">
+            <p>Sugar-%</p>
+            <span>100</span>
+            <span>70</span>
+            <span>50</span>
+            <span>30</span>
+            <span>10</span>
+           </div>
+           </div>
                   <button type="button" class="btn btn-success" style="margin-top: 30px;">Add to cart</button>
-    </div>
+                
+                </div>
 </div>
 <p style="font-size: 20px;margin-left: 120px;">Bình luận (5)</p>
 <div class="comment">
@@ -94,7 +116,7 @@
   <div class="add-comment">
    <form action="" style="display: flex;align-items: center;margin-top: 30px;margin-left: 120px;">
     <input type="text" class="form-control" style="width: 400px;" placeholder="Nhập bình luận của bạn">
-    <button class="btn btn-success">Gửi</button>
+    <button class="btn btn-success"><i class="fa-solid fa-paper-plane"></i></button>
    </form>
   </div>
   <div class="relate">
