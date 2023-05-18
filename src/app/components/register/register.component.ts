@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+credentials = {
+    username: '',
+    password: '',
+    repassword: '',
+  };
 
+  onSubmit() {
+    console.log('Register submitted:', this.credentials);
+    // Goi API
+  }
 }
