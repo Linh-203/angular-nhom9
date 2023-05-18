@@ -19,7 +19,11 @@ import { DetailProductComponent } from './pages/detail-product/detail-product.co
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+
+import { CartComponent } from './components/cart/cart.component';
+
 import { NewComponent } from './pages/new/new.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +40,11 @@ import { NewComponent } from './pages/new/new.component';
     DetailProductComponent,
     LoginComponent,
     RegisterComponent,
+
+    CartComponent,
+
     NewComponent,
+
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule , FormsModule,],
   providers: [],
