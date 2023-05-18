@@ -9,10 +9,13 @@
   </div>
   <div class="row">
     <div class="col-md-4" *ngFor="let product of products">
+      
+      <a href="#">
       <img [src]="product.imageUrl" [alt]="product.name" class="img-fluid" />
       <h2>{{ product.name }}</h2>
       <p>{{ product.desc }}</p>
       <h5 style="color: red">{{ product.price }}$</h5>
+    </a>
     </div>
   </div>
   <div class="banner-bottom">
@@ -27,9 +30,11 @@
   </div>
   <div class="row">
     <div class="col-md-4" *ngFor="let product of favoriteProducts">
+      <a href="products/{{product.id}}">
       <img [src]="product.imageUrl" [alt]="product.name" class="img-favorite" />
       <h2>{{ product.name }}</h2>
       <h5 style="color: red">{{ product.price }}$</h5>
+    </a>
     </div>
   </div>
   <div class="cate">
@@ -41,6 +46,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
+        <a href="new">
         <div class="card" style="position: relative">
           <img src="https://freenice.net/wp-content/uploads/2021/10/Background-tra-sua-Toco-Toco.jpg"
             class="card-img-top" alt="..." style="height: 10%" />
@@ -51,8 +57,10 @@
             </h5>
           </div>
         </div>
+      </a>
       </div>
       <div class="col-md-4">
+        <a href="new">
         <div class="card" style="position: relative">
           <img src="https://cdn.yeudulich.com/660x/media/cms/75/af/0082-d746-4cfd-b5a4-d27363a184a1.jpg"
             class="card-img-top" alt="..." />
@@ -63,8 +71,10 @@
             </h5>
           </div>
         </div>
+      </a>
       </div>
       <div class="col-md-4">
+        <a href="new">
         <div class="card" style="position: relative">
           <img src="https://kinhtedothi.com/wp-content/uploads/2020/09/word-image-257.jpeg" class="card-img-top"
             alt="..." style="height: 10%" />
@@ -75,6 +85,7 @@
             </h5>
           </div>
         </div>
+      </a>
       </div>
     </div>
   </div>

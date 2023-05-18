@@ -1,0 +1,134 @@
+.container-newsites {
+    margin: 30px 150px;
+    font-size: 16px;
+}
+
+.banner img{
+    width: 100%;
+    height: 300px;
+}
+.tong {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+.col-md-6 img {
+    width: 300px;
+    height: 200px;
+}
+
+.col-md-6 {
+    width: 41%;
+}
+
+.row {
+    border: 1px solid rgb(197, 196, 196);
+    border-radius: 10px 0;
+}
+
+.tieude {
+
+    height: 38px;
+    margin-bottom: 5px;
+}
+
+.tieude h3 {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.trai {
+    width: 300px;
+}
+
+.phai {
+    width: 850px;
+}
+
+.col-md-6 p {
+    width: 470px;
+}
+
+.col-md-6 h5 {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.tieudet {
+    text-align: center;
+    font-weight: bold;
+}
+
+.tieudet h3 {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.cardd {
+    margin-top: 25px;
+    border: 1px solid rgb(189, 189, 189);
+
+    border-radius: 5px;
+}
+
+.card-bodyd h6 a {
+    color: black;
+    text-decoration: none;
+    padding-left: 15px;
+}
+
+.card-titled h3 {
+    background-color: orange;
+    padding-left: 15px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 20px;
+    padding-top: 5px;
+    color: white;
+}
+.card-textd a{
+    font-size: 16px;
+    font-weight: 700;
+}
+.tencty h5{
+    font-size: 17px;
+}
+.diachi{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.card-bodyd{
+    padding-left: 15px;
+}
+.name{
+    display: flex;
+    grid-gap: 40px;
+}
+.name1 h2{
+    background-color: orange;
+    color: white;
+    width: 300px;
+    text-align: center;
+    border-radius: 10px 0 0 10px;
+}
+.name2 h2{
+    background-color: orange;
+    color: white;
+    width: 850px;
+    padding-left: 25px;
+    border-radius: 0 10px 10px 0 ;
+}
+.duoi img{
+    width: 100%;
+}
+.duoi{
+    margin-top: 20px;
+}
+.duoi h3{
+    font-weight: 700;
+    font-size: 20px;
+}
+.thongtin img{
+    width: 100%;
+}
