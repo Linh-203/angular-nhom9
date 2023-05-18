@@ -1,0 +1,4 @@
+.btn-cart-remove:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: 300ms;
+}
