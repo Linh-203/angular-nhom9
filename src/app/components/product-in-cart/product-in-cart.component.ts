@@ -8,7 +8,7 @@ import { IProducts } from 'src/common/products';
 })
 export class ProductInCartComponent {
   fakeData: IProducts = {
-    id: 1,
+    id: "1",
     name: 'Tra buoi',
     price: 2000,
     desc: 'Tra buoi to',

@@ -9,10 +9,13 @@
   </div>
   <div class="row">
     <div class="col-md-4" *ngFor="let product of products">
+      
+      <a href="#">
       <img [src]="product.imageUrl" [alt]="product.name" class="img-fluid" />
       <h2>{{ product.name }}</h2>
       <p>{{ product.desc }}</p>
       <h5 style="color: red">{{ product.price }}$</h5>
+    </a>
     </div>
   </div>
   <div class="banner-bottom">
@@ -27,9 +30,11 @@
   </div>
   <div class="row">
     <div class="col-md-4" *ngFor="let product of favoriteProducts">
+      <a href="products/{{product.id}}">
       <img [src]="product.imageUrl" [alt]="product.name" class="img-favorite" />
       <h2>{{ product.name }}</h2>
       <h5 style="color: red">{{ product.price }}$</h5>
+    </a>
     </div>
   </div>
   <div class="cate">
