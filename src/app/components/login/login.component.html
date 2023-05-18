@@ -1,15 +1,42 @@
-<!-- <mat-form-field appearance="fill">
-  <mat-label>Input</mat-label>
-  <input matInput />
-</mat-form-field>
-<mat-form-field appearance="fill">
-  <mat-label>Select</mat-label>
-  <mat-select>
-    <mat-option value="one">First option</mat-option>
-    <mat-option value="two">Second option</mat-option>
-  </mat-select>
-</mat-form-field>
-<mat-form-field appearance="fill">
-  <mat-label>Textarea</mat-label>
-  <textarea matInput></textarea>
-</mat-form-field> -->
+
+<div class="d-flex justify-content-center p-5">
+
+  <form class="form form-login" (ngSubmit)="onSubmit()">
+    <h1>Login</h1>
+  
+    <div class="mb-3">
+      <div class="form-group">
+
+        <label for="username" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          aria-describedby="emailHelp"
+          id="username"
+          name="username"
+          placeholder="Enter email"
+          [(ngModel)]="credentials.username"
+          placeholder="Email"
+          required
+        />
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+        [(ngModel)]="credentials.password"
+        placeholder="Password"
+        required
+      />
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

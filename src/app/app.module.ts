@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -14,7 +14,10 @@ import { NotFoundPageComponentComponent } from './pages/not-found-page/not-found
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DefaultLayoutComponent } from './components/default-layout/default-layout.component';
 import { ProductComponent } from './components/product/product.component';
-
+import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { NewComponent } from './pages/new/new.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,8 +31,16 @@ import { ProductComponent } from './components/product/product.component';
     NotFoundPageComponentComponent,
     DefaultLayoutComponent,
     ProductComponent,
+    LoginComponent,
+    RegisterComponent,
+    NewComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
