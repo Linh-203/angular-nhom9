@@ -12,7 +12,7 @@ import { BannerComponent } from './components/banner/banner.component';
 import { CategoryComponentComponent } from './pages/category/category-component/category-component.component';
 import { NotFoundPageComponentComponent } from './pages/not-found-page/not-found-page-component/not-found-page-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DefaultLayoutComponent } from './components/default-layout/default-layout.component';
+import { DefaultLayoutComponent } from './components/layouts/default-layout/default-layout.component';
 import { ProductComponent } from './components/product/product.component';
 
 import { DetailProductComponent } from './pages/detail-product/detail-product.component';
@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NewComponent } from './pages/new/new.component';
+import { LayoutAdminComponent } from './components/layouts/layout-admin/layout-admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { NewComponent } from './pages/new/new.component';
     LoginComponent,
     RegisterComponent,
     NewComponent,
+    LayoutAdminComponent,
   ],
   imports: [
     BrowserModule,

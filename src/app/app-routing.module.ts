@@ -7,14 +7,33 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DetailProductComponent } from './pages/detail-product/detail-product.component';
 import { NewComponent } from './pages/new/new.component';
+import { DefaultLayoutComponent } from './components/layouts/default-layout/default-layout.component';
+import { LayoutAdminComponent } from './components/layouts/layout-admin/layout-admin.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'products/:id', component: DetailProductComponent },
-  { path: 'category', component: CategoryComponentComponent },
-  {path: 'new', component: NewComponent},
-  {path: 'signin', component: LoginComponent},
-  {path: 'signup', component: RegisterComponent},
+  {
+    path: '',
+    component: DefaultLayoutComponent,
+    children: [
+      { path: '', component: HomeComponent },
+      { path: 'categories', component: CategoryComponentComponent },
+      { path: 'products/:id', component: DetailProductComponent },
+      { path: 'new', component: NewComponent },
+      { path: 'signin', component: LoginComponent },
+      { path: 'signup', component: RegisterComponent },
+    ],
+  },
+
+  // Ứng dụng phía admin
+  {
+    path: 'admin',
+    component: LayoutAdminComponent,
+    children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      // { path: 'dashboard', component: DashboardComponent },
+      // { path: 'products', component: ProductsComponent },
+    ],
+  },
   { path: '**', component: NotFoundPageComponentComponent },
 ];
 
