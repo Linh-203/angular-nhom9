@@ -10,15 +10,17 @@ import { CartComponent } from './components/cart/cart.component';
 
 import { DetailProductComponent } from './pages/detail-product/detail-product.component';
 import { NewComponent } from './pages/new/new.component';
+import { ProductComponent } from './pages/product/product.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'products/:id', component: DetailProductComponent },
-  { path: 'category', component: CategoryComponentComponent },
+  { path: 'category/:id', component: CategoryComponentComponent },
   {path: 'new', component: NewComponent},
   {path: 'signin', component: LoginComponent},
   {path: 'signup', component: RegisterComponent},
   {path: 'cart', component: CartComponent},
+  { path: 'products', component: ProductComponent },
   { path: '**', component: NotFoundPageComponentComponent },
 
 ];

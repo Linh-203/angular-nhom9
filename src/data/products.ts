@@ -24,9 +24,23 @@ export const productsFake = [
       },
 
 ]
+
+export const category =[
+  {
+    id: "1",
+    name: "cream",
+    imageUrl : "",
+  },
+  {
+    id: "2",
+    name: "milktea",
+    imageUrl : "",
+  },
+]
 export const favoriteProductsFake =[
     {
         id: "1",
+        idcate: "1",
         name: 'Sinh tố dâu tây',
         price: 25,
         imageUrl:
@@ -34,6 +48,7 @@ export const favoriteProductsFake =[
       },
       {
         id: "2",
+        idcate: "1",
         name: 'Trà xanh bưởi',
         price: 30,
         imageUrl:
@@ -41,6 +56,7 @@ export const favoriteProductsFake =[
       },
       {
         id: "3",
+        idcate: "2",
         name: 'Hồng trà mật ong',
         price: 5,
         imageUrl:
@@ -48,6 +64,7 @@ export const favoriteProductsFake =[
       },
       {
         id: "4",
+        idcate: "2",
         name: 'Trà sữa kiwi',
         price: 25,
         imageUrl:
@@ -55,6 +72,7 @@ export const favoriteProductsFake =[
       },
       {
         id: "5",
+        idcate: "1",
         name: 'Trà sữa khoai môn',
         price: 30,
         imageUrl:
@@ -62,9 +80,42 @@ export const favoriteProductsFake =[
       },
       {
         id: "6",
+        idcate: "1",
         name: 'Trà chanh đài loan',
         price: 5,
         imageUrl:
           'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/2016910154723-tra-xanh-xi-muoi.jpg?v=1510561254037',
+      },
+      {
+        id: "2",
+        idcate: "1",
+        name: 'Trà xanh bưởi',
+        price: 30,
+        imageUrl:
+          'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/07-550de86d-8a95-4083-8490-8ee5fcb930c6.jpg?v=1510561744770',
+      },
+      {
+        id: "2",
+        idcate: "1",
+        name: 'Trà xanh bưởi',
+        price: 30,
+        imageUrl:
+          'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/07-550de86d-8a95-4083-8490-8ee5fcb930c6.jpg?v=1510561744770',
+      },
+      {
+        id: "2",
+        idcate: "1",
+        name: 'Trà xanh bưởi',
+        price: 30,
+        imageUrl:
+          'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/07-550de86d-8a95-4083-8490-8ee5fcb930c6.jpg?v=1510561744770',
+      },
+      {
+        id: "2",
+        idcate: "1",
+        name: 'Trà xanh bưởi',
+        price: 30,
+        imageUrl:
+          'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/07-550de86d-8a95-4083-8490-8ee5fcb930c6.jpg?v=1510561744770',
       },
 ]

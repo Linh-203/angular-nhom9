@@ -1,0 +1,119 @@
+<div class="container">
+    <h1>Danh sách sản phẩm</h1>
+    <div class="row">
+      <div class="col-md-3">
+        <form class="form-inline my-2 my-lg-0 d-flex justify-content-start gap-2 align-items-center">
+          <input class="form-control mr-sm-2 p-2" type="search" placeholder="Tìm kiếm sản phẩm" aria-label="Search"  ng-model="searchText"/>
+          <button class="btn btn-outline-success fs-6 my-sm-0" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <div class="sidebar">
+          <h4>Danh mục sản phẩm</h4>
+          <ul>
+            <li><a href="#">Danh mục 1</a></li>
+            <li><a href="#">Danh mục 2</a></li>
+            <li><a href="#">Danh mục 3</a></li>
+            <li><a href="#">Danh mục 4</a></li>
+            <li><a href="#">Danh mục 5</a></li>
+          </ul>
+        </div>
+         
+
+        <div class="brand">
+
+          <h4>Thương hiệu</h4>
+  
+          <ul class="list-group">
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+              Gong Cha
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+              Good Tea
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+              Popapop
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+              Royal Tea
+            </li>
+           
+          </ul>
+        </div>
+
+        <div class="Price">
+
+          <h4>Mức giá</h4>
+  
+          <ul class="list-group">
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+             100.000đ - 200.000đ
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+              200.000đ - 300.000đ
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+              300.000đ - 500.000đ
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+              500.000đ - 1.000.000đ
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+              Giá trên 1.000.000đ
+            </li>
+          </ul>
+        </div>
+
+        <div class="Size">
+
+          <h4>Kích thước</h4>
+  
+          <ul class="list-group">
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+             XXL
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+             XL
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+              L
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+              M
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+              S
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+      <div class="col-md-9">
+        
+        <div class="row">
+            <div class="col-md-4" *ngFor="let product of favoriteProducts">
+              <a href="products/{{product.id}}">
+              <img [src]="product.imageUrl" [alt]="product.name" class="img-favorite" />
+              <h2>{{ product.name }}</h2>
+              <h5 style="color: red">{{ product.price }}$</h5>
+            </a>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  
