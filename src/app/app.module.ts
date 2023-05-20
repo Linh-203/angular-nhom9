@@ -13,7 +13,7 @@ import { CategoryComponentComponent } from './pages/category/category-component/
 import { NotFoundPageComponentComponent } from './pages/not-found-page/not-found-page-component/not-found-page-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DefaultLayoutComponent } from './components/default-layout/default-layout.component';
-import { ProductComponent } from './components/product/product.component';
+
 
 import { DetailProductComponent } from './pages/detail-product/detail-product.component';
 import { FormsModule } from '@angular/forms';
@@ -21,7 +21,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
 import { CartComponent } from './components/cart/cart.component';
-
+import { ProductComponent } from './pages/product/product.component';
 import { NewComponent } from './pages/new/new.component';
 
 @NgModule({
