@@ -1,42 +1,20 @@
-
-<div class="d-flex justify-content-center p-5">
-
-  <form class="form form-login" (ngSubmit)="onSubmit()">
-    <h1>Login</h1>
-  
-    <div class="mb-3">
-      <div class="form-group">
-
-        <label for="username" class="form-label">Email address</label>
-        <input
-          type="email"
-          class="form-control"
-          aria-describedby="emailHelp"
-          id="username"
-          name="username"
-          placeholder="Enter email"
-          [(ngModel)]="credentials.username"
-          placeholder="Email"
-          required
-        />
-      </div>
-    </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input
-        type="password"
-        class="form-control"
-        id="password"
-        name="password"
-        [(ngModel)]="credentials.password"
-        placeholder="Password"
-        required
-      />
-    </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+<div class="login">
+  <form>
+    <label for="chk" aria-hidden="true">Login</label>
+    <input
+      type="email"
+      name="email"
+      placeholder="Email"
+      required=""
+      [(ngModel)]="loginObj.email"
+    />
+    <input
+      type="password"
+      name="pswd"
+      placeholder="Password"
+      required=""
+      [(ngModel)]="loginObj.password"
+    />
+    <button (click)="onLogin()">Login</button>
   </form>
 </div>

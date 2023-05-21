@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { productsFake } from 'src/data/products';
-import {favoriteProductsFake } from 'src/data/products';
+import { favoriteProductsFake } from 'src/data/products';
 import { IUser } from 'src/common/user';
 // import $ from 'jquery';
 import 'bootstrap';
@@ -16,7 +16,7 @@ export class HomeComponent {
     age: 20,
     gender: 'male',
   };
-   products =productsFake
-  
-  favoriteProducts = favoriteProductsFake
+  products = productsFake;
+
+  favoriteProducts = favoriteProductsFake;
 }

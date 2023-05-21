@@ -5,10 +5,14 @@ import { CategoryComponentComponent } from './pages/category/category-component/
 import { NotFoundPageComponentComponent } from './pages/not-found-page/not-found-page-component/not-found-page-component.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+
+import { CartComponent } from './components/cart/cart.component';
+
 import { DetailProductComponent } from './pages/detail-product/detail-product.component';
 import { NewComponent } from './pages/new/new.component';
 import { DefaultLayoutComponent } from './components/layouts/default-layout/default-layout.component';
 import { LayoutAdminComponent } from './components/layouts/layout-admin/layout-admin.component';
+import { LoginRegisterComponent } from './pages/login-register/login-register.component';
 
 const routes: Routes = [
   {
@@ -19,8 +23,9 @@ const routes: Routes = [
       { path: 'categories', component: CategoryComponentComponent },
       { path: 'products/:id', component: DetailProductComponent },
       { path: 'new', component: NewComponent },
-      { path: 'signin', component: LoginComponent },
+      { path: 'cart', component: CartComponent },
       { path: 'signup', component: RegisterComponent },
+      { path: 'login-register', component: LoginRegisterComponent },
     ],
   },
 
