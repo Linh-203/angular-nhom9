@@ -110,12 +110,5 @@ export const favoriteProductsFake =[
         imageUrl:
           'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/07-550de86d-8a95-4083-8490-8ee5fcb930c6.jpg?v=1510561744770',
       },
-      {
-        id: "2",
-        idcate: "1",
-        name: 'Trà xanh bưởi',
-        price: 30,
-        imageUrl:
-          'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/07-550de86d-8a95-4083-8490-8ee5fcb930c6.jpg?v=1510561744770',
-      },
+ 
 ]
