@@ -1,12 +1,9 @@
-
 <div class="d-flex justify-content-center p-5">
-
-  <form class="form form-login" (ngSubmit)="onSubmit()">
+  <form class="form form-login" [formGroup]="loginForm" (ngSubmit)="login()">
     <h1>Login</h1>
-  
+
     <div class="mb-3">
       <div class="form-group">
-
         <label for="username" class="form-label">Email address</label>
         <input
           type="email"
@@ -15,10 +12,19 @@
           id="username"
           name="username"
           placeholder="Enter email"
-          [(ngModel)]="credentials.username"
+          formControlName="email"
           placeholder="Email"
           required
         />
+        <br />
+        <span
+          class="text-danger"
+          *ngIf="
+            loginForm.controls['email'].dirty &&
+            loginForm.hasError('required', 'email')
+          "
+          >Email is required</span
+        >
       </div>
     </div>
     <div class="mb-3">
@@ -28,14 +34,19 @@
         class="form-control"
         id="password"
         name="password"
-        [(ngModel)]="credentials.password"
+        formControlName="password"
         placeholder="Password"
         required
       />
-    </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      <br />
+      <span
+        class="text-danger"
+        *ngIf="
+          loginForm.controls['password'].dirty &&
+          loginForm.hasError('required', 'password')
+        "
+        >Password is required</span
+      >
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
