@@ -1,43 +1,123 @@
-import Cart from "../models/cart"
+import dotenv from "dotenv";
+import Cart from "../models/cart";
+import User from "../models/user";
+import { productInCartSchema } from "../schema/cart";
 
-export const addToCart = async(req, res) => {
-  const { userId, productId, quantity, price } = req.body;
+dotenv.config();
 
+const addProduct = async (cartExist, productAdd, res) => {
   try {
-    let cart = await Cart.findOne({ userId });
-    if (!cart) {
-      cart = new Cart({
-        userId,
-        products: [],
-        total: 0 // Thêm giá trị mặc định cho trường total
-      });
-    }
-    let productIndex = cart.products.findIndex(
-      (product) => product.productId === productId
-    );
-    if (productIndex !== -1) {
-      cart.products[productIndex].quantity += quantity;
-    } else {
-      cart.products.push({
-        productId,
-        quantity: parseInt(quantity),
-        price: parseInt(price) // Thêm giá tiền của sản phẩm
-      });
-    }
-    cart.total = cart.products.reduce((total, product) => {
-    console.log(product.quantity, product.price);
-      return total + product.quantity * product.price;
-    }, 0);
-    // Lưu giỏ hàng
-    await cart.save();
-    return res.status(200).json({
-      success: true,
-      cart,
-    });
+     const productExist = cartExist.products.find((product) => product.productId === productAdd.productId)
+     if (productExist) {
+        productExist.quantity += productAdd.quantity
+        cartExist.totalAmount += productAdd.quantity * productAdd.price
+     } else {
+        cartExist.totalAmount += productAdd.quantity * productAdd.price
+        cartExist.products.push(productAdd)
+     }
+     const cartUpdated = await Cart.findOneAndUpdate({ _id: cartExist._id }, cartExist, { new: true })
+     return res.status(200).json({
+        message: 'Thêm vào giỏ hàng thành công',
+        data: cartUpdated
+     })
   } catch (error) {
-    // Bắt lỗi và trả về
-    return res.status(400).json({
-      message: error.message, // Sửa message error
-    });
+     console.log(error.message)
+     return res.status(404).json({
+        message: 'Thêm vào giỏ hàng không thành công'
+     })
+  }
+}
+export const create = async (req, res) => {
+  try {
+     const userId = req.params.id
+     const productNeedToAdd = req.body
+     const userExist = await User.findById(userId)
+     if (!userExist) {
+        return res.status(404).json({
+           message: 'Người dùng không tồn tại !'
+        })
+     }
+     const { error } = productInCartSchema.validate(req.body)
+     if (error) {
+        return res.status(400).json({
+           message: error.details[0].message
+        })
+     }
+     const cartExist = await Cart.findOne({ userId: userId })
+     if (cartExist) {
+        return addProduct(cartExist, productNeedToAdd, res)
+     }
+     const newCart = await Cart.create({
+        userId,
+        products: [
+           {
+              productId: productNeedToAdd._id,
+              ...productNeedToAdd
+           }
+        ],
+        totalAmount: productNeedToAdd.price * productNeedToAdd.quantity
+     })
+     if (!newCart) {
+        return res.json({
+           message: 'Thêm vào giỏ hàng không thành công'
+        })
+     }
+     return res.json({
+        message: 'Thêm vào giỏ hàng thành công',
+        data: newCart
+     })
+  } catch (error) {
+     return res.status(400).json({
+        message: error.message
+     })
+  }
+}
+export const getOne = async (req, res) => {
+  try {
+     const cart = await Cart.findOne({ userId: req.params.id })
+     if (!cart) {
+        return res.json({
+           message: 'Không tìm thấy giỏ hàng',
+           data: []
+        })
+     }
+     res.json({
+        message: 'Lấy giỏ hàng thành công',
+        data: cart
+     })
+  } catch (error) {
+     return res.status(400).json({
+        message: error.message
+     })
+  }
+}
+export const removeProduct = async (req, res) => {
+  try {
+     const idUser = req.params.id
+     const { idProduct = '' } = req.query
+     const userExist = await User.findOne({ _id: idUser })
+     if (!userExist) {
+        return res.json({
+           message: 'Sign in please!'
+        })
+     }
+     const cart = await Cart.findOne({ userId: idUser })
+     const productsUpdated = cart.products.filter((product) => product.productId !== idProduct)
+     const totalUpdated = productsUpdated.reduce((total, product) => {
+        return (total += product.quantity * product.price)
+     }, 0)
+     const cartUpdated = await Cart.findOneAndUpdate(
+        { userId: idUser },
+        { $set: { products: productsUpdated, totalAmount: totalUpdated } },
+        { new: true }
+     )
+     res.json({
+        message: 'Xóa san pham thành công',
+        data: cartUpdated
+     })
+  } catch (error) {
+     return res.status(400).json({
+        message: error.message
+     })
   }
 }
