@@ -7,9 +7,22 @@ import { HomeComponent } from './pages/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { CartComponent } from './components/cart/cart.component';
 import { ProductInCartComponent } from './components/product-in-cart/product-in-cart.component';
+import { BannerComponent } from './components/banner/banner.component';
+import { CategoryComponentComponent } from './pages/category/category-component/category-component.component';
+import { NotFoundPageComponentComponent } from './pages/not-found-page/not-found-page-component/not-found-page-component.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DefaultLayoutComponent } from './components/default-layout/default-layout.component';
+import { ProductComponent } from './components/product/product.component';
 
+import { DetailProductComponent } from './pages/detail-product/detail-product.component';
+import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { NewComponent } from './pages/new/new.component';
+import { CartComponent } from './components/cart/cart.component';
+import { ProductsComponent } from './components/products/products.component';
+import { PayComponent } from './components/pay/pay.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,11 +30,22 @@ import { ProductInCartComponent } from './components/product-in-cart/product-in-
     FooterComponent,
     HeaderComponent,
     AdminComponent,
-    CartComponent,
     ProductInCartComponent,
+    BannerComponent,
+    CategoryComponentComponent,
+    NotFoundPageComponentComponent,
+    DefaultLayoutComponent,
+    ProductComponent,
+    DetailProductComponent,
+    LoginComponent,
+    RegisterComponent,
+    NewComponent,
+    CartComponent,
+    ProductsComponent,
+    PayComponent
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, FormsModule,],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
