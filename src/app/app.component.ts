@@ -6,4 +6,5 @@ import { IUser } from 'src/common/user';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  
 }
