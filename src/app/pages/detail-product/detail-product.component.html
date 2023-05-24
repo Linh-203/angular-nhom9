@@ -1,11 +1,13 @@
-<div class="detail">
+<div class="detail" >
   <div class="banner">
-    <img src="http://store.bobapop.com.vn/resource/uploads/2016/09/banner-trong.jpg" alt="">
+    
+   <h1>{{product.name}}</h1>
   </div>
 <div class="title">
     <p style="margin-top: 30px; margin-left: 70px;"> BobaDink <i style="color: blue;" class="fa-solid fa-angle-right"></i> Đồ uống ưa thích <i style="color: blue;" class="fa-solid fa-angle-right"></i> {{product.name}}</p>
  </div>
-<div class="detailProduct" style="display: flex;padding: 70px;">
+
+<div class="detailProduct" style="display: flex;padding: 0 70px;">
    
     <div class="imageProduct" style="text-align: center;">
     <img id="mainImg" src="{{product.imageUrl}}" width="550px" style="margin-right: 20px;" alt="">
@@ -20,9 +22,9 @@
     <div class="shareAndFavourite">
    <div class="share">
     <p>Chia sẻ: </p>
-    <i class="fa-brands fa-facebook"></i>
-    <i class="fa-brands fa-instagram"></i>
-    <i class="fa-brands fa-twitter"></i>
+    <i style="color: blue;" class="fa-brands fa-facebook"></i>
+    <i style="color: orangered;" class="fa-brands fa-instagram"></i>
+    <i style="color: rgba(0, 85, 255, 0.654);"class="fa-brands fa-twitter"></i>
    </div>
    <div class="favourite">
     <i class="fa-sharp fa-regular fa-heart"></i> Đã thích (500)
@@ -30,95 +32,179 @@
 </div>
 </div>
     <div class="productInformation">
-        <h1>{{product.name}}</h1>
-        <p style="color:#ee4d2d;">4.5 <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          
-        </p>
-        <h3 style="font-size: 25px; color: #ee4d2d;">{{product.price}}$</h3>
+        <h1 style="color: #c7a17a; text-transform: uppercase;font-weight: 500;">{{product.name}}</h1>
+        <h4>Thương hiệu: Royal Tea</h4>
+        
+        <h3 style="font-size: 25px; color: #ee4d2d;">{{product.price}}.000₫ </h3>
         <p>{{product.desc}}</p>
         <h4 class="size" style="display: flex;">Size: <p>M</p> <p>L</p> <p>XL</p> </h4>
-        <h4 style="display: flex;align-items: center;border-bottom: 1px solid #ccc;padding-bottom: 10px;">Số lượng:
-            <span (click)="decreaseQuantity()" style="margin-left: 10px;background-color: #ee4d2d;">-</span>
-            <input type="text" [(ngModel)]="quantity" style="width: 40px;text-align: center;border: 1px solid #ccc;">
-            <span (click)="increaseQuantity()" style="background-color: springgreen;">+</span>
-            
-          </h4>
-          <p style="color: gray;">101 sản phẩm có sẵn</p>
+        
+         
           <div class="ice-sugar">
-           <div class="ice">
-            <p>Ice-%</p>
-            <span>100</span>
-            <span>70</span>
-            <span>50</span>
-            <span>30</span>
-            <span>10</span>
+            <div class="sugar-title" style="margin-top: 20px;">
+              <p>Ice-%</p> 
+              <div class="sugar">
+                 <div class="item-sugar">
+                <div class="glass">
+                  <div class="water9"></div>
+                </div>
+                <p>90%</p>
+              </div>
+              <div class="item-sugar">
+                <div class="glass">
+                  <div class="water7"></div>
+                </div>
+                <p>70%</p>
+              </div>
+              <div class="item-sugar">
+                <div class="glass">
+                  <div class="water5"></div>
+                </div>
+                <p>50%</p>
+              </div>
+              <div class="item-sugar">
+                <div class="glass">
+                  <div class="water3"></div>
+                </div>
+                <p>30%</p>
+              </div>
+              <div class="item-sugar">
+                <div class="glass">
+                  <div class="water1"></div>
+                </div>
+                <p>10%</p>
+              </div>
+              </div>
+            </div>
+           <div class="sugar-title" style="margin-top: 20px;">
+            <p>Sugar-%</p> 
+            <div class="sugar">
+               <div class="item-sugar">
+              <div class="glass">
+                <div class="water9"></div>
+              </div>
+              <p>90%</p>
+            </div>
+            <div class="item-sugar">
+              <div class="glass">
+                <div class="water7"></div>
+              </div>
+              <p>70%</p>
+            </div>
+            <div class="item-sugar">
+              <div class="glass">
+                <div class="water5"></div>
+              </div>
+              <p>50%</p>
+            </div>
+            <div class="item-sugar">
+              <div class="glass">
+                <div class="water3"></div>
+              </div>
+              <p>30%</p>
+            </div>
+            <div class="item-sugar">
+              <div class="glass">
+                <div class="water1"></div>
+              </div>
+              <p>10%</p>
+            </div>
+            </div>
+          </div>
            </div>
-           <div class="sugar" style="margin-top: 20px;">
-            <p>Sugar-%</p>
-            <span>100</span>
-            <span>70</span>
-            <span>50</span>
-            <span>30</span>
-            <span>10</span>
-           </div>
-           </div>
-                  <button type="button" class="btn btn-success" style="margin-top: 30px;">Add to cart</button>
+           <h4 style="display: flex;align-items: center;border-bottom: 1px solid #ccc;padding-bottom: 10px;">Số lượng
+            <div id="updateQuantity" style="background-color: #f5f5f5;border-radius: 25px;padding: 10px;margin-left: 10px;">
+             <span (click)="decreaseQuantity()" style="margin-left: 10px;">-</span>
+               <input type="text" [(ngModel)]="quantity" style="width: 50px;text-align: center;border:none; background-color: #f5f5f5;outline: none;">
+               <span (click)="increaseQuantity()" >+</span>
+             </div>
+
+             </h4>
+             <p style="color: gray;">101 sản phẩm có sẵn</p>
+                  <button type="button" class="btn btn-success" style="margin-top: 30px;border-radius: 25px;padding: 10px 20px;">Thêm giỏ hàng</button>
                 
                 </div>
+                <div class="service-product">
+                  <div class="service_item">
+                    <div class="image_service">
+                      <img src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/service_1_details.png?1676358260059" alt="">
+                    </div>
+                    <div class="content_service">
+                      <h3 class="title_service">
+                        Giao hàng miễn phí với đơn hàng trên 300.000đ
+                      </h3>
+                    </div>
+                  </div>
+                  <div class="service_item">
+                    <div class="image_service">
+                      <img src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/service_2_details.png?1676358260059" alt="">
+                    </div>
+                    <div class="content_service">
+                      <h3 class="title_service">
+                        Phục vụ nhanh 24/7 <br>
+                     (8h00 am - 22h30 pm,T2 - CN)
+                      </h3>
+                    </div>
+                  </div>
+                  <div class="service_item">
+                    <div class="image_service">
+                      <img src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/service_3_details.png?1676358260059" alt="">
+                    </div>
+                    <div class="content_service">
+                      <h3 class="title_service">
+                        Hotline liên hệ <br>
+                      <p style="color: #ee4d2d;"> 1900 6750</p> 
+                      </h3>
+                    </div>
+                  </div>
+                  <div class="service_item">
+                    <div class="image_service">
+                      <img src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/service_4_details.png?1676358260059" alt="">
+                    </div>
+                    <div class="content_service">
+                      <h3 class="title_service">
+                        Thanh toán khi nhận hàng hoặc qua thẻ ATM
+                      </h3>
+                    </div>
+                  </div>
+                </div>
 </div>
-<p style="font-size: 20px;margin-left: 120px;">Bình luận (5)</p>
-<div class="comment">
-    <div class="avatar">
-      <img src="https://luv.vn/wp-content/uploads/2021/10/gai-xinh-toc-ngan-52.jpg "alt="Avatar">
+<p style="font-size: 20px;margin-left: 120px;margin-top: 30px;">Bình luận (5)</p>
+<div class="comment" *ngFor="let user of comment">
+    <div class="avatar" >
+      <img src="{{userComment.image}}"alt="Avatar">
     </div>
     <div class="comment-content">
       <div class="header">
-        <h4 class="name">Mary</h4>
+        <h4 class="name">{{userComment.name}}</h4>
         <p class="date">May 15, 2023</p>
       </div>
       <div class="body">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat quam vitae nibh tincidunt, eu fermentum turpis gravida. Nulla facilisi.</p>
+       <p>{{user.content}}</p>
       </div>
     </div>
+    <div *ngIf="idLocal == userComment.id">
+    <button>Xóa</button>
   </div>
-  <div class="comment">
-    <div class="avatar">
-      <img src="https://phunugioi.com/wp-content/uploads/2020/04/anh-gai-xinh-2k-de-thuong-cute.jpg" alt="Avatar">
-    </div>
-    <div class="comment-content">
-      <div class="header">
-        <h4 class="name">Alina</h4>
-        <p class="date">May 15, 2023</p>
-      </div>
-      <div class="body">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat quam vitae nibh tincidunt, eu fermentum turpis gravida. Nulla facilisi.</p>
-      </div>
-    </div>
   </div>
-  <div class="comment">
-    <div class="avatar">
-      <img src="https://www.dungplus.com/wp-content/uploads/2019/12/girl-xinh-600x600.jpg" alt="Avatar">
-    </div>
-    <div class="comment-content">
-      <div class="header">
-        <h4 class="name">Linda</h4>
-        <p class="date">May 15, 2023</p>
-      </div>
-      <div class="body">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat quam vitae nibh tincidunt, eu fermentum turpis gravida. Nulla facilisi.</p>
-      </div>
-    </div>
-  </div>
+
+  
   <div class="add-comment">
-   <form action="" style="display: flex;align-items: center;margin-top: 30px;margin-left: 120px;">
-    <input type="text" class="form-control" style="width: 400px;" placeholder="Nhập bình luận của bạn">
+    <form action="" (ngSubmit)="addComment()" style="display: flex;align-items: center;margin-top: 30px;margin-left: 120px;">
+    <input name="content"  [(ngModel)] ="formData.content" type="text" class="form-control" style="width: 400px;" placeholder="Nhập bình luận của bạn">
+    
     <button class="btn btn-success"><i class="fa-solid fa-paper-plane"></i></button>
    </form>
-  </div>
+   </div>
+    <!-- <ng-container *ngIf="formData.content.length > 0">
+      <p>Alo</p>
+    </ng-container> -->
+   
+    <select name="sortOrder" [(ngModel)]="selectedSortOrder" (ngModelChange)="onSortOrderChange()">
+      <option value="asc">Tăng dần</option>
+      <option value="desc">Giảm dần</option>
+    </select>
+    
   <div class="relate">
   <img src="https://websitecukcukvn.misacdn.net/wp-content/uploads/2022/04/ca%CC%81ch-pha-che%CC%82%CC%81-do%CC%82%CC%80-uo%CC%82%CC%81ng-cho-mu%CC%80a-he%CC%80-03.png" alt="">
   <p style="font-size: 20px;text-align: center;color: seagreen; ">Sản phẩm liên quan: </p>
@@ -131,14 +217,20 @@
             <img [src]="product.imageUrl" width="200px" [alt]="product.name"  />
         </div>
       <h2>{{ product.name }}</h2>
-      <h5 style="color: red">{{ product.price }}$</h5>
+      <h5 style="color: red;font-size: 20px;">{{ product.price }}.000₫ </h5>
     </a>
-    
-    <button class="btn btn-success">Add to cart</button>
+    <div class="cart_eye">
+    <i title="Thêm giỏ hàng" class="fa-solid fa-cart-shopping"></i>
+   <a title="Xem chi tiết" href="products/{{product.id}}"> <i class="fa-solid fa-eye"></i></a>
+    <i title="Thêm yêu thích" class="fa-sharp fa-regular fa-heart"></i>
+  </div>
     </div>
   </div>
 </div>
+
 </div>
+
+
   
 
 

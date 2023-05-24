@@ -1,4 +1,9 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+/* header{
+  position: fixed;
+  width: 100%;
+  
+} */
 .row {
   width: 100%;
   align-items: center;

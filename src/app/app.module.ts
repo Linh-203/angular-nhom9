@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import * as angular from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,7 @@ import { NotFoundPageComponentComponent } from './pages/not-found-page/not-found
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DefaultLayoutComponent } from './components/default-layout/default-layout.component';
 import { ProductComponent } from './components/product/product.component';
-
+import { HttpClientModule } from '@angular/common/http';
 import { DetailProductComponent } from './pages/detail-product/detail-product.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
@@ -38,7 +39,7 @@ import { NewComponent } from './pages/new/new.component';
     RegisterComponent,
     NewComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule , FormsModule,],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule , FormsModule,HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

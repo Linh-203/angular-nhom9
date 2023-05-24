@@ -1,1 +1,25 @@
+<div>
+
 <p>category-component works!</p>
+
+<div class="col-md-4" *ngFor="let product of products">
+    <a href="products/{{product.id}}">
+      <div class="imgFavorite">
+          <img [src]="product.imageUrl" width="200px" [alt]="product.name"  />
+          <div class="cart_eye">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <i class="fa-solid fa-eye"></i>
+          </div>
+      </div>
+      <h2>{{ product.name }}</h2>
+      <h5 style="color: red">{{ product.price }}.000₫ </h5>
+      <div class="cart_eye">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <i class="fa-solid fa-eye"></i>
+        <i class="fa-sharp fa-regular fa-heart"></i>
+      </div>
+    </a>
+  </div>
+  
+
+</div>
