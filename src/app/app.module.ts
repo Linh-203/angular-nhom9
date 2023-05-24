@@ -35,6 +35,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 // Import your library
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HttpClientModule } from '@angular/common/http';
+
+import { ProductsComponent } from './components/products/products.component';
+import { PayComponent } from './components/pay/pay.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,4 +77,4 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
