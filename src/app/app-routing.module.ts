@@ -10,19 +10,38 @@ import { CartComponent } from './components/cart/cart.component';
 
 import { DetailProductComponent } from './pages/detail-product/detail-product.component';
 import { NewComponent } from './pages/new/new.component';
+import { DefaultLayoutComponent } from './components/layouts/default-layout/default-layout.component';
+import { LayoutAdminComponent } from './components/layouts/layout-admin/layout-admin.component';
+import { LoginRegisterComponent } from './pages/login-register/login-register.component';
 import { ProductComponent } from './pages/product/product.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'products/:id', component: DetailProductComponent },
-  { path: 'category/:id', component: CategoryComponentComponent },
-  {path: 'new', component: NewComponent},
-  {path: 'signin', component: LoginComponent},
-  {path: 'signup', component: RegisterComponent},
-  {path: 'cart', component: CartComponent},
-  { path: 'products', component: ProductComponent },
-  { path: '**', component: NotFoundPageComponentComponent },
+  {
+    path: '',
+    component: DefaultLayoutComponent,
+    children: [
+      { path: '', component: HomeComponent },
+      { path: 'categories', component: CategoryComponentComponent },
+      { path: 'products/:id', component: DetailProductComponent },
+      { path: 'new', component: NewComponent },
+      { path: 'cart', component: CartComponent },
+      { path: 'products', component: ProductComponent },
+      { path: 'signup', component: RegisterComponent },
+      { path: 'login', component: LoginComponent },
+    ],
+  },
 
+  // Ứng dụng phía admin
+  {
+    path: 'admin',
+    component: LayoutAdminComponent,
+    children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      // { path: 'dashboard', component: DashboardComponent },
+      // { path: 'products', component: ProductsComponent },
+    ],
+  },
+  { path: '**', component: NotFoundPageComponentComponent },
 ];
 
 @NgModule({

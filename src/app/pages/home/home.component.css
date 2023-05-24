@@ -1,48 +1,49 @@
 .img-fluid img {
-    height: 100%;
-    width: 100%;
-  }
-  .img-fluid {
-    padding-bottom: 15px;
-  }
-  .img-favorite {
-    height: 65%;
-    width: 50%;
-  }
-  .col-md-4 {
-    text-align: center;
-    padding: 15px;
-  }
-  .cate {
-    align-items: center;
-    text-align: center;
-    margin-top: 30px;
-  }
-  .banner-bottom {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 5em;
-  }
-  .banner-bottom img {
-    width: 100%;
-  }
-  .img-icon {
-    width: 6%;
-  }
-  .card-body {
-    background-color: rgba(0, 0, 0, 0.1);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 0 15px 30px;
-    text-align: center;
-    color: white;
-  }
-  .card-title {
-    font-size: 22px;
-  }
-  /* .card-img-top {
+  height: 100%;
+  width: 100%;
+}
+.img-fluid {
+  padding-bottom: 15px;
+}
+.img-favorite {
+  height: 65%;
+  width: 50%;
+}
+.col-md-4 {
+  text-align: center;
+  padding: 15px;
+}
+.cate {
+  align-items: center;
+  text-align: center;
+  margin-top: 30px;
+}
+.banner-bottom {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5em;
+}
+.banner-bottom img {
+  width: 100%;
+  height: 80%;
+}
+.img-icon {
+  width: 6%;
+}
+.card-body {
+  background-color: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 15px 30px;
+  text-align: center;
+  color: white;
+}
+.card-title {
+  font-size: 22px;
+}
+/* .card-img-top {
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -81,3 +82,41 @@
   .translate-middle {
     transform: translate(-50%, -50%);
   } */
+.slide {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.slider-item img {
+  /* border-radius: 50%;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3); */
+  width: 55%;
+  height: 70%;
+  margin: 0 auto;
+  display: block;
+}
+.carousel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slick-prev,
+.slick-next {
+  height: 30px;
+  width: 30px;
+  font-size: 0;
+  cursor: pointer;
+  background: transparent
+    url("https://bizweb.dktcdn.net/thumb/large/100/270/285/products/05-a41e0c7f-e4c9-4ad2-9412-1e8c4d79a028.jpg?v=1510561983257")
+    no-repeat center center;
+  background-size: contain;
+}
+
+.slick-next {
+  background-color: red;
+  background: transparent
+    url("https://icon-library.com/images/previous-next-icon/previous-next-icon-24.jpg")
+    no-repeat center center;
+  background-size: contain;
+}

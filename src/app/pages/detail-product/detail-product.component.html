@@ -1,79 +1,126 @@
 <div class="detail">
   <div class="banner">
-    <img src="http://store.bobapop.com.vn/resource/uploads/2016/09/banner-trong.jpg" alt="">
+    <img
+      src="http://store.bobapop.com.vn/resource/uploads/2016/09/banner-trong.jpg"
+      alt=""
+    />
   </div>
-<div class="title">
-    <p style="margin-top: 30px; margin-left: 70px;"> BobaDink <i style="color: blue;" class="fa-solid fa-angle-right"></i> Đồ uống ưa thích <i style="color: blue;" class="fa-solid fa-angle-right"></i> {{product.name}}</p>
- </div>
-<div class="detailProduct" style="display: flex;padding: 70px;">
-   
-    <div class="imageProduct" style="text-align: center;">
-    <img id="mainImg" src="{{product.imageUrl}}" width="550px" style="margin-right: 20px;" alt="">
-    <div class="imageChild">
-        <p>
-            <img src="{{product.imageUrl}}" alt="">
-        <img src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t45.5328-9/12532472_1039260592813066_1014951346_n.jpg?stp=dst-jpg_p403x403&_nc_cat=111&ccb=1-7&_nc_sid=c48759&_nc_ohc=Rruluhx-JnQAX9we_ww&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfCno_Cfd_l8O6fvX64xsnIEnnEm1dLwx9oleWmfUFbTeA&oe=6469AF13" alt="">
-        <img src="https://scontent.fsgn2-7.fna.fbcdn.net/v/t45.5328-4/12521037_1057471864314337_1463988180_n.png?stp=dst-png_s960x960&_nc_cat=108&ccb=1-7&_nc_sid=c48759&_nc_ohc=hE7XJBTHOHUAX9zi6wa&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfBVoxyQDQEOc9UWfnelcRXWILQgLwc7rwoPGKcQyJob2A&oe=646AD6E4" alt="">
-        <img src="https://scontent.fsgn2-5.fna.fbcdn.net/v/t45.5328-4/12532455_948907765175153_197989111_n.png?stp=dst-png_s960x960&_nc_cat=104&ccb=1-7&_nc_sid=c48759&_nc_ohc=T57CqdzRm4wAX-t5mJC&_nc_ht=scontent.fsgn2-5.fna&oh=00_AfCW2KxAsrpiZJ1ybp3C7jsj0nnK3BImNEVaLNB2HgeQHA&oe=646A0685" alt="">
+  <div class="title">
+    <p style="margin-top: 30px; margin-left: 70px">
+      BobaDink <i style="color: blue" class="fa-solid fa-angle-right"></i> Đồ
+      uống ưa thích <i style="color: blue" class="fa-solid fa-angle-right"></i>
+      {{ product.name }}
     </p>
-    </div>
-    <div class="shareAndFavourite">
-   <div class="share">
-    <p>Chia sẻ: </p>
-    <i class="fa-brands fa-facebook"></i>
-    <i class="fa-brands fa-instagram"></i>
-    <i class="fa-brands fa-twitter"></i>
-   </div>
-   <div class="favourite">
-    <i class="fa-sharp fa-regular fa-heart"></i> Đã thích (500)
-   </div>
-</div>
-</div>
-    <div class="productInformation">
-        <h1>{{product.name}}</h1>
-        <p style="color:#ee4d2d;">4.5 <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          
+  </div>
+  <div class="detailProduct" style="display: flex; padding-left: 300px">
+    <div class="imageProduct" style="text-align: center">
+      <img
+        id="mainImg"
+        src="{{ product.imageUrl }}"
+        width="550px"
+        style="margin-right: 20px"
+        alt=""
+      />
+      <div class="imageChild">
+        <p>
+          <img src="{{ product.imageUrl }}" alt="" />
+          <img
+            src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t45.5328-9/12532472_1039260592813066_1014951346_n.jpg?stp=dst-jpg_p403x403&_nc_cat=111&ccb=1-7&_nc_sid=c48759&_nc_ohc=Rruluhx-JnQAX9we_ww&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfCno_Cfd_l8O6fvX64xsnIEnnEm1dLwx9oleWmfUFbTeA&oe=6469AF13"
+            alt=""
+          />
+          <img
+            src="https://scontent.fsgn2-7.fna.fbcdn.net/v/t45.5328-4/12521037_1057471864314337_1463988180_n.png?stp=dst-png_s960x960&_nc_cat=108&ccb=1-7&_nc_sid=c48759&_nc_ohc=hE7XJBTHOHUAX9zi6wa&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfBVoxyQDQEOc9UWfnelcRXWILQgLwc7rwoPGKcQyJob2A&oe=646AD6E4"
+            alt=""
+          />
+          <img
+            src="https://scontent.fsgn2-5.fna.fbcdn.net/v/t45.5328-4/12532455_948907765175153_197989111_n.png?stp=dst-png_s960x960&_nc_cat=104&ccb=1-7&_nc_sid=c48759&_nc_ohc=T57CqdzRm4wAX-t5mJC&_nc_ht=scontent.fsgn2-5.fna&oh=00_AfCW2KxAsrpiZJ1ybp3C7jsj0nnK3BImNEVaLNB2HgeQHA&oe=646A0685"
+            alt=""
+          />
         </p>
-        <h3 style="font-size: 25px; color: #ee4d2d;">{{product.price}}$</h3>
-        <p>{{product.desc}}</p>
-        <h4 class="size" style="display: flex;">Size: <p>M</p> <p>L</p> <p>XL</p> </h4>
-        <h4 style="display: flex;align-items: center;border-bottom: 1px solid #ccc;padding-bottom: 10px;">Số lượng:
-            <span (click)="decreaseQuantity()" style="margin-left: 10px;background-color: #ee4d2d;">-</span>
-            <input type="text" [(ngModel)]="quantity" style="width: 40px;text-align: center;border: 1px solid #ccc;">
-            <span (click)="increaseQuantity()" style="background-color: springgreen;">+</span>
-            
-          </h4>
-          <p style="color: gray;">101 sản phẩm có sẵn</p>
-          <div class="ice-sugar">
-           <div class="ice">
-            <p>Ice-%</p>
-            <span>100</span>
-            <span>70</span>
-            <span>50</span>
-            <span>30</span>
-            <span>10</span>
-           </div>
-           <div class="sugar" style="margin-top: 20px;">
-            <p>Sugar-%</p>
-            <span>100</span>
-            <span>70</span>
-            <span>50</span>
-            <span>30</span>
-            <span>10</span>
-           </div>
-           </div>
-                  <button type="button" class="btn btn-success" style="margin-top: 30px;">Add to cart</button>
-                
-                </div>
-</div>
-<p style="font-size: 20px;margin-left: 120px;">Bình luận (5)</p>
-<div class="comment">
+      </div>
+      <div class="shareAndFavourite">
+        <div class="share">
+          <p>Chia sẻ:</p>
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-twitter"></i>
+        </div>
+        <div class="favourite">
+          <i class="fa-sharp fa-regular fa-heart"></i> Đã thích (500)
+        </div>
+      </div>
+    </div>
+    <div class="productInformation">
+      <h1>{{ product.name }}</h1>
+      <p style="color: #ee4d2d">
+        4.5 <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </p>
+      <h3 style="font-size: 25px; color: #ee4d2d">{{ product.price }}$</h3>
+      <p>{{ product.desc }}</p>
+      <h4 class="size" style="display: flex">
+        Size:
+        <p>M</p>
+        <p>L</p>
+        <p>XL</p>
+      </h4>
+      <h4
+        style="
+          display: flex;
+          align-items: center;
+          border-bottom: 1px solid #ccc;
+          padding-bottom: 10px;
+        "
+      >
+        Số lượng:
+        <span
+          (click)="decreaseQuantity()"
+          style="margin-left: 10px; background-color: #ee4d2d"
+          >-</span
+        >
+        <input
+          type="text"
+          [(ngModel)]="quantity"
+          style="width: 40px; text-align: center; border: 1px solid #ccc"
+        />
+        <span (click)="increaseQuantity()" style="background-color: springgreen"
+          >+</span
+        >
+      </h4>
+      <p style="color: gray">101 sản phẩm có sẵn</p>
+      <div class="ice-sugar">
+        <div class="ice">
+          <p>Ice-%</p>
+          <span>100</span>
+          <span>70</span>
+          <span>50</span>
+          <span>30</span>
+          <span>10</span>
+        </div>
+        <div class="sugar" style="margin-top: 20px">
+          <p>Sugar-%</p>
+          <span>100</span>
+          <span>70</span>
+          <span>50</span>
+          <span>30</span>
+          <span>10</span>
+        </div>
+      </div>
+      <button type="button" class="btn btn-success" style="margin-top: 30px">
+        Add to cart
+      </button>
+    </div>
+  </div>
+  <p style="font-size: 20px; margin-left: 120px">Bình luận (5)</p>
+  <div class="comment">
     <div class="avatar">
-      <img src="https://luv.vn/wp-content/uploads/2021/10/gai-xinh-toc-ngan-52.jpg "alt="Avatar">
+      <img
+        src="https://luv.vn/wp-content/uploads/2021/10/gai-xinh-toc-ngan-52.jpg "
+        alt="Avatar"
+      />
     </div>
     <div class="comment-content">
       <div class="header">
@@ -81,13 +128,20 @@
         <p class="date">May 15, 2023</p>
       </div>
       <div class="body">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat quam vitae nibh tincidunt, eu fermentum turpis gravida. Nulla facilisi.</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+          placerat quam vitae nibh tincidunt, eu fermentum turpis gravida. Nulla
+          facilisi.
+        </p>
       </div>
     </div>
   </div>
   <div class="comment">
     <div class="avatar">
-      <img src="https://phunugioi.com/wp-content/uploads/2020/04/anh-gai-xinh-2k-de-thuong-cute.jpg" alt="Avatar">
+      <img
+        src="https://phunugioi.com/wp-content/uploads/2020/04/anh-gai-xinh-2k-de-thuong-cute.jpg"
+        alt="Avatar"
+      />
     </div>
     <div class="comment-content">
       <div class="header">
@@ -95,13 +149,20 @@
         <p class="date">May 15, 2023</p>
       </div>
       <div class="body">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat quam vitae nibh tincidunt, eu fermentum turpis gravida. Nulla facilisi.</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+          placerat quam vitae nibh tincidunt, eu fermentum turpis gravida. Nulla
+          facilisi.
+        </p>
       </div>
     </div>
   </div>
   <div class="comment">
     <div class="avatar">
-      <img src="https://www.dungplus.com/wp-content/uploads/2019/12/girl-xinh-600x600.jpg" alt="Avatar">
+      <img
+        src="https://www.dungplus.com/wp-content/uploads/2019/12/girl-xinh-600x600.jpg"
+        alt="Avatar"
+      />
     </div>
     <div class="comment-content">
       <div class="header">
@@ -109,37 +170,57 @@
         <p class="date">May 15, 2023</p>
       </div>
       <div class="body">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat quam vitae nibh tincidunt, eu fermentum turpis gravida. Nulla facilisi.</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+          placerat quam vitae nibh tincidunt, eu fermentum turpis gravida. Nulla
+          facilisi.
+        </p>
       </div>
     </div>
   </div>
   <div class="add-comment">
-   <form action="" style="display: flex;align-items: center;margin-top: 30px;margin-left: 120px;">
-    <input type="text" class="form-control" style="width: 400px;" placeholder="Nhập bình luận của bạn">
-    <button class="btn btn-success"><i class="fa-solid fa-paper-plane"></i></button>
-   </form>
+    <form
+      action=""
+      style="
+        display: flex;
+        align-items: center;
+        margin-top: 30px;
+        margin-left: 120px;
+      "
+    >
+      <input
+        type="text"
+        class="form-control"
+        style="width: 400px"
+        placeholder="Nhập bình luận của bạn"
+      />
+      <button class="btn btn-success">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </form>
   </div>
   <div class="relate">
-  <img src="https://websitecukcukvn.misacdn.net/wp-content/uploads/2022/04/ca%CC%81ch-pha-che%CC%82%CC%81-do%CC%82%CC%80-uo%CC%82%CC%81ng-cho-mu%CC%80a-he%CC%80-03.png" alt="">
-  <p style="font-size: 20px;text-align: center;color: seagreen; ">Sản phẩm liên quan: </p>
-</div>
-<div class="products">
-  <div class="row" style="padding: 0 70px;text-align: center;">
-    <div class="col-md-4" *ngFor="let product of favoriteProducts">
-      <a href="products/{{product.id}}">
-        <div class="imgFavorite">
-            <img [src]="product.imageUrl" width="200px" [alt]="product.name"  />
-        </div>
-      <h2>{{ product.name }}</h2>
-      <h5 style="color: red">{{ product.price }}$</h5>
-    </a>
-    
-    <button class="btn btn-success">Add to cart</button>
+    <img
+      src="https://websitecukcukvn.misacdn.net/wp-content/uploads/2022/04/ca%CC%81ch-pha-che%CC%82%CC%81-do%CC%82%CC%80-uo%CC%82%CC%81ng-cho-mu%CC%80a-he%CC%80-03.png"
+      alt=""
+    />
+    <p style="font-size: 20px; text-align: center; color: seagreen">
+      Sản phẩm liên quan:
+    </p>
+  </div>
+  <div class="products">
+    <div class="row" style="padding: 0 70px; text-align: center">
+      <div class="col-md-4" *ngFor="let product of favoriteProducts">
+        <a href="products/{{ product.id }}">
+          <div class="imgFavorite">
+            <img [src]="product.imageUrl" width="200px" [alt]="product.name" />
+          </div>
+          <h2>{{ product.name }}</h2>
+          <h5 style="color: red">{{ product.price }}$</h5>
+        </a>
+
+        <button class="btn btn-success">Add to cart</button>
+      </div>
     </div>
   </div>
 </div>
-</div>
-  
-
-
-  
