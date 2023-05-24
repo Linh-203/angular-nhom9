@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   padding: 0;
   display: flex;
@@ -88,4 +88,10 @@ button:hover {
 }
 #chk:checked ~ .signup label {
   transform: scale(0.6);
+} */
+.form-login {
+  width: 600px;
+}
+h1 {
+  text-align: center;
 }

@@ -13,6 +13,7 @@ import { NewComponent } from './pages/new/new.component';
 import { DefaultLayoutComponent } from './components/layouts/default-layout/default-layout.component';
 import { LayoutAdminComponent } from './components/layouts/layout-admin/layout-admin.component';
 import { LoginRegisterComponent } from './pages/login-register/login-register.component';
+import { ProductComponent } from './pages/product/product.component';
 
 const routes: Routes = [
   {
@@ -24,8 +25,9 @@ const routes: Routes = [
       { path: 'products/:id', component: DetailProductComponent },
       { path: 'new', component: NewComponent },
       { path: 'cart', component: CartComponent },
+      { path: 'products', component: ProductComponent },
       { path: 'signup', component: RegisterComponent },
-      { path: 'login-register', component: LoginRegisterComponent },
+      { path: 'login', component: LoginComponent },
     ],
   },
 

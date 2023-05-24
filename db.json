@@ -1,0 +1,11 @@
+{
+  "signUpUsers": [
+    {
+      "userName": "admin@gmail.com",
+      "email": "hlinh2003.5.9@gmail.com",
+      "password": "123",
+      "confirmPassword": "123",
+      "id": 1
+    }
+  ]
+}

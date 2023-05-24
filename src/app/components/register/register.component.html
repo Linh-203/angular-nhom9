@@ -1,61 +1,94 @@
-<body>
-  <div class="main">
-    <input type="checkbox" id="chk" aria-hidden="true" />
+<div class="d-flex justify-content-center p-5">
+  <form class="form form-login" [formGroup]="signupForm" (ngSubmit)="signUp()">
+    <h1>Register</h1>
 
-    <div class="signup">
-      <form>
-        <label for="chk" aria-hidden="true">Sign up</label>
+    <div class="form-group">
+      <div class="mb-3">
+        <label for="username" class="form-label">User Name</label>
         <input
           type="text"
-          name="txt"
-          placeholder="User name"
-          required=""
-          [(ngModel)]="signupObj.userName"
+          class="form-control"
+          aria-describedby="emailHelp"
+          id="name"
+          name="name"
+          placeholder="Enter name"
+          formControlName="userName"
+          required
         />
+        <span
+          class="text-danger"
+          *ngIf="
+            signupForm.controls['userName'].dirty &&
+            signupForm.hasError('required', 'userName')
+          "
+          >User name is required</span
+        >
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="mb-3">
+        <label for="username" class="form-label">Email address</label>
         <input
           type="email"
+          class="form-control"
+          aria-describedby="emailHelp"
+          id="email"
           name="email"
-          placeholder="Email"
-          required=""
-          [(ngModel)]="signupObj.email"
+          placeholder="Enter email"
+          formControlName="email"
+          required
         />
-        <input
-          type="password"
-          name="pswd"
-          placeholder="Password"
-          required=""
-          [(ngModel)]="signupObj.password"
-        />
-        <input
-          type="password"
-          name="pswd"
-          placeholder="confirmPassword"
-          required=""
-          [(ngModel)]="signupObj.confirmPassword"
-        />
-        <button (click)="onSignUp()">Sign up</button>
-      </form>
+        <span
+          class="text-danger"
+          *ngIf="
+            signupForm.controls['email'].dirty &&
+            signupForm.hasError('required', 'email')
+          "
+          >Email is required</span
+        >
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+        formControlName="password"
+        placeholder="Password"
+        required
+      />
+      <span
+        class="text-danger"
+        *ngIf="
+          signupForm.controls['password'].dirty &&
+          signupForm.hasError('required', 'password')
+        "
+        >Password is required</span
+      >
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Confirm Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="repassword"
+        name="confirmPassword"
+        formControlName="confirmPassword"
+        placeholder="Confirm Password"
+        required
+      />
+      <span
+        class="text-danger"
+        *ngIf="
+          signupForm.controls['confirmPassword'].dirty &&
+          signupForm.hasError('required', 'confirmPassword')
+        "
+        >Confirm Password is required</span
+      >
     </div>
 
-    <div class="login">
-      <form>
-        <label for="chk" aria-hidden="true">Login</label>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          required=""
-          [(ngModel)]="loginObj.email"
-        />
-        <input
-          type="password"
-          name="pswd"
-          placeholder="Password"
-          required=""
-          [(ngModel)]="loginObj.password"
-        />
-        <button (click)="onLogin()">Login</button>
-      </form>
-    </div>
-  </div>
-</body>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

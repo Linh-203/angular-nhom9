@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ProductInCartComponent } from '../product-in-cart/product-in-cart.component';
-
+import { productsFake } from 'src/data/products';
+import {favoriteProductsFake } from 'src/data/products';
+import { category } from 'src/data/products';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -24,4 +26,7 @@ export class HeaderComponent {
       text: 'This is slide 3',
     },
   ];
+
+  category = category
+  product = favoriteProductsFake
 }
