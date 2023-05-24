@@ -17,8 +17,6 @@ app.use("/api", routerComment);
 app.use("/api", routerCart);
 app.use("/api", routerUsers);
 
-mongoose
-  .connect("mongodb://127.0.0.1:27017/angular-n6")
-  .then(() => console.log("kết nối thành công3"));
+mongoose.connect("mongodb://127.0.0.1:27017/angular-n6");
 
 export const viteNodeApp = app;
