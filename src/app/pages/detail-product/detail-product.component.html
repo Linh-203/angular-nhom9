@@ -10,10 +10,10 @@
 <div class="detailProduct" style="display: flex;padding: 0 70px;">
    
     <div class="imageProduct" style="text-align: center;">
-    <img id="mainImg" src="{{product.imageUrl}}" width="550px" style="margin-right: 20px;" alt="">
+    <img id="mainImg" src="{{product.image}}" width="550px" style="margin-right: 20px;" alt="">
     <div class="imageChild">
         <p>
-            <img src="{{product.imageUrl}}" alt="">
+            <img src="{{product.image}}" alt="">
         <img src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t45.5328-9/12532472_1039260592813066_1014951346_n.jpg?stp=dst-jpg_p403x403&_nc_cat=111&ccb=1-7&_nc_sid=c48759&_nc_ohc=Rruluhx-JnQAX9we_ww&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfCno_Cfd_l8O6fvX64xsnIEnnEm1dLwx9oleWmfUFbTeA&oe=6469AF13" alt="">
         <img src="https://scontent.fsgn2-7.fna.fbcdn.net/v/t45.5328-4/12521037_1057471864314337_1463988180_n.png?stp=dst-png_s960x960&_nc_cat=108&ccb=1-7&_nc_sid=c48759&_nc_ohc=hE7XJBTHOHUAX9zi6wa&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfBVoxyQDQEOc9UWfnelcRXWILQgLwc7rwoPGKcQyJob2A&oe=646AD6E4" alt="">
         <img src="https://scontent.fsgn2-5.fna.fbcdn.net/v/t45.5328-4/12532455_948907765175153_197989111_n.png?stp=dst-png_s960x960&_nc_cat=104&ccb=1-7&_nc_sid=c48759&_nc_ohc=T57CqdzRm4wAX-t5mJC&_nc_ht=scontent.fsgn2-5.fna&oh=00_AfCW2KxAsrpiZJ1ybp3C7jsj0nnK3BImNEVaLNB2HgeQHA&oe=646A0685" alt="">
@@ -115,7 +115,7 @@
            <h4 style="display: flex;align-items: center;border-bottom: 1px solid #ccc;padding-bottom: 10px;">Số lượng
             <div id="updateQuantity" style="background-color: #f5f5f5;border-radius: 25px;padding: 10px;margin-left: 10px;">
              <span (click)="decreaseQuantity()" style="margin-left: 10px;">-</span>
-               <input type="text" [(ngModel)]="quantity" style="width: 50px;text-align: center;border:none; background-color: #f5f5f5;outline: none;">
+               <input value="1" type="text" [(ngModel)]="quantity" style="width: 50px;text-align: center;border:none; background-color: #f5f5f5;outline: none;">
                <span (click)="increaseQuantity()" >+</span>
              </div>
 
@@ -169,25 +169,26 @@
                   </div>
                 </div>
 </div>
-<p style="font-size: 20px;margin-left: 120px;margin-top: 30px;">Bình luận (5)</p>
-<div class="comment" *ngFor="let user of comment">
+<p style="font-size: 20px;margin-left: 120px;margin-top: 30px;">Bình luận (3)</p>
+<div class="show-cmt" style="max-height: 400px; overflow: scroll;">
+<div class="comment" *ngFor="let item of comment" >
     <div class="avatar" >
-      <img src="{{userComment.image}}"alt="Avatar">
+      <img src="https://vn112.com/wp-content/uploads/2018/01/1516417120l48pc-700x1074.jpg"alt="Avatar">
     </div>
     <div class="comment-content">
       <div class="header">
-        <h4 class="name">{{userComment.name}}</h4>
-        <p class="date">May 15, 2023</p>
+        <h4 class="name">{{infoUser.name}}</h4>
+        <p class="date" style="margin-left: 20px;">May 15, 2023</p>
       </div>
       <div class="body">
-       <p>{{user.content}}</p>
+       <p>{{item.content}}</p>
       </div>
     </div>
-    <div *ngIf="idLocal == userComment.id">
+    <!-- <div *ngIf="idLocal == userComment.id">
     <button>Xóa</button>
+  </div> -->
   </div>
-  </div>
-
+</div>
   
   <div class="add-comment">
     <form action="" (ngSubmit)="addComment()" style="display: flex;align-items: center;margin-top: 30px;margin-left: 120px;">
@@ -200,10 +201,7 @@
       <p>Alo</p>
     </ng-container> -->
    
-    <select name="sortOrder" [(ngModel)]="selectedSortOrder" (ngModelChange)="onSortOrderChange()">
-      <option value="asc">Tăng dần</option>
-      <option value="desc">Giảm dần</option>
-    </select>
+ 
     
   <div class="relate">
   <img src="https://websitecukcukvn.misacdn.net/wp-content/uploads/2022/04/ca%CC%81ch-pha-che%CC%82%CC%81-do%CC%82%CC%80-uo%CC%82%CC%81ng-cho-mu%CC%80a-he%CC%80-03.png" alt="">
@@ -212,16 +210,16 @@
 <div class="products">
   <div class="row" style="padding: 0 70px;text-align: center;">
     <div class="col-md-4" *ngFor="let product of favoriteProducts">
-      <a href="products/{{product.id}}">
+      <a href="products/{{product._id}}">
         <div class="imgFavorite">
-            <img [src]="product.imageUrl" width="200px" [alt]="product.name"  />
+            <img [src]="product.image" width="200px" [alt]="product.name"  />
         </div>
       <h2>{{ product.name }}</h2>
       <h5 style="color: red;font-size: 20px;">{{ product.price }}.000₫ </h5>
     </a>
     <div class="cart_eye">
     <i title="Thêm giỏ hàng" class="fa-solid fa-cart-shopping"></i>
-   <a title="Xem chi tiết" href="products/{{product.id}}"> <i class="fa-solid fa-eye"></i></a>
+   <a title="Xem chi tiết" href="products/{{product._id}}"> <i class="fa-solid fa-eye"></i></a>
     <i title="Thêm yêu thích" class="fa-sharp fa-regular fa-heart"></i>
   </div>
     </div>

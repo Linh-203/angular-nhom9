@@ -18,7 +18,7 @@
       "price": 49,
       "imageUrl": "https://bizweb.dktcdn.net/thumb/large/100/270/285/products/05-a41e0c7f-e4c9-4ad2-9412-1e8c4d79a028.jpg?v=1510561983257"
     },
-      {
+    {
       "id": "4",
       "name": "Sinh tố dâu tây 4",
       "price": 19,
@@ -84,6 +84,12 @@
       "userId": "namle123",
       "productId": "5",
       "id": 7
+    },
+    {
+      "content": "123",
+      "userId": "namle123",
+      "productId": "5",
+      "id": 8
     }
   ]
 }

@@ -12,7 +12,10 @@ export class ProductInCartComponent {
     name: 'Tra buoi',
     price: 2000,
     desc: 'Tra buoi to',
-    imageUrl:
+    image:
       'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/07-550de86d-8a95-4083-8490-8ee5fcb930c6.jpg?v=1510561744770',
   };
 }
+
+
+

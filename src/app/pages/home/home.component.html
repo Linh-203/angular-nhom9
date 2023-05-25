@@ -28,13 +28,22 @@
       alt="" class="img-icon" />
     <h2>Đồ uống ưa thích !</h2>
   </div>
-  <div class="row">
-    <div class="col-md-4" *ngFor="let product of favoriteProducts">
-      <a href="products/{{product.id}}">
-      <img [src]="product.imageUrl" [alt]="product.name" class="img-favorite" />
-      <h2>{{ product.name }}</h2>
-      <h5 style="color: red">{{ product.price }}$</h5>
-    </a>
+  <div class="products">
+    <div class="row" style="padding: 0 70px;text-align: center;">
+      <div class="col-md-4" *ngFor="let product of favoriteProducts">
+        <a href="products/{{product._id}}">
+          <div class="imgFavorite">
+              <img [src]="product.image" width="200px" [alt]="product.name"  />
+          </div>
+        <h2>{{ product.name }}</h2>
+        <h5 style="color: red;font-size: 20px;">{{ product.price }}.000₫ </h5>
+      </a>
+      <div class="cart_eye">
+      <i title="Thêm giỏ hàng" class="fa-solid fa-cart-shopping"></i>
+     <a title="Xem chi tiết" href="products/{{product._id}}"> <i class="fa-solid fa-eye"></i></a>
+      <i title="Thêm yêu thích" class="fa-sharp fa-regular fa-heart"></i>
+    </div>
+      </div>
     </div>
   </div>
   <div class="cate">

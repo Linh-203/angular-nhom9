@@ -3,6 +3,7 @@ import { OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { favoriteProductsFake } from 'src/data/products';
 import { HttpClient } from '@angular/common/http';
+import { count } from 'rxjs';
 
 @Component({
   selector: 'app-detail-product',
@@ -14,37 +15,66 @@ export class DetailProductComponent implements OnInit {
  
   id: string = "";
   product: any;
+  infoUser:any
+  countCMT:any
   constructor( private http: HttpClient, private route: ActivatedRoute) { }
  
   idLocal = JSON.parse(localStorage.getItem('idUser')!);
   ngOnInit(): void {
     this.getData()
-    this.getComment()
+  
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id') || "";
+     
+    let apiUrlCMT =  "http://localhost:8000/api/comment/"+this.id;
+    this.http.get(apiUrlCMT).subscribe(
+      (response: any) => {
+        
+        this.comment = response.comment;
+       
+      
+        for(let item of this.comment){
+         
+          this.infoUser=item.idUser
+          // console.log( this.infoUser.name);
+        }
+        
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
       console.log(this.id);
-      this.product = favoriteProductsFake.find(p => p.id === this.id);
-      this.formData.productId = this.id;
+      let apiUrl = "http://localhost:8000/api/products/"+this.id;
+      this.http.get(apiUrl).subscribe(
+      
+        (response: any) => {
+          this.product = response
+          console.log(response);
+        })
+      // this.product = favoriteProductsFake.find(p => p.id === this.id);
+      this.formData.idProduct = this.id;
     });
+   
   }
   
   quantity: number = 1;
   idProduct: string = ""
   formData = {
     content: "",
-    userId: JSON.parse(localStorage.getItem('idUser')!),
-    productId: this.id
+    idUser: JSON.parse(localStorage.getItem('idUser')!),
+    idProduct: this.id
 
   }
-  products:any
+  comments:any
   addComment() {
     console.log(this.formData);
-      let apiUrl = "http://localhost:3000/comment";
+      let apiUrl = "http://localhost:8000/api/comment";
       this.http.post(apiUrl, this.formData).subscribe(
         (response: any) => {
           console.log(response);
-          this.products = response;
-          console.log(this.products);
+          this.comments = response;
+          console.log(this.comments);
          window.location.reload()
         },
         (error: any) => {
@@ -66,40 +96,16 @@ export class DetailProductComponent implements OnInit {
   }
   comment:any
   userComment:any
-  async getComment() {
-
-    let apiUrl =  "http://localhost:3000/comment";
-    this.http.get(apiUrl).subscribe(
-      (response: any) => {
-        console.log(response);
-        this.comment = response;
-        console.log(this.comment);
-        for (let item of this.comment) {
-          console.log(item.userId);
-          let apiUser = "http://localhost:3000/users/"+item.userId;
-       
-            this.http.get(apiUser).subscribe(
-              (response) => {
-                this.userComment = response
-                console.log(this.userComment.id);
-              }
-            );
-          
-        }
-      },
-      (error: any) => {
-        console.log(error);
-      }
-    );
-  }
+ 
+ 
   favoriteProducts:any
   getData() {
-    let apiUrl = "http://localhost:3000/products";
+    let apiUrl = "http://localhost:8000/api/products";
     this.http.get(apiUrl).subscribe(
       (response: any) => {
         console.log(response);
-        this.favoriteProducts = response;
-        console.log(this.products);
+        this.favoriteProducts = response.docs;
+        console.log(this.favoriteProducts);
       },
       (error: any) => {
         console.log(error);
