@@ -29,4 +29,7 @@ export class HeaderComponent {
 
   category = category
   product = favoriteProductsFake
+
+
+
 }

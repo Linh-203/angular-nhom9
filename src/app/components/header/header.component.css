@@ -18,7 +18,8 @@
   align-items: center;
 }
 .navbar-nav li {
-  width: 120px;
+  /* width: 120px; */
+  font-size: 18px;
   align-items: center;
 }
 .dropdown:hover > .dropdown-menu {
@@ -35,7 +36,7 @@
   right: 0;
 }
 .dropdown > .dropdown-toggle:active {
-  /*Without this, clicking will make it sticky*/
+
   pointer-events: none;
 }
 .cart-body {
@@ -48,3 +49,8 @@
   justify-content: space-around;
   align-items: center;
 }
+
+
+
+
+
