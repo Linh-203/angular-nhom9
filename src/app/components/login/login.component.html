@@ -48,6 +48,8 @@
         >Password is required</span
       >
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">
+      Submit
+    </button>
   </form>
 </div>

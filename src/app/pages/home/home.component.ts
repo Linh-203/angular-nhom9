@@ -17,7 +17,6 @@ export class HomeComponent {
     age: 20,
     gender: 'male',
   };
-  products = productsFake;
 
   favoriteProducts = favoriteProductsFake;
 
