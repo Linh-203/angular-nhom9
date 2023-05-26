@@ -15,6 +15,8 @@ import { LayoutAdminComponent } from './components/layouts/layout-admin/layout-a
 import { LoginRegisterComponent } from './pages/login-register/login-register.component';
 import { ProductComponent } from './pages/product/product.component';
 import { PayComponent } from './components/pay/pay.component';
+import { ListproductsComponent } from './admin/listproducts/listproducts.component';
+import { StatisticalComponent } from './admin/statistical/statistical.component';
 
 const routes: Routes = [
   {
@@ -40,7 +42,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       // { path: 'dashboard', component: DashboardComponent },
-      // { path: 'products', component: ProductsComponent },
+      { path: 'products', component: ListproductsComponent },
+      { path: 'statistical', component: StatisticalComponent },
     ],
   },
   { path: '**', component: NotFoundPageComponentComponent },
