@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { AdminComponent } from './components/admin/admin.component';
+
 import { ProductInCartComponent } from './components/product-in-cart/product-in-cart.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { CategoryComponentComponent } from './pages/category/category-component/category-component.component';
@@ -38,13 +38,17 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ProductsComponent } from './components/products/products.component';
 import { PayComponent } from './components/pay/pay.component';
+import { SidebarComponent } from './admin/sidebar/sidebar.component';
+import { ListproductsComponent } from './admin/listproducts/listproducts.component';
+import { StatisticalComponent } from './admin/statistical/statistical.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     FooterComponent,
     HeaderComponent,
-    AdminComponent,
+    
     ProductInCartComponent,
     BannerComponent,
     CategoryComponentComponent,
@@ -58,6 +62,10 @@ import { PayComponent } from './components/pay/pay.component';
     NewComponent,
     LayoutAdminComponent,
     LoginRegisterComponent,
+    SidebarComponent,
+    ListproductsComponent,
+    StatisticalComponent,
+   
   ],
   imports: [
     BrowserModule,
