@@ -35,7 +35,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 // Import your library
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HttpClientModule } from '@angular/common/http';
-
+import { RadioComponent } from './components/radio/radio.component';
 import { ProductsComponent } from './components/products/products.component';
 import { PayComponent } from './components/pay/pay.component';
 import { SidebarComponent } from './admin/sidebar/sidebar.component';
@@ -66,6 +66,7 @@ import { StatisticalComponent } from './admin/statistical/statistical.component'
     ListproductsComponent,
     StatisticalComponent,
    
+    RadioComponent,
   ],
   imports: [
     BrowserModule,
