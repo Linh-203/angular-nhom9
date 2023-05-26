@@ -1,33 +1,60 @@
-import { Component } from '@angular/core';
-import { productsFake } from 'src/data/products';
-import {favoriteProductsFake } from 'src/data/products';
+import { Component, ViewChild } from '@angular/core';
+
+import { favoriteProductsFake } from 'src/data/products';
 import { IUser } from 'src/common/user';
-import { HttpClient } from '@angular/common/http';
+// import $ from 'jquery';
+import 'bootstrap';
+import 'slick-carousel';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  ngOnInit(): void {
-    this.getData()
-  }
-   
-   products =productsFake
-   constructor( private http: HttpClient) { }
+  user: IUser = {
+    name: 'linh',
+    msv: 'PH28073',
+    age: 20,
+    gender: 'male',
+  };
 
-  favoriteProducts:any
-  getData() {
-    let apiUrl = "http://localhost:8000/api/products";
-    this.http.get(apiUrl).subscribe(
-      (response: any) => {
-        console.log(response);
-        this.favoriteProducts = response.docs;
-        console.log(this.products);
-      },
-      (error: any) => {
-        console.log(error);
-      }
-    );
+
+  favoriteProducts = favoriteProductsFake;
+
+  slides = [
+    { img: 'http://placehold.it/350x150/000000' },
+    { img: 'http://placehold.it/350x150/111111' },
+    { img: 'http://placehold.it/350x150/333333' },
+    { img: 'http://placehold.it/350x150/666666' },
+  ];
+  slideConfig = {
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
+  };
+  @ViewChild('slickModal') slickModal: any;
+
+  prev() {
+    this.slickModal.slickPrev();
+  }
+
+  next() {
+    this.slickModal.slickNext();
+  }
+  slickInit(e: any) {
+    console.log('slick initialized');
+  }
+
+  breakpoint(e: any) {
+    console.log('breakpoint');
+  }
+
+  afterChange(e: any) {
+    console.log('afterChange');
+  }
+
+  beforeChange(e: any) {
+    console.log('beforeChange');
   }
 }

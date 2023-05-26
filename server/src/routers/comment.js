@@ -3,9 +3,9 @@ import { createComment, getCommentFromProduct, getOneComment, removeComment, upd
 import { checkComment } from "../middlewares/checkComment";
 
 const router = express.Router()
-router.post("/comment", checkComment,createComment )
+router.post("/comment",createComment )
 router.put("/comment/:id", checkComment,updateComment )
-router.post("/comment/:idProduct", getCommentFromProduct )
-router.get("/comment/:id", getOneComment )
+router.get("/comment/:idProduct", getCommentFromProduct )
+router.post("/comment/:id", getOneComment )
 router.delete("/comment/:id", checkComment,removeComment )
 export default router

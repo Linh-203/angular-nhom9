@@ -91,5 +91,21 @@
       "productId": "5",
       "id": 8
     }
+  ],
+  "signUpUsers": [
+    {
+      "userName": "admin@gmail.com",
+      "email": "hlinh2003.5.9@gmail.com",
+      "password": "123",
+      "confirmPassword": "123",
+      "id": 1
+    },
+    {
+      "userName": "nam",
+      "email": "admin3@gmail.com",
+      "password": "123",
+      "confirmPassword": "123",
+      "id": 2
+    }
   ]
 }

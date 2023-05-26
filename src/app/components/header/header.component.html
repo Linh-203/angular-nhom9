@@ -12,17 +12,13 @@
               <a style="font-weight: bold; font-size: 19px; color: black" class="nav-link" routerLink="/">Trang chủ</a>
             </li>
             <li class="nav-item active">
-
               <a class="nav-link" routerLink="/products">Sản phẩm</a>
-
             </li>
             <li class="nav-item">
               <a class="nav-link" routerLink="#">Giới thiệu</a>
             </li>
             <li class="nav-item">
-
               <a class="nav-link" routerLink="/new">Tin tức</a>
-
             </li>
           </ul>
         </div>
@@ -30,7 +26,8 @@
     </div>
     <div class="d-flex align-items-center justify-content-end gap-3 w-30">
       <form class="form-inline my-2 my-lg-0 d-flex justify-content-start gap-2 align-items-center">
-        <input class="form-control mr-sm-2 p-2" type="search" placeholder="Tìm kiếm sản phẩm" aria-label="Search"  ng-model="searchText"/>
+        <input class="form-control mr-sm-2 p-2" type="search" placeholder="Tìm kiếm sản phẩm" aria-label="Search"
+          ng-model="searchText" />
         <button class="btn btn-outline-success fs-6 my-sm-0" type="submit">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
@@ -61,11 +58,11 @@
         </ul>
       </div>
       <div class="p-1 dropdown">
-        <a routerLink="#" id="dropdownUserButton" data-mdb-toggle="dropdown" aria-expanded="false"><i
+        <a routerLink="/signup" id="dropdownUserButton" data-mdb-toggle="dropdown" aria-expanded="false"><i
             class="fa-solid fa-user fs-5" style="color: #e5d300"></i></a>
         <ul class="dropdown-menu drop-user p-2" aria-labelledby="dropdownUserButton">
           <div class="d-flex flex-column align-items-center">
-            <a routerLink="/signin">Sign in</a>
+            <a routerLink="/login">Sign in</a>
             <a routerLink="/signup">Sign up</a>
           </div>
         </ul>
