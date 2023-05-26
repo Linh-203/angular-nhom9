@@ -36,6 +36,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HttpClientModule } from '@angular/common/http';
 import { RadioComponent } from './components/radio/radio.component';
+import { ProductsComponent } from './components/products/products.component';
+import { PayComponent } from './components/pay/pay.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,4 +78,4 @@ import { RadioComponent } from './components/radio/radio.component';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
