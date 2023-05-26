@@ -35,6 +35,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 // Import your library
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HttpClientModule } from '@angular/common/http';
+import { RadioComponent } from './components/radio/radio.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +56,7 @@ import { HttpClientModule } from '@angular/common/http';
     NewComponent,
     LayoutAdminComponent,
     LoginRegisterComponent,
+    RadioComponent,
   ],
   imports: [
     BrowserModule,
