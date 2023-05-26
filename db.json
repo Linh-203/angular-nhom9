@@ -13,6 +13,13 @@
       "password": "123",
       "confirmPassword": "123",
       "id": 2
+    },
+    {
+      "userName": "thanh",
+      "email": "thanhtvph@gmail.com",
+      "password": "123",
+      "confirmPassword": "123",
+      "id": 3
     }
   ]
 }
