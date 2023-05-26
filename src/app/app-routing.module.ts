@@ -14,6 +14,9 @@ import { DefaultLayoutComponent } from './components/layouts/default-layout/defa
 import { LayoutAdminComponent } from './components/layouts/layout-admin/layout-admin.component';
 import { LoginRegisterComponent } from './pages/login-register/login-register.component';
 import { ProductComponent } from './pages/product/product.component';
+import { PayComponent } from './components/pay/pay.component';
+import { ListproductsComponent } from './admin/listproducts/listproducts.component';
+import { StatisticalComponent } from './admin/statistical/statistical.component';
 
 const routes: Routes = [
   {
@@ -25,6 +28,7 @@ const routes: Routes = [
       { path: 'products/:id', component: DetailProductComponent },
       { path: 'new', component: NewComponent },
       { path: 'cart', component: CartComponent },
+      { path: 'pay', component: PayComponent },
       { path: 'products', component: ProductComponent },
       { path: 'signup', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
@@ -38,7 +42,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       // { path: 'dashboard', component: DashboardComponent },
-      // { path: 'products', component: ProductsComponent },
+      { path: 'products', component: ListproductsComponent },
+      { path: 'statistical', component: StatisticalComponent },
     ],
   },
   { path: '**', component: NotFoundPageComponentComponent },
@@ -48,4 +53,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

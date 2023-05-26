@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { IgxCarouselModule } from 'igniteui-angular'
-import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { HomeComponent } from './pages/home/home.component'
 import { FooterComponent } from './components/footer/footer.component'
 import { HeaderComponent } from './components/header/header.component'
-import { AdminComponent } from './components/admin/admin.component'
+
 import { ProductInCartComponent } from './components/product-in-cart/product-in-cart.component'
 import { BannerComponent } from './components/banner/banner.component'
 import { CategoryComponentComponent } from './pages/category/category-component/category-component.component'
@@ -36,28 +35,38 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { SlickCarouselModule } from 'ngx-slick-carousel'
 import { HttpClientModule } from '@angular/common/http'
 import { RadioComponent } from './components/radio/radio.component'
+import { ProductsComponent } from './components/products/products.component'
+import { PayComponent } from './components/pay/pay.component'
+import { SidebarComponent } from './admin/sidebar/sidebar.component'
+import { ListproductsComponent } from './admin/listproducts/listproducts.component'
+import { StatisticalComponent } from './admin/statistical/statistical.component'
 import { httpInterceptorProviders } from './http-interceptors'
+
 @NgModule({
    declarations: [
       AppComponent,
       HomeComponent,
       FooterComponent,
       HeaderComponent,
-      AdminComponent,
+
       ProductInCartComponent,
       BannerComponent,
       CategoryComponentComponent,
       NotFoundPageComponentComponent,
       DefaultLayoutComponent,
       ProductComponent,
+      DetailProductComponent,
       LoginComponent,
       RegisterComponent,
       CartComponent,
       NewComponent,
       LayoutAdminComponent,
       LoginRegisterComponent,
-      RadioComponent,
-      DetailProductComponent
+      SidebarComponent,
+      ListproductsComponent,
+      StatisticalComponent,
+
+      RadioComponent
    ],
    imports: [
       BrowserModule,
