@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http'
 import { Component } from '@angular/core'
 import { OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
@@ -52,7 +53,7 @@ export class DetailProductComponent implements OnInit {
    ]
    favoriteProducts = favoriteProductsFake
    id: string = ''
-   constructor(private route: ActivatedRoute) {}
+   constructor(private route: ActivatedRoute, http: HttpClient) {}
 
    ngOnInit(): void {
       this.route.paramMap.subscribe((params) => {
@@ -71,6 +72,6 @@ export class DetailProductComponent implements OnInit {
    }
    onChangeRadio(event: any) {
       this.dataSubmit.options = { ...this.dataSubmit.options, [event.target.name]: event.target.value }
-      console.log(this.dataSubmit)
+      
    }
 }
