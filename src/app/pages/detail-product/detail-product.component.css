@@ -39,15 +39,6 @@ margin-top: 40px;
 .size{
   border-bottom: 1px solid #ccc;
 }
-.size p{
-   margin-left: 10px;
-   border: 1px solid lightgray;
-   padding: 0 5px;
-   cursor: pointer;
-}
-.size p:focus{
-    border: 1px solid seagreen;
-}
 .comment {
     
     display: flex;
@@ -105,8 +96,15 @@ margin-top: 40px;
   .imageChild img:hover{
     border: 1px solid springgreen;
   }
-  
-  #updateQuantity{
+  .productInformation span{
+    border: 1px solid #ccc;
+    border-radius: 100px;
+    height:30px;
+    width: 30px;
+    padding: 5px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
     font-size: 20px;
     cursor: pointer;
   }
@@ -247,6 +245,14 @@ margin-top: 40px;
  
   opacity: 0.5;
 }
+.is-favorite{
+  color: red;
+}
+
+.not-favorite{
+  color: black;
+}
+
 
 
 

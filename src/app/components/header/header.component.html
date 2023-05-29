@@ -32,6 +32,10 @@
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </form>
+     
+      <a  routerLink="/favorite">
+        <i style="color: #e5d300;font-size: 20px;" title="Sản phẩm yêu thích" class="fa fa-heart" aria-hidden="true"></i>
+      </a>
       <div class="p-1 dropdown">
         <a routerLink="/cart" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false"><i
             class="fa fa-shopping-cart fs-5" style="color: #e5d300"></i></a>
@@ -47,6 +51,7 @@
             <li>
               <a class="dropdown-item" routerLink="#"><app-product-in-cart></app-product-in-cart></a>
             </li>
+           
           </div>
           <li>
             <hr class="dropdown-divider" />

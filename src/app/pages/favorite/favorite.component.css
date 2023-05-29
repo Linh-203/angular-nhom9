@@ -1,0 +1,35 @@
+.product {
+    display: flex;
+    align-items: center;
+    padding: 20px 150px;
+  }
+  .product-image img{
+    width: 200px;
+    margin-right: 20px;
+  }
+  #desc{
+    width: 450px;
+  }
+  .banner img{
+    width: 100%;
+  }
+ .price{
+  color: #F8452D;
+ }
+  #buy-now{
+    color: #fff;
+    background-color: #F8452D;
+    border: none;
+    border-radius: 25px;
+    padding: 8px 15px; 
+    margin-right: 20px;
+  }
+  .fa-heart{
+    font-size: 20px;
+  }
+  .form-select{
+    width: 200px;
+    display: flex;
+   
+  }
+  

@@ -1,0 +1,10 @@
+<div class="d-flex justify-content-start align-items-center gap-3">
+    <ng-template ngFor let-item [ngForOf]="listRadio" let-i="index">
+        <div class="d-flex justify-content-center align-items-center position-relative">
+            <input type="radio" class="option-btn" value={{item.value}} name={{nameValue}} checked *ngIf="i === 0" (onChange)="handleOnchange($event)">
+            <input type="radio" class="option-btn" value={{item.value}} name={{nameValue}} (change)="handleOnchange($event)">
+            <p class="ms-3">{{item.name}}</p>
+            <p class="checkmark"></p>
+        </div>
+    </ng-template>
+</div>

@@ -5,7 +5,7 @@ import { CategoryComponentComponent } from './pages/category/category-component/
 import { NotFoundPageComponentComponent } from './pages/not-found-page/not-found-page-component/not-found-page-component.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-
+ import { FavoriteComponent } from './pages/favorite/favorite.component';
 import { CartComponent } from './components/cart/cart.component';
 
 import { DetailProductComponent } from './pages/detail-product/detail-product.component';
@@ -15,6 +15,8 @@ import { LayoutAdminComponent } from './components/layouts/layout-admin/layout-a
 import { LoginRegisterComponent } from './pages/login-register/login-register.component';
 import { ProductComponent } from './pages/product/product.component';
 import { PayComponent } from './components/pay/pay.component';
+import { ListproductsComponent } from './admin/listproducts/listproducts.component';
+import { StatisticalComponent } from './admin/statistical/statistical.component';
 
 const routes: Routes = [
   {
@@ -30,6 +32,7 @@ const routes: Routes = [
       { path: 'products', component: ProductComponent },
       { path: 'signup', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
+       { path: 'favorite', component: FavoriteComponent },
     ],
   },
 
@@ -40,7 +43,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       // { path: 'dashboard', component: DashboardComponent },
-      // { path: 'products', component: ProductsComponent },
+      { path: 'products', component: ListproductsComponent },
+      { path: 'statistical', component: StatisticalComponent },
     ],
   },
   { path: '**', component: NotFoundPageComponentComponent },

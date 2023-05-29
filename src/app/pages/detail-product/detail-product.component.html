@@ -1,7 +1,9 @@
 <div class="detail" >
+ 
   <div class="banner">
-    
+    <ng-container *ngIf="product">
    <h1>{{product.name}}</h1>
+  </ng-container>
   </div>
 <div class="title">
     <p style="margin-top: 30px; margin-left: 70px;"> BobaDink <i style="color: blue;" class="fa-solid fa-angle-right"></i> Đồ uống ưa thích <i style="color: blue;" class="fa-solid fa-angle-right"></i> {{product.name}}</p>
@@ -27,12 +29,12 @@
     <i style="color: rgba(0, 85, 255, 0.654);"class="fa-brands fa-twitter"></i>
    </div>
    <div class="favourite">
-    <i class="fa-sharp fa-regular fa-heart"></i> Đã thích (500)
+    <i [ngClass]="{'is-favorite': isFavorite, 'not-favorite': !isFavorite}"  (click) = "addFavorite()" class="fa-sharp fa-regular fa-heart"></i> Đã thích ({{countFv}})
    </div>
 </div>
 </div>
     <div class="productInformation">
-        <h1 style="color: #c7a17a; text-transform: uppercase;font-weight: 500;">{{product.name}}</h1>
+      <ng-container *ngIf="product"> <h1 style="color: #c7a17a; text-transform: uppercase;font-weight: 500;">{{product.name}}</h1></ng-container>  
         <h4>Thương hiệu: Royal Tea</h4>
         
         <h3 style="font-size: 25px; color: #ee4d2d;">{{product.price}}.000₫ </h3>

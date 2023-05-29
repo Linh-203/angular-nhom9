@@ -1,0 +1,26 @@
+<div class="favorite">
+  <div class="banner">
+    <img src="https://beobeo.net/wp-content/uploads/2018/11/banner-tra-sua-dai-loan-xach-tay-min.jpg" alt="">
+  </div>
+<div class="product-list">
+  <select class="form-select" aria-label="Default select example">
+    <option selected>Open this select menu</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+    <div class="product" *ngFor="let product of favoriteProducts">
+      <div class="product-image">
+        <img [src]="product.image" alt="{{product.name}}">
+      </div>
+      <div class="product-details">
+        <h2>{{product.name}}</h2>
+        <div class="price">{{product.price}}.000₫</div>
+        <p id="desc">Chanh có tác dụng làm sạch cơ thể bằng cách loại bỏ những độc tố. Những độc tốc này có thể gây ra nhiều loại bệnh và nhiễm trùng. Trà chanh là thức...</p>
+         <button id="buy-now">Mua ngay</button>
+        <i class="fa fa-heart" style="color: #F8452D;" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+</div>
+  

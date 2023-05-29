@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { AdminComponent } from './components/admin/admin.component';
+
 import { ProductInCartComponent } from './components/product-in-cart/product-in-cart.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { CategoryComponentComponent } from './pages/category/category-component/category-component.component';
@@ -19,7 +19,7 @@ import { DetailProductComponent } from './pages/detail-product/detail-product.co
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductComponent } from './pages/product/product.component';
 import { NewComponent } from './pages/new/new.component';
@@ -34,16 +34,23 @@ import { ReactiveFormsModule } from '@angular/forms';
 // Import your library
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HttpClientModule } from '@angular/common/http';
-
+import { RadioComponent } from './components/radio/radio.component';
 import { ProductsComponent } from './components/products/products.component';
 import { PayComponent } from './components/pay/pay.component';
+import { SidebarComponent } from './admin/sidebar/sidebar.component';
+import { ListproductsComponent } from './admin/listproducts/listproducts.component';
+import { StatisticalComponent } from './admin/statistical/statistical.component';
+import { FavoriteComponent } from './pages/favorite/favorite.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     FooterComponent,
     HeaderComponent,
-    AdminComponent,
+    
     ProductInCartComponent,
     BannerComponent,
     CategoryComponentComponent,
@@ -57,6 +64,13 @@ import { PayComponent } from './components/pay/pay.component';
     NewComponent,
     LayoutAdminComponent,
     LoginRegisterComponent,
+    SidebarComponent,
+    ListproductsComponent,
+    StatisticalComponent,
+   
+    RadioComponent,
+        FavoriteComponent,
+        
   ],
   imports: [
     BrowserModule,
@@ -72,6 +86,7 @@ import { PayComponent } from './components/pay/pay.component';
     ReactiveFormsModule,
     SlickCarouselModule,
     HttpClientModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
