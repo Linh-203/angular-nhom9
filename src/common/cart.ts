@@ -6,3 +6,6 @@ export interface InputCart {
    quantity: number
    options: Record<'size' | 'ice' | 'sugar', string>
 }
+export interface Icart{
+   
+}

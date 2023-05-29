@@ -1,52 +1,28 @@
 <div class="d-flex justify-content-center p-5">
-  <form class="form form-login" [formGroup]="loginForm" (ngSubmit)="login()">
+  <form class="form form-login" [formGroup]="loginForm" (submit)="signIn(dataSubmit)">
     <h1>Login</h1>
-
     <div class="mb-3">
       <div class="form-group">
-        <label for="username" class="form-label">Email address</label>
-        <input
-          type="email"
-          class="form-control"
-          aria-describedby="emailHelp"
-          id="username"
-          name="username"
-          placeholder="Enter email"
-          formControlName="email"
-          placeholder="Email"
-          required
-        />
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" aria-describedby="emailHelp" id="username" name="email"
+          placeholder="Enter email" formControlName="email" placeholder="Email" required
+          (change)="handleChange($event)" />
         <br />
-        <span
-          class="text-danger"
-          *ngIf="
+        <span class="text-danger" *ngIf="
             loginForm.controls['email'].dirty &&
             loginForm.hasError('required', 'email')
-          "
-          >Email is required</span
-        >
+          ">Email is required</span>
       </div>
     </div>
     <div class="mb-3">
       <label for="password" class="form-label">Password</label>
-      <input
-        type="password"
-        class="form-control"
-        id="password"
-        name="password"
-        formControlName="password"
-        placeholder="Password"
-        required
-      />
+      <input type="password" class="form-control" id="password" name="password" formControlName="password"
+        placeholder="Password" required (change)="handleChange($event)" />
       <br />
-      <span
-        class="text-danger"
-        *ngIf="
+      <span class="text-danger" *ngIf="
           loginForm.controls['password'].dirty &&
           loginForm.hasError('required', 'password')
-        "
-        >Password is required</span
-      >
+        ">Password is required</span>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

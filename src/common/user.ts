@@ -1,6 +1,15 @@
 export interface IUser {
-  name: string;
-  age: 20;
-  msv: string;
-  gender: string;
+   name: string
+   email: string
+   token: string
+}
+
+export interface ILogin {
+   email: string
+   password: string
+}
+export interface ISignup {
+   email: string
+   password: string
+   name: string
 }

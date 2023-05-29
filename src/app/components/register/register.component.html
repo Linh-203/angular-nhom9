@@ -1,93 +1,47 @@
 <div class="d-flex justify-content-center p-5">
-  <form class="form form-login" [formGroup]="signupForm" (ngSubmit)="signUp()">
+  <form class="form form-login" [formGroup]="signupForm" (ngSubmit)="signUp(dataSubmit)">
     <h1>Register</h1>
-
-    <div class="form-group">
-      <div class="mb-3">
-        <label for="username" class="form-label">User Name</label>
-        <input
-          type="text"
-          class="form-control"
-          aria-describedby="emailHelp"
-          id="name"
-          name="name"
-          placeholder="Enter name"
-          formControlName="userName"
-          required
-        />
-        <span
-          class="text-danger"
-          *ngIf="
-            signupForm.controls['userName'].dirty &&
-            signupForm.hasError('required', 'userName')
-          "
-          >User name is required</span
-        >
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="mb-3">
-        <label for="username" class="form-label">Email address</label>
-        <input
-          type="email"
-          class="form-control"
-          aria-describedby="emailHelp"
-          id="email"
-          name="email"
-          placeholder="Enter email"
-          formControlName="email"
-          required
-        />
-        <span
-          class="text-danger"
-          *ngIf="
-            signupForm.controls['email'].dirty &&
-            signupForm.hasError('required', 'email')
-          "
-          >Email is required</span
-        >
-      </div>
-    </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input
-        type="password"
-        class="form-control"
-        id="password"
-        name="password"
-        formControlName="password"
-        placeholder="Password"
-        required
-      />
-      <span
-        class="text-danger"
-        *ngIf="
-          signupForm.controls['password'].dirty &&
-          signupForm.hasError('required', 'password')
-        "
-        >Password is required</span
-      >
-    </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">Confirm Password</label>
-      <input
-        type="password"
-        class="form-control"
-        id="repassword"
-        name="confirmPassword"
-        formControlName="confirmPassword"
-        placeholder="Confirm Password"
-        required
-      />
-      <span
-        class="text-danger"
-        *ngIf="
-          signupForm.controls['confirmPassword'].dirty &&
-          signupForm.hasError('required', 'confirmPassword')
-        "
-        >Confirm Password is required</span
-      >
-    </div>
+    <mat-form-field class="mb-2">
+      <mat-label for="username" class="form-label">User Name</mat-label>
+      <input type="text" class="form-control fs-6" aria-describedby="emailHelp" id="name" name="name"
+        placeholder="Enter name" formControlName="name" required matInput />
+      <mat-error *ngIf="signupForm.get('name')?.hasError('required')">
+        This field is required !
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="mb-2">
+      <mat-label for="email" class="form-label">Email address</mat-label>
+      <input type="email" class="form-control" aria-describedby="emailHelp" id="email" name="email"
+        placeholder="Enter email" formControlName="email" required matInput />
+      <mat-error *ngIf="signupForm.get('email')?.hasError('required')">
+        This field is required !
+      </mat-error>
+      <mat-error *ngIf="signupForm.get('email')?.hasError('email')">
+        Enter valid email !
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="mb-2">
+      <mat-label for="password" class="form-label">Password</mat-label>
+      <input type="password" class="form-control" id="password" name="password" formControlName="password"
+        placeholder="Password" required matInput />
+      <mat-error *ngIf="signupForm.get('password')?.hasError('required')">
+        This field is required !
+      </mat-error>
+      <mat-error *ngIf="signupForm.get('password')?.hasError('minLength')">
+        Enter at least 6-characters !
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="mb-2">
+      <mat-label for="password" class="form-label">Confirm Password</mat-label>
+      <input type="password" class="form-control" id="repassword" name="confirmPassword"
+        formControlName="confirmPassword" placeholder="Confirm Password" required matInput />
+      <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('required')">
+        This field is required !
+      </mat-error>
+      <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('not_match')">
+        This password doesn't match !
+      </mat-error>
+    </mat-form-field>
 
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

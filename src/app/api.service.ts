@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core'
 })
 export class ApiService {
    constructor(private http: HttpClient) {}
-   baseUrl = 'http://localhost:8000/'
+   baseUrl = 'http://localhost:8000/api'
    httpOptions = {
       headers: new HttpHeaders({
          'Content-Type': 'application/json'
@@ -15,7 +15,7 @@ export class ApiService {
       const token = localStorage.getItem('token')
       return token
    }
-   clearToken(){
-      return localStorage.removeItem("token")
+   clearToken() {
+      return localStorage.removeItem('token')
    }
 }

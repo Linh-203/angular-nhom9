@@ -57,7 +57,13 @@
   justify-content: space-around;
   align-items: center;
 }
-
+.btn-logout{
+  border: 1px solid var(--primary-color) !important;
+  color:var(--primary-color) !important;
+  background-color: white !important;
+  padding: 0.2rem;
+  border-radius: 5px;
+}
 /* .menu {
   margin-left: 100px;
 } */
