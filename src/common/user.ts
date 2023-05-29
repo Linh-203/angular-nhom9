@@ -1,7 +1,12 @@
 export interface IUser {
-   name: string
-   email: string
-   token: string
+   message: string
+   data: {
+      name: string
+      email: string
+      token: string
+      defaultAvatar: string
+      role: string
+   }
 }
 
 export interface ILogin {

@@ -28,7 +28,6 @@ import { MatInputModule } from '@angular/material/input'
 import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field'
 import { MatCheckboxModule } from '@angular/material/checkbox'
 import { MatButtonModule } from '@angular/material/button'
-import { LoginRegisterComponent } from './pages/login-register/login-register.component'
 import { CommonModule } from '@angular/common'
 import { ReactiveFormsModule } from '@angular/forms'
 // Import your library
@@ -41,7 +40,9 @@ import { SidebarComponent } from './admin/sidebar/sidebar.component'
 import { ListproductsComponent } from './admin/listproducts/listproducts.component'
 import { StatisticalComponent } from './admin/statistical/statistical.component'
 import { httpInterceptorProviders } from './http-interceptors'
-
+import { MatDialogModule } from '@angular/material/dialog'
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
+import { GlobalStateService } from './global-state.service'
 @NgModule({
    declarations: [
       AppComponent,
@@ -61,7 +62,6 @@ import { httpInterceptorProviders } from './http-interceptors'
       CartComponent,
       NewComponent,
       LayoutAdminComponent,
-      LoginRegisterComponent,
       SidebarComponent,
       ListproductsComponent,
       StatisticalComponent,
@@ -81,9 +81,11 @@ import { httpInterceptorProviders } from './http-interceptors'
       CommonModule,
       ReactiveFormsModule,
       SlickCarouselModule,
-      HttpClientModule
+      MatDialogModule,
+      HttpClientModule,
+      MatProgressSpinnerModule
    ],
-   providers: [httpInterceptorProviders],
+   providers: [httpInterceptorProviders, GlobalStateService],
    bootstrap: [AppComponent]
 })
 export class AppModule {}

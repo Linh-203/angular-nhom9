@@ -64,6 +64,10 @@
   padding: 0.2rem;
   border-radius: 5px;
 }
+.open-modal{
+  cursor: pointer;
+  font-weight: 600;
+}
 /* .menu {
   margin-left: 100px;
 } */

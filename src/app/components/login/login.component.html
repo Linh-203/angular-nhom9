@@ -1,29 +1,44 @@
-<div class="d-flex justify-content-center p-5">
-  <form class="form form-login" [formGroup]="loginForm" (submit)="signIn(dataSubmit)">
-    <h1>Login</h1>
-    <div class="mb-3">
-      <div class="form-group">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" aria-describedby="emailHelp" id="username" name="email"
-          placeholder="Enter email" formControlName="email" placeholder="Email" required
-          (change)="handleChange($event)" />
-        <br />
-        <span class="text-danger" *ngIf="
-            loginForm.controls['email'].dirty &&
-            loginForm.hasError('required', 'email')
-          ">Email is required</span>
-      </div>
-    </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" id="password" name="password" formControlName="password"
-        placeholder="Password" required (change)="handleChange($event)" />
-      <br />
-      <span class="text-danger" *ngIf="
-          loginForm.controls['password'].dirty &&
-          loginForm.hasError('required', 'password')
-        ">Password is required</span>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+<div *ngIf="loading === true" class="default-modal d-flex justify-content-center align-items-center">
+  <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="loading===false" class="d-flex justify-content-center p-5 modal-auth position-relative">
+  <form class="form form-login mt-4" [formGroup]="loginForm" (ngSubmit)="signIn()">
+    <h1 mat-dialog-title class="fw-semibold">Welcome back!</h1>
+    <mat-form-field class="mb-2">
+      <mat-label for="email" class="form-label">Email address</mat-label>
+      <input type="email" class="form-control fs-5" aria-describedby="emailHelp" id="email" name="email"
+        placeholder="Enter email" formControlName="email" required matInput />
+      <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+        This field is required !
+      </mat-error>
+      <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+        Enter valid email !
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="mb-2">
+      <mat-label for="password" class="form-label">Password</mat-label>
+      <input type="password" class="form-control fs-5" id="password" name="password" formControlName="password"
+        placeholder="Password" required matInput />
+      <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+        This field is required !
+      </mat-error>
+      <mat-error *ngIf="loginForm.get('password')?.hasError('minLength')">
+        Enter at least 6-characters !
+      </mat-error>
+    </mat-form-field>
+    <span class="text-danger fs-6 mb-2">{{this.msgFromServer}}</span>
+    <button type="submit" class="btn btn-submit w-full mt-4" >Submit</button>
   </form>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="wavy">
+    <path fill-opacity="1"
+      d="M0,32L48,58.7C96,85,192,139,288,165.3C384,192,480,192,576,165.3C672,139,768,85,864,74.7C960,64,1056,96,1152,122.7C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+    </path>
+    <defs>
+      <clipPath id="wavy-mask">
+        <path fill-opacity="1"
+          d="M0,32L48,58.7C96,85,192,139,288,165.3C384,192,480,192,576,165.3C672,139,768,85,864,74.7C960,64,1056,96,1152,122.7C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+        </path>
+      </clipPath>
+    </defs>
+  </svg>
 </div>
