@@ -31,18 +31,76 @@ import { MatButtonModule } from '@angular/material/button'
 import { CommonModule } from '@angular/common'
 import { ReactiveFormsModule } from '@angular/forms'
 // Import your library
-import { SlickCarouselModule } from 'ngx-slick-carousel'
-import { HttpClientModule } from '@angular/common/http'
-import { RadioComponent } from './components/radio/radio.component'
-import { ProductsComponent } from './components/products/products.component'
-import { PayComponent } from './components/pay/pay.component'
-import { SidebarComponent } from './admin/sidebar/sidebar.component'
-import { ListproductsComponent } from './admin/listproducts/listproducts.component'
-import { StatisticalComponent } from './admin/statistical/statistical.component'
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { HttpClientModule } from '@angular/common/http';
+import { RadioComponent } from './components/radio/radio.component';
+import { ProductsComponent } from './components/products/products.component';
+import { PayComponent } from './components/pay/pay.component';
+import { SidebarComponent } from './admin/sidebar/sidebar.component';
+import { ListproductsComponent } from './admin/listproducts/listproducts.component';
+import { StatisticalComponent } from './admin/statistical/statistical.component';
+import { AddproductComponent } from './admin/addproduct/addproduct.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { UpdateComponent } from './admin/update/update.component';
+// import { SlickCarouselModule } from 'ngx-slick-carousel'
+// import { HttpClientModule } from '@angular/common/http'
+// import { RadioComponent } from './components/radio/radio.component'
+// import { ProductsComponent } from './components/products/products.component'
+// import { PayComponent } from './components/pay/pay.component'
+// import { SidebarComponent } from './admin/sidebar/sidebar.component'
+// import { ListproductsComponent } from './admin/listproducts/listproducts.component'
+// import { StatisticalComponent } from './admin/statistical/statistical.component'
 import { httpInterceptorProviders } from './http-interceptors'
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { GlobalStateService } from './global-state.service'
+// @NgModule({
+//   declarations: [
+//     AppComponent,
+//     HomeComponent,
+//     FooterComponent,
+//     HeaderComponent,
+    
+//     ProductInCartComponent,
+//     BannerComponent,
+//     CategoryComponentComponent,
+//     NotFoundPageComponentComponent,
+//     DefaultLayoutComponent,
+//     ProductComponent,
+//     DetailProductComponent,
+//     LoginComponent,
+//     RegisterComponent,
+//     CartComponent,
+//     NewComponent,
+//     LayoutAdminComponent,
+//     LoginRegisterComponent,
+//     SidebarComponent,
+//     ListproductsComponent,
+//     StatisticalComponent,
+   
+//     RadioComponent,
+//          AddproductComponent,
+//          DashboardComponent,
+//          UpdateComponent,
+//   ],
+//   imports: [
+//     BrowserModule,
+//     AppRoutingModule,
+//     BrowserAnimationsModule,
+//     FormsModule,
+//     IgxCarouselModule,
+//     MatFormFieldModule,
+//     MatInputModule,
+//     MatButtonModule,
+//     MatCheckboxModule,
+//     CommonModule,
+//     ReactiveFormsModule,
+//     SlickCarouselModule,
+//     HttpClientModule,
+//   ],
+//   providers: [],
+//   bootstrap: [AppComponent],
+
 @NgModule({
    declarations: [
       AppComponent,
@@ -66,7 +124,10 @@ import { GlobalStateService } from './global-state.service'
       ListproductsComponent,
       StatisticalComponent,
 
-      RadioComponent
+      RadioComponent,
+      AddproductComponent,
+         DashboardComponent,
+         UpdateComponent,
    ],
    imports: [
       BrowserModule,
