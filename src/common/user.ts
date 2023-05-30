@@ -3,10 +3,10 @@ export interface IUser {
    data: {
       name: string
       email: string
-      token: string
       defaultAvatar: string
       role: string
    }
+   token: string
 }
 
 export interface ILogin {

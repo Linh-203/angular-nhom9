@@ -34,10 +34,9 @@ export class LoginComponent implements OnInit {
          const res = await this.loginService.signIn(data)
          this.loading = false
          this.msgFromServer = res?.message!
-         if(res?.data?.token){
+         if (res?.token) {
             this.dialogRef.close()
          }
-         
       } catch (error) {
          this.loading = false
          this.msgFromServer = 'Something wrong, try again !'

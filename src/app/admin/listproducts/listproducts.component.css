@@ -1,0 +1,17 @@
+#tdimg {
+    width: 200px;
+}
+
+#tdimg img{
+    width: 100%;
+}
+
+th{
+    text-align: center;
+}
+tr{
+    text-align: center;
+}
+h1{
+    text-align: center;
+}
