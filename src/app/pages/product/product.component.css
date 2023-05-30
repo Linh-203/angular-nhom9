@@ -81,7 +81,36 @@
 .Price {
   margin-bottom: 20px;
 }
+.banner img{
+  width: 100%;
+}
+.banner{
+  background-image: url("https://phuctea.com.vn/wp-content/uploads/2020/11/banner-best-seller-01-scaled.jpg");
+  background-repeat: no-repeat;
+  height: 250px;
+  font-size: 35px;
+  color: #fff;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: 100%;
+}
+ .paginate{
+  display: flex;
+  justify-content: center;
+}
+.cate button{
+  padding: 5px 10px;
+  border: none;
+  background-color: #ccc;
 
+}
+.cate{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /* .card-img-top {
     width: 100%;
     height: 200px;

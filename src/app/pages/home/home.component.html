@@ -11,8 +11,8 @@
   <!-- You can now use your library component in app.component.html -->
   <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" >
     <div ngxSlickItem *ngFor="let imgSlide of favoriteProducts" class="slide slider-item">
-      <a href="products/{{ imgSlide.id }}">
-        <img [src]="imgSlide.imageUrl" [alt]="imgSlide.name" />
+      <a href="products/{{ imgSlide._id }}">
+        <img [src]="imgSlide.image" [alt]="imgSlide.name" />
         <h2>{{ imgSlide.name }}</h2>
         <h5 style="color: red">{{ imgSlide.price }}.000đ</h5>
       </a>
@@ -32,8 +32,8 @@
   </div>
   <div class="row">
     <div class="col-md-4" *ngFor="let product of favoriteProducts">
-      <a href="products/{{ product.id }}">
-        <img [src]="product.imageUrl" [alt]="product.name" class="img-favorite" />
+      <a href="products/{{ product._id }}">
+        <img [src]="product.image" [alt]="product.name" class="img-favorite" />
         <h2>{{ product.name }}</h2>
         <h5 style="color: red">{{ product.price }}.000đ</h5>
       </a>

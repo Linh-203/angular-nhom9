@@ -40,84 +40,84 @@ export const category = [
 ]
 export const favoriteProductsFake: IProducts[] = [
    {
-      id: '1',
+      _id: '1',
       idcate: '1',
       name: 'Sinh tố dâu tây',
       price: 25,
       desc: '',
-      imageUrl:
+      image:
          'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/05-a41e0c7f-e4c9-4ad2-9412-1e8c4d79a028.jpg?v=1510561983257'
    },
    {
-      id: '2',
+      _id: '2',
       idcate: '1',
       name: 'Trà xanh bưởi',
       price: 30,
       desc: '',
-      imageUrl:
+      image:
          'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/07-550de86d-8a95-4083-8490-8ee5fcb930c6.jpg?v=1510561744770'
    },
    {
-      id: '3',
+      _id: '3',
       idcate: '2',
       name: 'Hồng trà mật ong',
       price: 5,
       desc: '',
-      imageUrl:
+      image:
          'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/2016910153030-tra-olong-sui-bot.jpg?v=1510561084490'
    },
    {
-      id: '4',
+      _id: '4',
       idcate: '2',
       name: 'Trà sữa kiwi',
       price: 25,
       desc: '',
-      imageUrl:
+      image:
          'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/04-de27bf4e-5fa7-4517-a796-94b7d46d5b4e.jpg?v=1510560499817'
    },
    {
-      id: '5',
+      _id: '5',
       idcate: '1',
       name: 'Trà sữa khoai môn',
       price: 30,
       desc: '',
-      imageUrl:
+      image:
          'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/11-72b16683-c3bd-4c4f-9ba2-f9b2a5dce3a8.jpg?v=1510560206717'
    },
    {
-      id: '6',
+      _id: '6',
       idcate: '1',
       name: 'Trà chanh đài loan',
       price: 5,
       desc: '',
-      imageUrl:
+      image:
          'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/2016910154723-tra-xanh-xi-muoi.jpg?v=1510561254037'
    },
    {
-      id: '7',
+      _id: '7',
       idcate: '1',
       name: 'Trà xanh bưởi',
       price: 30,
       desc: '',
-      imageUrl:
+      image:
          'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/07-550de86d-8a95-4083-8490-8ee5fcb930c6.jpg?v=1510561744770'
    },
    {
-      id: '8',
+      _id: '8',
       idcate: '1',
       name: 'Trà sữa khoai môn',
       price: 30,
       desc: '',
-      imageUrl:
+      image:
          'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/11-72b16683-c3bd-4c4f-9ba2-f9b2a5dce3a8.jpg?v=1510560206717'
    },
    {
-      id: '9',
+      _id: '9',
       idcate: '2',
       name: 'Hồng trà mật ong',
       price: 5,
       desc: '',
-      imageUrl:
+      image:
          'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/2016910153030-tra-olong-sui-bot.jpg?v=1510561084490'
    }
 ]

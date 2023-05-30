@@ -12,7 +12,7 @@
   </thead>
   <tbody *ngFor="let product of favoriteProducts">
     <tr>
-      <th scope="row">{{product.id}}</th>
+      <th scope="row">{{product._id}}</th>
       <td>{{product.name}}</td>
       <td>{{product.price}} $</td>
       <td  id="tdimg"><img src="{{product.imageUrl}}" alt=""></td>
