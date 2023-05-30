@@ -6,5 +6,5 @@ import { favoriteProductsFake } from 'src/data/products';
   styleUrls: ['./favorite.component.css']
 })
 export class FavoriteComponent {
-  favoriteProducts = favoriteProductsFake
+  products = favoriteProductsFake
 }

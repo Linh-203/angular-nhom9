@@ -18,7 +18,7 @@ export class DetailProductComponent implements OnInit {
   countCMT:any
   constructor( private http: HttpClient, private route: ActivatedRoute) { }
  
-  idLocal = JSON.parse(localStorage.getItem('idUser')!);
+  idLocal = JSON.parse(localStorage.getItem('user')!)._id;
   countFv:any
   idP:any
   ngOnInit(): void {
@@ -51,12 +51,12 @@ export class DetailProductComponent implements OnInit {
   idProduct: string = ""
   formData = {
     content: "",
-    idUser: JSON.parse(localStorage.getItem('idUser')!),
+    idUser: JSON.parse(localStorage.getItem('user')!)._id,
     idProduct: this.id
 
   }
   favoriteData={
-    idUser: JSON.parse(localStorage.getItem('idUser')!),
+    idUser: JSON.parse(localStorage.getItem('user')!)._id,
     idProduct: this.id
   }
 
@@ -73,6 +73,7 @@ export class DetailProductComponent implements OnInit {
       }
     )
   }
+  comment:any
   getCMT(){
     let apiUrlCMT =  "http://localhost:8000/api/comment/"+this.id;
     this.http.get(apiUrlCMT).subscribe(
@@ -113,6 +114,43 @@ export class DetailProductComponent implements OnInit {
 
       }
     )
+   
+   
+  
+   }
+   comments:any
+   favoriteProducts:any
+   getData() {
+    let apiUrl = "http://localhost:8000/api/products";
+    this.http.get(apiUrl).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.favoriteProducts = response.docs;
+        console.log(this.favoriteProducts);
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
+  addComment() {
+    console.log(this.formData);
+    if(this.formData.idUser){
+      let apiUrl = "http://localhost:8000/api/comment";
+      this.http.post(apiUrl, this.formData).subscribe(
+        (response: any) => {
+          console.log(response);
+          this.comments = response;
+          console.log(this.comments);
+          this.getCMT()
+        },
+        (error: any) => {
+          console.log(error);
+        }
+      );
+      }else{
+        alert("Bạn chưa đăng nhập")
+      }
   }
   addFavorite(){
     if(this.idLocal){
@@ -155,28 +193,6 @@ export class DetailProductComponent implements OnInit {
   
 
   }
-  comments:any
-
-   addComment() {
-    console.log(this.formData);
-    if(this.formData.idUser){
-      let apiUrl = "http://localhost:8000/api/comment";
-      this.http.post(apiUrl, this.formData).subscribe(
-        (response: any) => {
-          console.log(response);
-          this.comments = response;
-          console.log(this.comments);
-          this.getCMT()
-        },
-        (error: any) => {
-          console.log(error);
-        }
-      );
-      }else{
-        alert("Bạn chưa đăng nhập")
-      }
-  }
- 
   increaseQuantity() {
     this.quantity++;
   }
@@ -186,42 +202,9 @@ export class DetailProductComponent implements OnInit {
       this.quantity--;
     }
   }
-  comment:any
-  userComment:any
- 
- 
-  favoriteProducts:any
-  getData() {
-    let apiUrl = "http://localhost:8000/api/products";
-    this.http.get(apiUrl).subscribe(
-      (response: any) => {
-        console.log(response);
-        this.favoriteProducts = response.docs;
-        console.log(this.favoriteProducts);
-      },
-      (error: any) => {
-        console.log(error);
-      }
-    );
-  }
-  selectedSortOrder: any;
-
-  onSortOrderChange() {
-    console.log(123);
-   
-    if (this.selectedSortOrder) {
- 
-      let apiUrl = "http://localhost:3000/products/?_sort=price&_order=" + this.selectedSortOrder;
-      this.http.get(apiUrl).subscribe(
-        (res :any)=>{
-            this.favoriteProducts = res
-        }
-      
-      )
-       
-    } 
-  }
-
- 
- 
+  
 }
+
+ 
+ 
+
