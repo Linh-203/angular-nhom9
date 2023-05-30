@@ -1,12 +1,10 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { CategoryComponentComponent } from './pages/category/category-component/category-component.component';
-import { NotFoundPageComponentComponent } from './pages/not-found-page/not-found-page-component/not-found-page-component.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
+import { NgModule } from '@angular/core'
+import { RouterModule, Routes } from '@angular/router'
+import { HomeComponent } from './pages/home/home.component'
+import { CategoryComponentComponent } from './pages/category/category-component/category-component.component'
+import { NotFoundPageComponentComponent } from './pages/not-found-page/not-found-page-component/not-found-page-component.component'
 
-import { CartComponent } from './components/cart/cart.component';
+import { CartComponent } from './components/cart/cart.component'
 
 import { DetailProductComponent } from './pages/detail-product/detail-product.component';
 import { NewComponent } from './pages/new/new.component';
@@ -19,6 +17,8 @@ import { StatisticalComponent } from './admin/statistical/statistical.component'
 import { AddproductComponent } from './admin/addproduct/addproduct.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { UpdateComponent } from './admin/update/update.component';
+import { RegisterComponent } from './components/register/register.component'
+import { LoginComponent } from './components/login/login.component'
 
 const routes: Routes = [
   {
@@ -53,8 +53,11 @@ const routes: Routes = [
   { path: '**', component: NotFoundPageComponentComponent },
 ];
 
+
+
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+   imports: [RouterModule.forRoot(routes)],
+   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

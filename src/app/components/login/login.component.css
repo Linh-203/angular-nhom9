@@ -1,6 +1,20 @@
 .form-login {
-  width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.btn-submit{
+  background-color:var(--2light-color);
+  color: white;
+  font-weight: 700;
 }
 h1 {
   text-align: center;
+}
+.wavy{
+  fill: var(--primary-color);
+  position: absolute;
+  top:0;
+  transform: rotate(180deg);
 }
