@@ -19,8 +19,6 @@ import { StatisticalComponent } from './admin/statistical/statistical.component'
 import { AddproductComponent } from './admin/addproduct/addproduct.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { UpdateComponent } from './admin/update/update.component';
-import { RegisterComponent } from './components/register/register.component'
-import { LoginComponent } from './components/login/login.component'
 
 const routes: Routes = [
    {
