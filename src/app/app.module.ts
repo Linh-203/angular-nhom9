@@ -41,6 +41,9 @@ import { PayComponent } from './components/pay/pay.component';
 import { SidebarComponent } from './admin/sidebar/sidebar.component';
 import { ListproductsComponent } from './admin/listproducts/listproducts.component';
 import { StatisticalComponent } from './admin/statistical/statistical.component';
+import { AddproductComponent } from './admin/addproduct/addproduct.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { UpdateComponent } from './admin/update/update.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +70,9 @@ import { StatisticalComponent } from './admin/statistical/statistical.component'
     StatisticalComponent,
    
     RadioComponent,
+         AddproductComponent,
+         DashboardComponent,
+         UpdateComponent,
   ],
   imports: [
     BrowserModule,
