@@ -6,7 +6,7 @@ const validateproduct = joi.object({
     name:joi.string().required(),
     price:joi.number().required(),
     image:joi.string().required(),
-    // desc:joi.string().required(),
+    desc:joi.string().required(),
      categoryId:joi.string().required()
 })
 

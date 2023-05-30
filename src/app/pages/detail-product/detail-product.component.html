@@ -1,237 +1,188 @@
-<div class="detail" >
- 
-  <div class="banner">
-    <ng-container *ngIf="product">
-   <h1>{{product.name}}</h1>
-  </ng-container>
-  </div>
-<div class="title">
-    <p style="margin-top: 30px; margin-left: 70px;"> BobaDink <i style="color: blue;" class="fa-solid fa-angle-right"></i> Đồ uống ưa thích <i style="color: blue;" class="fa-solid fa-angle-right"></i> {{product.name}}</p>
- </div>
+<div class="detail">
 
-<div class="detailProduct" style="display: flex;padding: 0 70px;">
-   
+  <div class="banner">
+  </div>
+  <div class="title">
+    <p style="margin-top: 30px; margin-left: 70px;"> BobaDink <i style="color: blue;"
+        class="fa-solid fa-angle-right"></i> Đồ uống ưa thích <i style="color: blue;"
+        class="fa-solid fa-angle-right"></i> {{product.name}}</p>
+  </div>
+
+  <div class="detailProduct" style="display: flex;padding: 0 70px;">
+
     <div class="imageProduct" style="text-align: center;">
-    <img id="mainImg" src="{{product.image}}" width="550px" style="margin-right: 20px;" alt="">
-    <div class="imageChild">
+      <img id="mainImg" src="{{product.image}}" width="550px" style="margin-right: 20px;" alt="">
+      <div class="imageChild">
         <p>
-            <img src="{{product.image}}" alt="">
-        <img src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t45.5328-9/12532472_1039260592813066_1014951346_n.jpg?stp=dst-jpg_p403x403&_nc_cat=111&ccb=1-7&_nc_sid=c48759&_nc_ohc=Rruluhx-JnQAX9we_ww&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfCno_Cfd_l8O6fvX64xsnIEnnEm1dLwx9oleWmfUFbTeA&oe=6469AF13" alt="">
-        <img src="https://scontent.fsgn2-7.fna.fbcdn.net/v/t45.5328-4/12521037_1057471864314337_1463988180_n.png?stp=dst-png_s960x960&_nc_cat=108&ccb=1-7&_nc_sid=c48759&_nc_ohc=hE7XJBTHOHUAX9zi6wa&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfBVoxyQDQEOc9UWfnelcRXWILQgLwc7rwoPGKcQyJob2A&oe=646AD6E4" alt="">
-        <img src="https://scontent.fsgn2-5.fna.fbcdn.net/v/t45.5328-4/12532455_948907765175153_197989111_n.png?stp=dst-png_s960x960&_nc_cat=104&ccb=1-7&_nc_sid=c48759&_nc_ohc=T57CqdzRm4wAX-t5mJC&_nc_ht=scontent.fsgn2-5.fna&oh=00_AfCW2KxAsrpiZJ1ybp3C7jsj0nnK3BImNEVaLNB2HgeQHA&oe=646A0685" alt="">
-    </p>
+          <img src="{{product.image}}" alt="">
+          <img
+            src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t45.5328-9/12532472_1039260592813066_1014951346_n.jpg?stp=dst-jpg_p403x403&_nc_cat=111&ccb=1-7&_nc_sid=c48759&_nc_ohc=Rruluhx-JnQAX9we_ww&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfCno_Cfd_l8O6fvX64xsnIEnnEm1dLwx9oleWmfUFbTeA&oe=6469AF13"
+            alt="">
+          <img
+            src="https://scontent.fsgn2-7.fna.fbcdn.net/v/t45.5328-4/12521037_1057471864314337_1463988180_n.png?stp=dst-png_s960x960&_nc_cat=108&ccb=1-7&_nc_sid=c48759&_nc_ohc=hE7XJBTHOHUAX9zi6wa&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfBVoxyQDQEOc9UWfnelcRXWILQgLwc7rwoPGKcQyJob2A&oe=646AD6E4"
+            alt="">
+          <img
+            src="https://scontent.fsgn2-5.fna.fbcdn.net/v/t45.5328-4/12532455_948907765175153_197989111_n.png?stp=dst-png_s960x960&_nc_cat=104&ccb=1-7&_nc_sid=c48759&_nc_ohc=T57CqdzRm4wAX-t5mJC&_nc_ht=scontent.fsgn2-5.fna&oh=00_AfCW2KxAsrpiZJ1ybp3C7jsj0nnK3BImNEVaLNB2HgeQHA&oe=646A0685"
+            alt="">
+        </p>
+      </div>
+      <div class="shareAndFavourite">
+        <div class="share">
+          <p>Chia sẻ: </p>
+          <i style="color: blue;" class="fa-brands fa-facebook"></i>
+          <i style="color: orangered;" class="fa-brands fa-instagram"></i>
+          <i style="color: rgba(0, 85, 255, 0.654);" class="fa-brands fa-twitter"></i>
+        </div>
+        <div class="favourite">
+          <i [ngClass]="{'is-favorite': isFavorite, 'not-favorite': !isFavorite}" (click)="addFavorite()"
+            class="fa-sharp fa-regular fa-heart cursor-pointer"></i> Đã thích ({{countFv}})
+        </div>
+      </div>
     </div>
-    <div class="shareAndFavourite">
-   <div class="share">
-    <p>Chia sẻ: </p>
-    <i style="color: blue;" class="fa-brands fa-facebook"></i>
-    <i style="color: orangered;" class="fa-brands fa-instagram"></i>
-    <i style="color: rgba(0, 85, 255, 0.654);"class="fa-brands fa-twitter"></i>
-   </div>
-   <div class="favourite">
-    <i [ngClass]="{'is-favorite': isFavorite, 'not-favorite': !isFavorite}"  (click) = "addFavorite()" class="fa-sharp fa-regular fa-heart"></i> Đã thích ({{countFv}})
-   </div>
-</div>
-</div>
     <div class="productInformation">
-      <ng-container *ngIf="product"> <h1 style="color: #c7a17a; text-transform: uppercase;font-weight: 500;">{{product.name}}</h1></ng-container>  
-        <h4>Thương hiệu: Royal Tea</h4>
-        
-        <h3 style="font-size: 25px; color: #ee4d2d;">{{product.price}}.000₫ </h3>
-        <p>{{product.desc}}</p>
-        <h4 class="size" style="display: flex;">Size: <p>M</p> <p>L</p> <p>XL</p> </h4>
-        
-         
-          <div class="ice-sugar">
-            <div class="sugar-title" style="margin-top: 20px;">
-              <p>Ice-%</p> 
-              <div class="sugar">
-                 <div class="item-sugar">
-                <div class="glass">
-                  <div class="water9"></div>
-                </div>
-                <p>90%</p>
-              </div>
-              <div class="item-sugar">
-                <div class="glass">
-                  <div class="water7"></div>
-                </div>
-                <p>70%</p>
-              </div>
-              <div class="item-sugar">
-                <div class="glass">
-                  <div class="water5"></div>
-                </div>
-                <p>50%</p>
-              </div>
-              <div class="item-sugar">
-                <div class="glass">
-                  <div class="water3"></div>
-                </div>
-                <p>30%</p>
-              </div>
-              <div class="item-sugar">
-                <div class="glass">
-                  <div class="water1"></div>
-                </div>
-                <p>10%</p>
-              </div>
-              </div>
-            </div>
-           <div class="sugar-title" style="margin-top: 20px;">
-            <p>Sugar-%</p> 
-            <div class="sugar">
-               <div class="item-sugar">
-              <div class="glass">
-                <div class="water9"></div>
-              </div>
-              <p>90%</p>
-            </div>
+      <ng-container *ngIf="product">
+        <h1 style="color: #c7a17a; text-transform: uppercase;font-weight: 500;">{{product.name}}</h1>
+      </ng-container>
+      <h4>Thương hiệu: Royal Tea</h4>
+
+      <h3 style="font-size: 25px; color: #ee4d2d;">{{product.price}} ₫ </h3>
+      <p>{{product.desc}}</p>
+      <h4 class="size" style="display: flex;flex-direction: column;">
+        <p>Size</p>
+        <app-radio [listRadio]="fakeSize" nameValue="size" (change)="onChangeRadio($event)"></app-radio>
+      </h4>
+      <div class="ice-sugar">
+        <div class="sugar-title" style="margin-top: 20px;">
+          <p>Ice-%</p>
+          <div class="sugar">
+            <app-radio [listRadio]="fakeIce" nameValue="ice" (change)="onChangeRadio($event)"></app-radio>
+          </div>
+        </div>
+        <div class="sugar-title" style="margin-top: 20px;">
+          <p>Sugar-%</p>
+          <div class="sugar">
             <div class="item-sugar">
-              <div class="glass">
-                <div class="water7"></div>
-              </div>
-              <p>70%</p>
-            </div>
-            <div class="item-sugar">
-              <div class="glass">
-                <div class="water5"></div>
-              </div>
-              <p>50%</p>
-            </div>
-            <div class="item-sugar">
-              <div class="glass">
-                <div class="water3"></div>
-              </div>
-              <p>30%</p>
-            </div>
-            <div class="item-sugar">
-              <div class="glass">
-                <div class="water1"></div>
-              </div>
-              <p>10%</p>
-            </div>
+              <app-radio [listRadio]="fakeIce" nameValue="sugar" (change)="onChangeRadio($event)"></app-radio>
             </div>
           </div>
-           </div>
-           <h4 style="display: flex;align-items: center;border-bottom: 1px solid #ccc;padding-bottom: 10px;">Số lượng
-            <div id="updateQuantity" style="background-color: #f5f5f5;border-radius: 25px;padding: 10px;margin-left: 10px;">
-             <span (click)="decreaseQuantity()" style="margin-left: 10px;">-</span>
-               <input value="1" type="text" [(ngModel)]="quantity" style="width: 50px;text-align: center;border:none; background-color: #f5f5f5;outline: none;">
-               <span (click)="increaseQuantity()" >+</span>
-             </div>
-
-             </h4>
-             <p style="color: gray;">101 sản phẩm có sẵn</p>
-                  <button type="button" class="btn btn-success" style="margin-top: 30px;border-radius: 25px;padding: 10px 20px;">Thêm giỏ hàng</button>
-                
-                </div>
-                <div class="service-product">
-                  <div class="service_item">
-                    <div class="image_service">
-                      <img src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/service_1_details.png?1676358260059" alt="">
-                    </div>
-                    <div class="content_service">
-                      <h3 class="title_service">
-                        Giao hàng miễn phí với đơn hàng trên 300.000đ
-                      </h3>
-                    </div>
-                  </div>
-                  <div class="service_item">
-                    <div class="image_service">
-                      <img src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/service_2_details.png?1676358260059" alt="">
-                    </div>
-                    <div class="content_service">
-                      <h3 class="title_service">
-                        Phục vụ nhanh 24/7 <br>
-                     (8h00 am - 22h30 pm,T2 - CN)
-                      </h3>
-                    </div>
-                  </div>
-                  <div class="service_item">
-                    <div class="image_service">
-                      <img src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/service_3_details.png?1676358260059" alt="">
-                    </div>
-                    <div class="content_service">
-                      <h3 class="title_service">
-                        Hotline liên hệ <br>
-                      <p style="color: #ee4d2d;"> 1900 6750</p> 
-                      </h3>
-                    </div>
-                  </div>
-                  <div class="service_item">
-                    <div class="image_service">
-                      <img src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/service_4_details.png?1676358260059" alt="">
-                    </div>
-                    <div class="content_service">
-                      <h3 class="title_service">
-                        Thanh toán khi nhận hàng hoặc qua thẻ ATM
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-</div>
-<p style="font-size: 20px;margin-left: 120px;margin-top: 30px;">Bình luận (3)</p>
-<div class="show-cmt" style="max-height: 400px; overflow: scroll;">
-<div class="comment" *ngFor="let item of comment" >
-    <div class="avatar" >
-      <img src="https://vn112.com/wp-content/uploads/2018/01/1516417120l48pc-700x1074.jpg"alt="Avatar">
-    </div>
-    <div class="comment-content">
-      <div class="header">
-        <h4 class="name">{{infoUser.name}}</h4>
-        <p class="date" style="margin-left: 20px;">May 15, 2023</p>
-      </div>
-      <div class="body">
-       <p>{{item.content}}</p>
-      </div>
-    </div>
-    <!-- <div *ngIf="idLocal == userComment.id">
-    <button>Xóa</button>
-  </div> -->
-  </div>
-</div>
-  
-  <div class="add-comment">
-    <form action="" (ngSubmit)="addComment()" style="display: flex;align-items: center;margin-top: 30px;margin-left: 120px;">
-    <input name="content"  [(ngModel)] ="formData.content" type="text" class="form-control" style="width: 400px;" placeholder="Nhập bình luận của bạn">
-    
-    <button class="btn btn-success"><i class="fa-solid fa-paper-plane"></i></button>
-   </form>
-   </div>
-    <!-- <ng-container *ngIf="formData.content.length > 0">
-      <p>Alo</p>
-    </ng-container> -->
-   
- 
-    
-  <div class="relate">
-  <img src="https://websitecukcukvn.misacdn.net/wp-content/uploads/2022/04/ca%CC%81ch-pha-che%CC%82%CC%81-do%CC%82%CC%80-uo%CC%82%CC%81ng-cho-mu%CC%80a-he%CC%80-03.png" alt="">
-  <p style="font-size: 20px;text-align: center;color: seagreen; ">Sản phẩm liên quan: </p>
-</div>
-<div class="products">
-  <div class="row" style="padding: 0 70px;text-align: center;">
-    <div class="col-md-4" *ngFor="let product of favoriteProducts">
-      <a href="products/{{product._id}}">
-        <div class="imgFavorite">
-            <img [src]="product.image" width="200px" [alt]="product.name"  />
         </div>
-      <h2>{{ product.name }}</h2>
-      <h5 style="color: red;font-size: 20px;">{{ product.price }}.000₫ </h5>
-    </a>
-    <div class="cart_eye">
-    <i title="Thêm giỏ hàng" class="fa-solid fa-cart-shopping"></i>
-   <a title="Xem chi tiết" href="products/{{product._id}}"> <i class="fa-solid fa-eye"></i></a>
-    <i title="Thêm yêu thích" class="fa-sharp fa-regular fa-heart"></i>
-  </div>
+        <h4 style="display: flex;align-items: center;border-bottom: 1px solid #ccc;padding-bottom: 10px;">Số lượng
+          <div id="updateQuantity"
+            style="background-color: #f5f5f5;border-radius: 25px;padding: 10px;margin-left: 10px;display: flex; justify-content: space-around;align-items:center ;">
+            <span (click)="decreaseQuantity()" style="margin-left: 10px;">-</span>
+            <input value="1" type="text" [(ngModel)]="quantity"
+              style="flex:1;text-align: center;border:none; background-color: #f5f5f5;outline: none;">
+            <span (click)="increaseQuantity()">+</span>
+          </div>
+
+        </h4>
+        <p style="color: gray;">101 sản phẩm có sẵn</p>
+        <button type="button" class="btn btn-success"
+          style="margin-top: 30px;border-radius: 25px;padding: 10px 20px;">Thêm giỏ hàng</button>
+
+      </div>
+    </div>
+    <div class="service-product">
+      <div class="service_item">
+        <div class="image_service">
+          <img src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/service_1_details.png?1676358260059"
+            alt="">
+        </div>
+        <div class="content_service">
+          <h3 class="title_service">
+            Giao hàng miễn phí với đơn hàng trên 300.000đ
+          </h3>
+        </div>
+      </div>
+      <div class="service_item">
+        <div class="image_service">
+          <img src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/service_2_details.png?1676358260059"
+            alt="">
+        </div>
+        <div class="content_service">
+          <h3 class="title_service">
+            Phục vụ nhanh 24/7 <br>
+            (8h00 am - 22h30 pm,T2 - CN)
+          </h3>
+        </div>
+      </div>
+      <div class="service_item">
+        <div class="image_service">
+          <img src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/service_3_details.png?1676358260059"
+            alt="">
+        </div>
+        <div class="content_service">
+          <h3 class="title_service">
+            Hotline liên hệ <br>
+            <p style="color: #ee4d2d;"> 1900 6750</p>
+          </h3>
+        </div>
+      </div>
+      <div class="service_item">
+        <div class="image_service">
+          <img src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/service_4_details.png?1676358260059"
+            alt="">
+        </div>
+        <div class="content_service">
+          <h3 class="title_service">
+            Thanh toán khi nhận hàng hoặc qua thẻ ATM
+          </h3>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+  <div class="comment-block">
+    <p class="fw-bold fs-5">Bình luận</p>
+    <div class="show-cmt">
+      <div class="comment" *ngFor="let item of comment">
+        <div class="avatar">
+          <img src="https://vn112.com/wp-content/uploads/2018/01/1516417120l48pc-700x1074.jpg" alt="Avatar">
+        </div>
+        <div class="comment-content">
+          <div class="header">
+            <h4 class="name">{{infoUser.name}}</h4>
+            <p class="date" style="margin-left: 20px;">May 15, 2023</p>
+          </div>
+          <div class="body">
+            <p>{{item.content}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-</div>
+    <div>
+      <form action="" (ngSubmit)="addComment()" class="add-comment">
+        <img src={{userDontOverwride?.defaultAvatar}} *ngIf="idLocal!== ''" alt="avatar" class="avatar-user">
+        <input name="content" [(ngModel)]="formData.content" type="text" class="form-control" style="width: 400px;"
+          placeholder="Nhập bình luận của bạn">
+        <button class="btn btn-success"><i class="fa-solid fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+  <div>
+    <div class="relate">
+      <img
+        src="https://websitecukcukvn.misacdn.net/wp-content/uploads/2022/04/ca%CC%81ch-pha-che%CC%82%CC%81-do%CC%82%CC%80-uo%CC%82%CC%81ng-cho-mu%CC%80a-he%CC%80-03.png"
+        alt="">
+      <p style="font-size: 20px;text-align: center;color: seagreen; ">Sản phẩm liên quan: </p>
+    </div>
+    <div class="products">
+      <div class="row" style="padding: 0 70px;text-align: center;">
+        <div class="col-md-4" *ngFor="let product of favoriteProducts">
+          <a href="products/{{product._id}}">
+            <div class="imgFavorite">
+              <img [src]="product.image" width="200px" [alt]="product.name" />
+            </div>
+            <h2>{{ product.name }}</h2>
+            <h5 style="color: red;font-size: 20px;">{{ product.price }}.000₫ </h5>
+          </a>
+          <div class="cart_eye">
+            <i title="Thêm giỏ hàng" class="fa-solid fa-cart-shopping"></i>
+            <a title="Xem chi tiết" href="products/{{product._id}}"> <i class="fa-solid fa-eye"></i></a>
+            <i title="Thêm yêu thích" class="fa-sharp fa-regular fa-heart "></i>
+          </div>
+        </div>
+      </div>
+    </div>
 
-
-  
-
-
-  
+  </div>

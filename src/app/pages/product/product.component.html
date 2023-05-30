@@ -2,7 +2,7 @@
   <h1>Tất cả sản phẩm</h1>
 </div>
 <div class="container">
-  
+
   <h1>Danh sách sản phẩm</h1>
   <div class="row">
     <div class="col-md-3">
@@ -29,51 +29,31 @@
       </form> -->
       <div>
         <label for="">Sắp xếp theo giá</label>
-        <select class="form-select"  [(ngModel)]="selectedSortOrder" (ngModelChange)="onSortOrderChange()">
+        <select class="form-select" [(ngModel)]="selectedSortOrder" (ngModelChange)="onSortOrderChange()">
           <option value="asc">Tăng dần</option>
           <option value="desc">Giảm dần</option>
         </select>
       </div>
-      
+
 
       <div class="brand">
         <h4>Thương hiệu</h4>
 
         <ul class="list-group">
           <li class="list-group-item">
-            <input
-              class="form-check-input me-1"
-              type="checkbox"
-              value=""
-              aria-label="..."
-            />
+            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
             Gong Cha
           </li>
           <li class="list-group-item">
-            <input
-              class="form-check-input me-1"
-              type="checkbox"
-              value=""
-              aria-label="..."
-            />
+            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
             Good Tea
           </li>
           <li class="list-group-item">
-            <input
-              class="form-check-input me-1"
-              type="checkbox"
-              value=""
-              aria-label="..."
-            />
+            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
             Popapop
           </li>
           <li class="list-group-item">
-            <input
-              class="form-check-input me-1"
-              type="checkbox"
-              value=""
-              aria-label="..."
-            />
+            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
             Royal Tea
           </li>
         </ul>
@@ -84,48 +64,23 @@
 
         <ul class="list-group">
           <li class="list-group-item">
-            <input
-              class="form-check-input me-1"
-              type="checkbox"
-              value=""
-              aria-label="..."
-            />
+            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
             100.000đ - 200.000đ
           </li>
           <li class="list-group-item">
-            <input
-              class="form-check-input me-1"
-              type="checkbox"
-              value=""
-              aria-label="..."
-            />
+            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
             200.000đ - 300.000đ
           </li>
           <li class="list-group-item">
-            <input
-              class="form-check-input me-1"
-              type="checkbox"
-              value=""
-              aria-label="..."
-            />
+            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
             300.000đ - 500.000đ
           </li>
           <li class="list-group-item">
-            <input
-              class="form-check-input me-1"
-              type="checkbox"
-              value=""
-              aria-label="..."
-            />
+            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
             500.000đ - 1.000.000đ
           </li>
           <li class="list-group-item">
-            <input
-              class="form-check-input me-1"
-              type="checkbox"
-              value=""
-              aria-label="..."
-            />
+            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
             Giá trên 1.000.000đ
           </li>
         </ul>
@@ -136,48 +91,23 @@
 
         <ul class="list-group">
           <li class="list-group-item">
-            <input
-              class="form-check-input me-1"
-              type="checkbox"
-              value=""
-              aria-label="..."
-            />
+            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
             XXL
           </li>
           <li class="list-group-item">
-            <input
-              class="form-check-input me-1"
-              type="checkbox"
-              value=""
-              aria-label="..."
-            />
+            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
             XL
           </li>
           <li class="list-group-item">
-            <input
-              class="form-check-input me-1"
-              type="checkbox"
-              value=""
-              aria-label="..."
-            />
+            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
             L
           </li>
           <li class="list-group-item">
-            <input
-              class="form-check-input me-1"
-              type="checkbox"
-              value=""
-              aria-label="..."
-            />
+            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
             M
           </li>
           <li class="list-group-item">
-            <input
-              class="form-check-input me-1"
-              type="checkbox"
-              value=""
-              aria-label="..."
-            />
+            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
             S
           </li>
         </ul>
@@ -185,44 +115,37 @@
     </div>
     <div class="col-md-9">
       <div class="cate">
-      <button (click) = "currentProduct()" >ALL</button>
-      <div *ngFor="let category of categories">
-        <button (click)="selectCate(category._id)" >{{category.name}}</button>
+        <button (click)="currentProduct()">ALL</button>
+        <div *ngFor="let category of categories">
+          <button (click)="selectCate(category._id)">{{category.name}}</button>
+        </div>
       </div>
-    </div>
       <div class="row">
         <div class="col-md-4" *ngFor="let product of filteredProducts">
           <a routerLink="{{ product._id }}">
-            <img
-              [src]="product.image"
-              [alt]="product.name"
-              class="img-favorite"
-            />
+            <img [src]="product.image" [alt]="product.name" class="img-favorite" />
             <h2>{{ product.name }}</h2>
-            <h5 style="color: red">{{ product.price }}.000đ</h5>
+            <h5 style="color: var(--2light-color);font-weight: 700;">{{ product.price }} vnd</h5>
           </a>
         </div>
       </div>
-       <div class="paginate">
-      <mat-paginator [length]="formattedPagination.length"
-       [pageSize]="formattedPagination.pageSize"
-       [pageSizeOptions]="formattedPagination.pageSizeOptions" 
-       [pageIndex]="formattedPagination.pageIndex"
-      
-      (page)="onPageChange($event)">
-      </mat-paginator>
+      <div class="paginate">
+        <mat-paginator [length]="formattedPagination.length" [pageSize]="formattedPagination.pageSize"
+          [pageSizeOptions]="formattedPagination.pageSizeOptions" [pageIndex]="formattedPagination.pageIndex"
+          (page)="onPageChange($event)">
+        </mat-paginator>
+
+      </div>
+
+
+
+
+
+
+
+
 
     </div>
 
-
-
-
-
-    
-    
-
-      
-    </div>
-    
   </div>
 </div>

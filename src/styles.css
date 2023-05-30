@@ -9,6 +9,9 @@
   --primary-color: #f4ce0f;
   --2light-color: #E893CF;
 }
+.cursor-pointer{
+  cursor: pointer;
+}
 input{
   border: none !important ;
   background-color: transparent !important;
