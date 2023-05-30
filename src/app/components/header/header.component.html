@@ -57,24 +57,24 @@
           </div>
         </ul>
       </div>
-      <div class="p-1 dropdown" *ngIf="token===null">
+      <div class="p-1 dropdown" *ngIf="getUserInfo()===null">
         <a routerLink="/signup" id="dropdownUserButton" data-mdb-toggle="dropdown" aria-expanded="false">
           <i class="fa-solid fa-user fs-5" style="color: #e5d300"></i>
         </a>
         <ul class="dropdown-menu drop-user p-2" aria-labelledby="dropdownUserButton">
           <div class="d-flex flex-column align-items-center">
-            <a routerLink="/login">Sign in</a>
-            <a routerLink="/signup">Sign up</a>
+            <p (click)="openDialog('signin')" class="open-modal">Sign in</p>
+            <p (click)="openDialog('signup') " class="open-modal">Sign up</p>
           </div>
         </ul>
       </div>
-      <div class="p-1 dropdown w-10" *ngIf="token!==null">
+      <div class="p-1 dropdown w-10" *ngIf="getUserInfo()!==null">
         <a routerLink="/profile" id="dropdownUserButton" data-mdb-toggle="dropdown" aria-expanded="false">
-          <img src={{userInfo?.data?.defaultAvatar}} alt="avatar" class="w-75">
+          <img src={{getUserInfo().defaultAvatar}} alt="avatar" class="w-75">
         </a>
         <ul class="dropdown-menu drop-user p-2" aria-labelledby="dropdownUserButton">
           <div class="d-flex flex-column align-items-center">
-            <button class="btn-logout">Log out</button>
+            <button class="btn-logout" (click)="handleLogout()">Log out</button>
           </div>
         </ul>
       </div>

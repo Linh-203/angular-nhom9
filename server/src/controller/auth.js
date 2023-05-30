@@ -6,7 +6,7 @@ export const SinUp = async (req, res) => {
       const { name, email, password } = req.body
       const checkMail = await auth.findOne({ email })
       if (checkMail) {
-         return res.status(400).json({
+         return res.status(201).json({
             message: 'Email đã tồn tại'
          })
       } else {
@@ -30,7 +30,7 @@ export const signIn = async (req, res) => {
       const { email, password } = req.body
       const users = await auth.findOne({ email })
       if (!users) {
-         return res.status(400).json({
+         return res.status(201).json({
             message: 'Tài khoản ko tồn tại'
          })
       } else {
@@ -38,7 +38,7 @@ export const signIn = async (req, res) => {
          console.log('data:', users.password)
          console.log('body:', password)
          if (!check) {
-            return res.status(400).json({
+            return res.status(201).json({
                message: 'Mật khẩu ko đúng'
             })
          } else {

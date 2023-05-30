@@ -9,8 +9,7 @@
   </div>
 
   <!-- You can now use your library component in app.component.html -->
-  <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)"
-    (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
+  <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" >
     <div ngxSlickItem *ngFor="let imgSlide of favoriteProducts" class="slide slider-item">
       <a href="products/{{ imgSlide.id }}">
         <img [src]="imgSlide.imageUrl" [alt]="imgSlide.name" />
