@@ -15,3 +15,6 @@ tr{
 h1{
     text-align: center;
 }
+td{
+    vertical-align: middle;
+}

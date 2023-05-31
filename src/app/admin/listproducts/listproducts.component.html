@@ -12,12 +12,12 @@
   </thead>
   <tbody *ngFor="let product of favoriteProducts">
     <tr>
-      <th scope="row">{{product._id}}</th>
+      <td>{{product._id}}</td>
       <td>{{product.name}}</td>
       <td>{{product.price}} $</td>
-      <td  id="tdimg"><img src="{{product.imageUrl}}" alt=""></td>
+      <td  id="tdimg"><img src="{{product.image}}" alt=""></td>
       <td>
-        <button routerLink="/admin/updateproduct/{{product.id}}" type="button" class="btn btn-outline-primary">Sửa sản phẩm</button>
+        <button routerLink="/admin/updateproduct/{{product._id}}" type="button" class="btn btn-outline-primary">Sửa sản phẩm</button>
         <button  type="button" class="btn btn-outline-danger">Xóa sản phẩm</button>
       </td>
     </tr>

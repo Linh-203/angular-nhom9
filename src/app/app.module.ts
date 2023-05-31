@@ -71,7 +71,7 @@ import { GlobalStateService } from './global-state.service'
       SidebarComponent,
       ListproductsComponent,
       StatisticalComponent,
-            FavoriteComponent
+            FavoriteComponent,
       RadioComponent,
       AddproductComponent,
          DashboardComponent,

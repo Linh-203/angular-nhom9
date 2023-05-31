@@ -16,7 +16,7 @@ export class UpdateComponent {
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
        this.id = params.get('id') || ''
-       this.product = favoriteProductsFake.find((p) => p.id === this.id)
+       this.product = favoriteProductsFake.find((p) => p._id === this.id)
     })
  }
 }
