@@ -12,7 +12,7 @@ const validateproduct = joi.object({
 
 
 export const getAll=async (req, res)=>{
-  const {_page=1, _order="asc", _limit=3, _sort="createAt"} = req.query
+  const {_page=1, _order="asc", _limit=9, _sort="createAt"} = req.query
   const options={
     page:_page,
     limit:_limit,
@@ -58,7 +58,6 @@ export const get=async (req, res)=>{
 
  export const create=async (req, res)=>{
     try {
-        console.log(req.user);
         const {error} = validateproduct.validate(req.body,{abortEarly:false})
         if(error){
             return res.status(400).json({
