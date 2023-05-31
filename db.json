@@ -20,6 +20,13 @@
       "password": "123",
       "confirmPassword": "123",
       "id": 3
+    },
+    {
+      "userName": "đức",
+      "email": "duc@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "id": 4
     }
   ]
 }
