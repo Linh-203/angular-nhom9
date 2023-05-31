@@ -3,6 +3,7 @@ import { OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { favoriteProductsFake } from 'src/data/products'
 import { HttpClient } from '@angular/common/http'
+import { GlobalStateService } from 'src/app/global-state.service'
 
 @Component({
    selector: 'app-detail-product',
@@ -11,23 +12,22 @@ import { HttpClient } from '@angular/common/http'
 })
 export class DetailProductComponent implements OnInit {
    id: string = ''
-   product: any
+   product: any = {}
    infoUser: any
    countCMT: any
    constructor(private http: HttpClient, private route: ActivatedRoute) {}
-
-   idLocal = JSON.parse(localStorage.getItem('user')!)._id
+   userDontOverwride = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!) : {}
+   idLocal = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!)?._id : ''
    countFv: any
    idP: any
    ngOnInit(): void {
+      console.log('run detail')
       this.route.paramMap.subscribe((params) => {
          this.id = params.get('id') || ''
-
          console.log(this.id)
          let apiUrl = 'http://localhost:8000/api/products/' + this.id
          this.http.get(apiUrl).subscribe((response: any) => {
             this.product = response
-            console.log(this.product)
          })
          // this.product = favoriteProductsFake.find(p => p.id === this.id);
          this.formData.idProduct = this.id
@@ -44,11 +44,11 @@ export class DetailProductComponent implements OnInit {
    idProduct: string = ''
    formData = {
       content: '',
-      idUser: JSON.parse(localStorage.getItem('user')!)._id,
+      idUser: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!)._id : '',
       idProduct: this.id
    }
    favoriteData = {
-      idUser: JSON.parse(localStorage.getItem('user')!)._id,
+      idUser: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!)._id : '',
       idProduct: this.id
    }
 
@@ -170,5 +170,45 @@ export class DetailProductComponent implements OnInit {
       if (this.quantity > 1) {
          this.quantity--
       }
+   }
+   fakeSize = [
+      {
+         value: 'm',
+         name: 'M'
+      },
+      {
+         value: 'l',
+         name: 'L'
+      },
+      {
+         value: 'xl',
+         name: 'XL'
+      }
+   ]
+   fakeIce = [
+      {
+         value: '10',
+         name: '10'
+      },
+      {
+         value: '50',
+         name: '50'
+      },
+      {
+         value: '100',
+         name: '100'
+      }
+   ]
+   private dataSubmit = {
+      product: this.product,
+      quantity: this.quantity,
+      options: {
+         size: this.fakeSize[0].value,
+         ice: this.fakeIce[0].value,
+         sugar: this.fakeIce[0].value
+      }
+   }
+   onChangeRadio(event: any) {
+      this.dataSubmit.options = { ...this.dataSubmit.options, [event.target.name]: event.target.value }
    }
 }

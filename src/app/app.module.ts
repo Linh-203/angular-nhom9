@@ -26,7 +26,7 @@ import { ProductComponent } from './pages/product/product.component'
 import { NewComponent } from './pages/new/new.component'
 import { LayoutAdminComponent } from './components/layouts/layout-admin/layout-admin.component'
 import { MatInputModule } from '@angular/material/input'
-import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field'
+import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatCheckboxModule } from '@angular/material/checkbox'
 import { MatButtonModule } from '@angular/material/button'
 import { CommonModule } from '@angular/common'
@@ -37,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { RadioComponent } from './components/radio/radio.component'
 import { ProductsComponent } from './components/products/products.component'
 import { PayComponent } from './components/pay/pay.component'
+import { MatTabsModule } from '@angular/material/tabs'
 import { SidebarComponent } from './admin/sidebar/sidebar.component'
 import { ListproductsComponent } from './admin/listproducts/listproducts.component'
 import { StatisticalComponent } from './admin/statistical/statistical.component'
@@ -93,7 +94,8 @@ import { GlobalStateService } from './global-state.service'
       MatDialogModule,
       HttpClientModule,
       MatProgressSpinnerModule,
-      MatPaginatorModule
+      MatPaginatorModule,
+      MatTabsModule
    ],
    providers: [httpInterceptorProviders, GlobalStateService],
    bootstrap: [AppComponent]
