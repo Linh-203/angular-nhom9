@@ -1,4 +1,8 @@
+<div class="banner">
+  <h1>Tất cả sản phẩm</h1>
+</div>
 <div class="container">
+  
   <h1>Danh sách sản phẩm</h1>
   <div class="row">
     <div class="col-md-3">
@@ -9,7 +13,7 @@
           </button>
         </form> -->
 
-      <form
+      <!-- <form
         (submit)="search($event)"
         class="form-inline my-2 my-lg-0 d-flex justify-content-start gap-2 align-items-center"
       >
@@ -22,18 +26,15 @@
         <button class="btn btn-outline-success fs-6 my-sm-0" type="submit">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
-      </form>
-
-      <div class="sidebar">
-        <h4>Danh mục sản phẩm</h4>
-        <ul>
-          <li><a href="#">Danh mục 1</a></li>
-          <li><a href="#">Danh mục 2</a></li>
-          <li><a href="#">Danh mục 3</a></li>
-          <li><a href="#">Danh mục 4</a></li>
-          <li><a href="#">Danh mục 5</a></li>
-        </ul>
+      </form> -->
+      <div>
+        <label for="">Sắp xếp theo giá</label>
+        <select class="form-select"  [(ngModel)]="selectedSortOrder" (ngModelChange)="onSortOrderChange()">
+          <option value="asc">Tăng dần</option>
+          <option value="desc">Giảm dần</option>
+        </select>
       </div>
+      
 
       <div class="brand">
         <h4>Thương hiệu</h4>
@@ -183,21 +184,17 @@
       </div>
     </div>
     <div class="col-md-9">
-      <!-- <div class="row">
-            <div class="col-md-4" *ngFor="let product of favoriteProducts">
-              <a href="products/{{product.id}}">
-              <img [src]="product.imageUrl" [alt]="product.name" class="img-favorite" />
-              <h2>{{ product.name }}</h2>
-              <h5 style="color: red">{{ product.price }}$</h5>
-            </a>
-            </div>
-          </div> -->
-
+      <div class="cate">
+      <button (click) = "currentProduct()" >ALL</button>
+      <div *ngFor="let category of categories">
+        <button (click)="selectCate(category._id)" >{{category.name}}</button>
+      </div>
+    </div>
       <div class="row">
         <div class="col-md-4" *ngFor="let product of filteredProducts">
-          <a href="products/{{ product.id }}">
+          <a routerLink="{{ product._id }}">
             <img
-              [src]="product.imageUrl"
+              [src]="product.image"
               [alt]="product.name"
               class="img-favorite"
             />
@@ -206,6 +203,26 @@
           </a>
         </div>
       </div>
+       <div class="paginate">
+      <mat-paginator [length]="formattedPagination.length"
+       [pageSize]="formattedPagination.pageSize"
+       [pageSizeOptions]="formattedPagination.pageSizeOptions" 
+       [pageIndex]="formattedPagination.pageIndex"
+      
+      (page)="onPageChange($event)">
+      </mat-paginator>
+
     </div>
+
+
+
+
+
+    
+    
+
+      
+    </div>
+    
   </div>
 </div>

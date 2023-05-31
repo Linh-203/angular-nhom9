@@ -1,0 +1,39 @@
+.imgFavorite {
+    position: relative;
+  }
+  
+  .imgFavorite:hover .cart_eye {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.5s ease-out;
+  }
+  
+  .cart_eye {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    font-size: 24px;
+    height: 60px;
+    left: 50%;
+    line-height: 60px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease-out;
+    width: 60px;
+  }
+  
+  .cart_eye i {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .cart_eye i:first-child {
+    margin-bottom: 10px;
+  }
+  

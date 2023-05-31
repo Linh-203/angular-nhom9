@@ -1,12 +1,23 @@
-import { Component } from '@angular/core';
-import { productsFake } from 'src/data/products';
-import {favoriteProductsFake } from 'src/data/products';
+import { Component, ViewChild } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
 @Component({
-  selector: 'app-listproducts',
-  templateUrl: './listproducts.component.html',
-  styleUrls: ['./listproducts.component.css']
+   selector: 'app-listproducts',
+   templateUrl: './listproducts.component.html',
+   styleUrls: ['./listproducts.component.css']
 })
 export class ListproductsComponent {
-  products =productsFake
-  favoriteProducts = favoriteProductsFake
+   constructor(private http: HttpClient) {}
+   ngOnInit(): void {
+      this.getProduct(1)
+   }
+   homeProducts: any
+
+   getProduct(page: number): void {
+      const limit = 12 // chỉ định số lượng sản phẩm cần lấy
+      const apiUrl = `http://localhost:8000/api/products/?_limit=${limit}&_page=${page}`
+      this.http.get(apiUrl).subscribe((res: any) => {
+         console.log(res)
+         this.homeProducts = res.docs
+      })
+   }
 }
