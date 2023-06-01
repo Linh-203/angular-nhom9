@@ -59,7 +59,7 @@ export const getCommentFromProduct = async (req, res) => {
   try {
     const comment = await Comment.find({ idProduct: idProduct }).populate({
       path: 'idUser',
-      select: 'name email',
+      select: 'name email defaultAvatar',
     });
     if (!comment) {
       return res.status(404).json({

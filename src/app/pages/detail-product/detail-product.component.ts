@@ -29,6 +29,8 @@ export class DetailProductComponent implements OnInit {
          let apiUrl = 'http://localhost:8000/api/products/' + this.id
          this.http.get(apiUrl).subscribe((response: any) => {
             this.product = response
+            console.log(response);
+            
          })
          // this.product = favoriteProductsFake.find(p => p.id === this.id);
          this.formData.idProduct = this.id
@@ -69,10 +71,12 @@ export class DetailProductComponent implements OnInit {
       this.http.get(apiUrlCMT).subscribe(
          (response: any) => {
             this.comment = response.comment
-
+            this.countCMT= this.comment.length
+            console.log( this.countCMT);
             for (let item of this.comment) {
                this.infoUser = item.idUser
-               // console.log( this.infoUser.name);
+               
+               
             }
          },
          (error: any) => {
@@ -80,6 +84,7 @@ export class DetailProductComponent implements OnInit {
          }
       )
    }
+   
    isFavorite: boolean = false
    heart: any
    checkHeart() {

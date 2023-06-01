@@ -132,11 +132,11 @@
     </div>
   </div>
   <div class="comment-block">
-    <p class="fw-bold fs-5">Bình luận</p>
+    <p class="fw-bold fs-5">Bình luận({{countCMT}})</p>
     <div class="show-cmt">
       <div class="comment" *ngFor="let item of comment">
         <div class="avatar">
-          <img src="https://vn112.com/wp-content/uploads/2018/01/1516417120l48pc-700x1074.jpg" alt="Avatar">
+          <img src="{{infoUser.defaultAvatar}}" alt="Avatar">
         </div>
         <div class="comment-content">
           <div class="header">
