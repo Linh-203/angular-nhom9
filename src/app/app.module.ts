@@ -21,8 +21,9 @@ import { LoginComponent } from './components/login/login.component'
 import { RegisterComponent } from './components/register/register.component'
 import { MatPaginatorModule } from '@angular/material/paginator'
 
+import { ProductComponent } from './components/product/product.component'
 import { CartComponent } from './components/cart/cart.component'
-import { ProductComponent } from './pages/product/product.component'
+import { ProductPageComponent } from './pages/product-page/product-page.component'
 import { NewComponent } from './pages/new/new.component'
 import { LayoutAdminComponent } from './components/layouts/layout-admin/layout-admin.component'
 import { MatInputModule } from '@angular/material/input'
@@ -56,7 +57,6 @@ import { GlobalStateService } from './global-state.service'
       HomeComponent,
       FooterComponent,
       HeaderComponent,
-
       ProductInCartComponent,
       BannerComponent,
       CategoryComponentComponent,
@@ -76,7 +76,9 @@ import { GlobalStateService } from './global-state.service'
       RadioComponent,
       AddproductComponent,
       DashboardComponent,
-      UpdateComponent
+      ProductsComponent,
+      UpdateComponent,
+      ProductPageComponent
    ],
    imports: [
       BrowserModule,
