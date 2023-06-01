@@ -3,22 +3,32 @@ import { OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { favoriteProductsFake } from 'src/data/products';
 import { HttpClient } from '@angular/common/http';
+interface IUser{
+  _id:string,
+  name:string,
 
+}
 @Component({
    selector: 'app-detail-product',
    templateUrl: './detail-product.component.html',
    styleUrls: ['./detail-product.component.css']
 })
-export class DetailProductComponent implements OnInit {
 
+export class DetailProductComponent implements OnInit {
+  
  
   id: string = "";
   product: any;
   infoUser:any
   countCMT:any
+  idLocal:string = ""
   constructor( private http: HttpClient, private route: ActivatedRoute) { }
- 
-  idLocal = JSON.parse(localStorage.getItem('user')!)._id;
+  user: IUser = JSON.parse(localStorage.getItem('user')!);
+  if (user :IUser ) {
+    this.idLocal = user._id;
+  }
+  
+  
   countFv:any
   idP:any
   ngOnInit(): void {
@@ -51,12 +61,12 @@ export class DetailProductComponent implements OnInit {
   idProduct: string = ""
   formData = {
     content: "",
-    idUser: JSON.parse(localStorage.getItem('user')!)._id,
+    idUser: this.idLocal ,
     idProduct: this.id
 
   }
   favoriteData={
-    idUser: JSON.parse(localStorage.getItem('user')!)._id,
+    idUser:  this.idLocal,
     idProduct: this.id
   }
 
@@ -179,7 +189,7 @@ export class DetailProductComponent implements OnInit {
               console.log(res);
               this.getFavorite();
               this.isFavorite = true;
-              alert("Đã thêm vào sản phẩm yêu thích");
+          
             }
           )
         }

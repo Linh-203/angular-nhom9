@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { IgxCarouselModule } from 'igniteui-angular'
-
+import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { HomeComponent } from './pages/home/home.component'
@@ -88,7 +88,8 @@ import { FavoriteComponent } from './pages/favorite/favorite.component'
       MatDialogModule,
       HttpClientModule,
       MatProgressSpinnerModule,
-      MatPaginatorModule
+      MatPaginatorModule,
+      ToastrModule
    ],
    providers: [httpInterceptorProviders, GlobalStateService],
    bootstrap: [AppComponent]

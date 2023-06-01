@@ -3,7 +3,7 @@
 </div>
 <div class="container">
   
-  <h1>Danh sách sản phẩm</h1>
+  <h1 style="margin-top: 30px;">Danh sách sản phẩm</h1>
   <div class="row">
     <div class="col-md-3">
       <!-- <form class="form-inline my-2 my-lg-0 d-flex justify-content-start gap-2 align-items-center">
@@ -32,6 +32,7 @@
         <select class="form-select"  [(ngModel)]="selectedSortOrder" (ngModelChange)="onSortOrderChange()">
           <option value="asc">Tăng dần</option>
           <option value="desc">Giảm dần</option>
+       
         </select>
       </div>
       
@@ -193,14 +194,20 @@
       <div class="row">
         <div class="col-md-4" *ngFor="let product of filteredProducts">
           <a routerLink="{{ product._id }}">
+            <div class="image">
             <img
               [src]="product.image"
               [alt]="product.name"
-              class="img-favorite"
-            />
+            
+            /></div>
             <h2>{{ product.name }}</h2>
             <h5 style="color: red">{{ product.price }}.000đ</h5>
           </a>
+          <div class="cart_eye">
+            <i title="Thêm giỏ hàng" class="fa-solid fa-cart-shopping"></i>
+           <a title="Xem chi tiết" href="products/{{product._id}}"> <i class="fa-solid fa-eye"></i></a>
+            <i title="Thêm yêu thích" class="fa-sharp fa-regular fa-heart"></i>
+          </div>
         </div>
       </div>
        <div class="paginate">
