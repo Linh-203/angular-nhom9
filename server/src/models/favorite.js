@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import mongoosePaginate from "mongoose-paginate-v2";
 const favoriteProductSchema = new mongoose.Schema({
   idProduct:{
     type:String,
@@ -14,4 +14,5 @@ const favoriteProductSchema = new mongoose.Schema({
     }
   
 },{timestamps:true, versionKey:false})
+favoriteProductSchema.plugin(mongoosePaginate)
 export default mongoose.model("favoriteProducts", favoriteProductSchema)

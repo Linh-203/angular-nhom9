@@ -6,6 +6,6 @@ router.get("/favorites", getAllFavorite)
 router.post("/favorites", createFavorite)
 router.get("/favorites/:id", getFavoriteIP)
 router.get("/favorite/:id", getFavoriteIU)
-router.delete("/favorites/:idUser/:idProduct", removeFavorite)
+router.delete("/favorites/:id", removeFavorite)
 
 export default router

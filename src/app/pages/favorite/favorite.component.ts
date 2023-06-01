@@ -1,10 +1,56 @@
 import { Component } from '@angular/core';
 import { favoriteProductsFake } from 'src/data/products';
+import { HttpClient } from '@angular/common/http';
+interface IUser{
+  _id:string
+}
 @Component({
   selector: 'app-favorite',
   templateUrl: './favorite.component.html',
   styleUrls: ['./favorite.component.css']
 })
 export class FavoriteComponent {
-  products = favoriteProductsFake
+  constructor( private http: HttpClient) { }
+  products:any
+
+  ngOnInit(): void {
+   this.getData()
+ 
+  }
+  favorite:any
+  getData(){
+   
+   let user:IUser = JSON.parse(localStorage.getItem('user')!)._id
+    if(user){
+      let api = "http://localhost:8000/api/favorite/"+user
+      this.http.get(api).subscribe(
+        (res:any)=>{
+          
+         this.products = res.favoriteProduct
+          console.log( res);
+         
+         
+        },
+        (err:any)=>{
+          console.log(err);
+          
+        }
+      )
+    }
+  }
+  removeFv(id:string){
+    let api = "http://localhost:8000/api/favorites/"+id
+    this.http.delete(api).subscribe(
+      (res:any)=>{
+        console.log(res);
+        this.getData()
+        alert("Đã xóa khỏi sản phẩm yêu thích")
+        
+        
+      }
+    )
+
+    
+  }
+
 }

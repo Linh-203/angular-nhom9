@@ -36,10 +36,7 @@
 .img-fluid {
   padding-bottom: 15px;
 }
-.img-favorite {
-  height: 70%;
-  width: 60%;
-}
+
 .col-md-4 {
   text-align: center;
   padding: 15px;
@@ -59,6 +56,10 @@
 }
 .img-icon {
   width: 6%;
+}
+.img-favorite{
+  height: 70%;
+  width: 65%;
 }
 .card-body {
   background-color: rgba(0, 0, 0, 0.1);
@@ -103,13 +104,23 @@
 .cate button{
   padding: 5px 10px;
   border: none;
-  background-color: #ccc;
+  background: none;
+  color: #fff;
+  border-radius: 25px;
+  padding: 10px 20px;
 
 }
 .cate{
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 25px;
+  background-color: #c7a17a;
+  width: max-content;
+  margin: 0 auto;
+  margin-bottom: 30px;
+ 
+
 }
 .list-group-item{
   display: flex;
