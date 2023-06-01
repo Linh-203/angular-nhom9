@@ -1,3 +1,5 @@
+<h1>Danh sách sản phẩm</h1>
+<a routerLink="/admin/addproduct"><button type="button" class="btn btn-warning">Thêm sản phẩm</button></a>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -13,10 +15,10 @@
       <th scope="row">{{product._id}}</th>
       <td>{{product.name}}</td>
       <td>{{product.price}} $</td>
-      <td>Image</td>
+      <td  id="tdimg"><img src="{{product.image}}" alt=""></td>
       <td>
-        <button type="button" class="btn btn-outline-primary">Primary</button>
-        <button type="button" class="btn btn-outline-danger">Danger</button>
+        <button routerLink="/admin/updateproduct/{{product._id}}" type="button" class="btn btn-outline-primary">Sửa sản phẩm</button>
+        <button  type="button" class="btn btn-outline-danger">Xóa sản phẩm</button>
       </td>
     </tr>
     

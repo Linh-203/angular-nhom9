@@ -7,11 +7,11 @@ import {  OnInit, Output, EventEmitter } from "@angular/core";
 
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  selector: 'app-product-page',
+  templateUrl: './product-page.component.html',
+  styleUrls: ['./product-page.component.css']
 })
-export class ProductComponent {
+export class ProductPageComponent {
   @ViewChild(MatPaginator) paginator: MatPaginator;  
   constructor(private http: HttpClient) {this.paginator = {} as MatPaginator; }
   pagination = {
@@ -52,7 +52,6 @@ export class ProductComponent {
     const apiUrl = `http://localhost:8000/api/products/?_limit=${this.limit}&_page=${page}`;
     this.http.get(apiUrl).subscribe((res: any) => {
       
-      console.log(res);
       this.filteredProducts = res.docs;
       this.formattedPagination.length = res.totalDocs;
       this.formattedPagination.pageIndex = res.page - 1;
@@ -80,12 +79,10 @@ export class ProductComponent {
   }
   
   selectCate(id:any){
-    console.log(id);
     const apiUrl = `http://localhost:8000/api/categories/${id}` ;
     this.http.get(apiUrl).subscribe(
       (res: any) => {
         this.filteredProducts = res.products;
-        console.log(this.filteredProducts);
       }
     )
   }
@@ -95,7 +92,6 @@ export class ProductComponent {
     this.http.get(apiUrl).subscribe(
       (res: any) => {
         this.categories = res.categories;
-        console.log(this.categories);
       }
     )
   }
