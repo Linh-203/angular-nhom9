@@ -57,6 +57,10 @@
 .img-icon {
   width: 6%;
 }
+.img-favorite{
+  height: 70%;
+  width: 65%;
+}
 .card-body {
   background-color: rgba(0, 0, 0, 0.1);
   position: absolute;

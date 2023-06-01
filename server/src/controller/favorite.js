@@ -76,15 +76,13 @@ export const getFavoriteIU = async(req ,res)=>{
     console.log(req.params);
     const favoriteProduct = await FavoriteProducts.find({idUser:id}).populate({ path: 'idProduct',
     select: 'name price image ',})
-    if(favoriteProduct.length > 0){
+    if(favoriteProduct){
     return res.status(201).json({
         message :"Lấy thành công sản phẩm yêu thích theo id user ",
         favoriteProduct
     })
   }
-  return res.status(205).json({
-    message: "Ko tìm thấy sản phẩm"
-  })
+ 
   } catch (error) {
     return res.status(404).json({
         message: error.message
@@ -96,7 +94,7 @@ export const removeFavorite = async(req ,res)=>{
     const {idUser} = req.params
     const {idProduct} = req.params
     console.log(req.params);
-    const favoriteProduct = await FavoriteProducts.findOneAndDelete({idUser:idUser, idProduct:idProduct})
+    const favoriteProduct = await FavoriteProducts.findByIdAndDelete(req.params.id)
     
     if(favoriteProduct){
     return res.status(201).json({
