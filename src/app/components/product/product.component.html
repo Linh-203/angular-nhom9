@@ -1,0 +1,16 @@
+<div class="product-block">
+    <a href="products/{{product._id}}">
+      <div class="imgFavorite">
+        <img [src]="product.image" [alt]="product.name" class="img-product"/>
+      </div>
+     <div class="info-product">
+          <h2 >{{ product.name }}</h2>
+          <h5 class="fw-bold fs-5 text-danger">{{ product.price }}₫ </h5>
+     </div>
+    </a>
+    <div class="cart_eye">
+      <i title="Thêm giỏ hàng" class="fa-solid fa-cart-shopping"></i>
+      <a title="Xem chi tiết" href="products/{{product._id}}"> <i class="fa-solid fa-eye"></i></a>
+      <i title="Thêm yêu thích" class="fa-sharp fa-regular fa-heart "></i>
+    </div>
+ </div>

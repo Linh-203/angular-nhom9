@@ -15,14 +15,14 @@ export class AuthService {
       const response = await this.http
          .post<IUser>(`${this.apiService.baseUrl}/signin`, data, this.apiService.httpOptions)
          .toPromise()
-      this.storeLocal(response?.data)
+      this.storeLocal(response)
       return response
    }
    async signUp(data: ISignup) {
       const response = await this.http
          .post<IUser>(`${this.apiService.baseUrl}/signup`, data, this.apiService.httpOptions)
          .toPromise()
-      this.storeLocal(response?.data)
+      this.storeLocal(response)
       return response
    }
    logout() {
@@ -30,11 +30,11 @@ export class AuthService {
       localStorage.removeItem('user')
       this.router.navigateByUrl('/')
    }
-   storeLocal(data: any) {
-      this.dataUser = data
-      if (data) {
-         localStorage.setItem('token', data.token)
-         localStorage.setItem('user', JSON.stringify({ ...data, token: undefined }))
+   storeLocal(response: any) {
+      this.dataUser = response?.data
+      if (response?.token) {
+         localStorage.setItem('token', response.token)
+         localStorage.setItem('user', JSON.stringify({ ...response?.data, token: undefined }))
       }
       this.router.navigateByUrl('/')
    }

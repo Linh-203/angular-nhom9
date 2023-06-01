@@ -9,17 +9,7 @@
   </div>
 
   <!-- You can now use your library component in app.component.html -->
-  <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" >
-    <div ngxSlickItem *ngFor="let imgSlide of favoriteProducts" class="slide slider-item">
-      <a href="products/{{ imgSlide.id }}">
-        <img [src]="imgSlide.imageUrl" [alt]="imgSlide.name" />
-        <h2>{{ imgSlide.name }}</h2>
-        <h5 style="color: red">{{ imgSlide.price }}.000đ</h5>
-      </a>
-    </div>
-  </ngx-slick-carousel>
-  <button class="slick-prev" (click)="slickModal.slickPrev()">Prev</button>
-  <button class="slick-next" (click)="slickModal.slickNext()">Next</button>
+  <app-products [listProduct]="products"></app-products>
   <div class="banner-bottom">
     <img src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/banner_1.jpg?1676358260059" alt="" />
     <img src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/banner_2.jpg?1676358260059" alt="" />
@@ -31,11 +21,11 @@
     <h2>Đồ uống ưa thích !</h2>
   </div>
   <div class="row">
-    <div class="col-md-4" *ngFor="let product of favoriteProducts">
-      <a href="products/{{ product.id }}">
-        <img [src]="product.imageUrl" [alt]="product.name" class="img-favorite" />
+    <div class="col-md-4" *ngFor="let product of products">
+      <a href="products/{{ product._id }}">
+        <img [src]="product.image" [alt]="product.name" class="img-favorite" />
         <h2>{{ product.name }}</h2>
-        <h5 style="color: red">{{ product.price }}.000đ</h5>
+        <h5 style="color: red">{{ product.price }}đ</h5>
       </a>
     </div>
   </div>

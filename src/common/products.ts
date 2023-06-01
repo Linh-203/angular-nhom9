@@ -1,8 +1,12 @@
 export interface IProducts {
-  id: string;
-  idcate:string,
-  name: string;
-  price: number;
-  desc: string;
-  imageUrl: string;
+   _id: string
+   idcate: string
+   name: string
+   price: number
+   desc: string
+   image: string
+}
+
+export interface IProductRes {
+   docs: IProducts[]
 }

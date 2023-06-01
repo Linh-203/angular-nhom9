@@ -1,8 +1,5 @@
-import express from 'express';
 import Comment from "../models/comment"
 
-const router = express.Router();
-  
  export const createComment= async(req,res)=>{
 
   const { idProduct, content, idUser } = req.body;
@@ -81,7 +78,7 @@ export const getCommentFromProduct = async (req, res) => {
 };
 
 
-// // Lấy một bình luận với commentId
+
  export const getOneComment=async (req,res)=>{
   const { id } = req.params;
 
