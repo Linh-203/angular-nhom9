@@ -3,7 +3,11 @@
     <div class="row">
       <!-- Sidebar -->
       <div class="col-md-auto bg-light sidebar pr-0">
+<<<<<<< HEAD
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light">
+=======
+        <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" >
+>>>>>>> 4f567bb8f8c3ba76b014a8e3fd7aaabd2c5e361a
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
               <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
               <span class="fs-4">Sidebar</span>
@@ -23,21 +27,21 @@
                 </a>
               </li>
               <li>
-                <a routerLink="/admin" class="nav-link link-dark">
-                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                  Orders
-                </a>
-              </li>
-              <li>
                 <a routerLink="/admin/products" class="nav-link link-dark">
                   <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
                   Products
                 </a>
               </li>
               <li>
-                <a routerLink="/admin" class="nav-link link-dark">
+                <a routerLink="/admin/addproduct" class="nav-link link-dark">
+                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                  Add new product
+                </a>
+              </li>
+              <li>
+                <a routerLink="/admin/statistical" class="nav-link link-dark">
                   <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-                  Customers
+                  Statistical
                 </a>
               </li>
             </ul>
@@ -114,7 +118,7 @@
 
       <!-- Content -->
       <div class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-        <router-outlet></router-outlet>
+        <!-- <router-outlet></router-outlet> -->
       </div>
     </div>
   </div>

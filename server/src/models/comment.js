@@ -2,12 +2,12 @@ import mongoose from "mongoose";
 const commentSchema = mongoose.Schema({
    idUser: {
     type: mongoose.SchemaTypes.ObjectId,
-    ref: 'auth', // Nếu bạn muốn liên kết với 1 collection khác, thí dụ là Post
+    ref: 'auth', 
     required: true,
   },
   idProduct: {
     type: mongoose.SchemaTypes.ObjectId,
-    ref: 'Products', // Nếu bạn muốn liên kết với 1 collection khác, thí dụ là Post
+    ref: 'Products', 
     required: true,
   },
   
