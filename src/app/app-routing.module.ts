@@ -12,7 +12,7 @@ import { DetailProductComponent } from './pages/detail-product/detail-product.co
 import { NewComponent } from './pages/new/new.component'
 import { DefaultLayoutComponent } from './components/layouts/default-layout/default-layout.component'
 import { LayoutAdminComponent } from './components/layouts/layout-admin/layout-admin.component'
-import { ProductComponent } from './pages/product/product.component'
+import { ProductPageComponent } from './pages/product-page/product-page.component'
 import { PayComponent } from './components/pay/pay.component'
 import { ListproductsComponent } from './admin/listproducts/listproducts.component'
 import { StatisticalComponent } from './admin/statistical/statistical.component'
@@ -29,9 +29,9 @@ const routes: Routes = [
          { path: 'categories', component: CategoryComponentComponent },
          { path: 'products/:id', component: DetailProductComponent },
          { path: 'new', component: NewComponent },
-         { path: 'cart', component: CartComponent },
+         { path: 'abc', component: CartComponent },
          { path: 'pay', component: PayComponent },
-         { path: 'products', component: ProductComponent },
+         { path: 'products', component: ProductPageComponent },
          { path: 'favorite', component: FavoriteComponent }
       ]
    },

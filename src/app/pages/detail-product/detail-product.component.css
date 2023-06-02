@@ -204,7 +204,11 @@ margin-top: 40px;
   transform: rotate(360deg);
   transition: all 0.3s ease-in-out;
 }
-
+.products{
+  padding-left: 10rem;
+  padding-right: 10rem;
+  max-height: 400px;
+}
 .sugar{
   display: flex;
   align-items: center;

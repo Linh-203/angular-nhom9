@@ -6,11 +6,11 @@ import { MatPaginator } from '@angular/material/paginator'
 import { OnInit, Output, EventEmitter } from '@angular/core'
 
 @Component({
-   selector: 'app-product',
-   templateUrl: './product.component.html',
-   styleUrls: ['./product.component.css']
+   selector: 'app-product-page',
+   templateUrl: './product-page.component.html',
+   styleUrls: ['./product-page.component.css']
 })
-export class ProductComponent {
+export class ProductPageComponent {
    @ViewChild(MatPaginator) paginator: MatPaginator
    constructor(private http: HttpClient) {
       this.paginator = {} as MatPaginator
@@ -27,7 +27,7 @@ export class ProductComponent {
       totalPages: 1
    }
 
-   limit = 3
+   limit = 9
 
    formattedPagination: any = {}
 

@@ -1,28 +1,36 @@
-import { Component, ViewChild } from '@angular/core'
-import { HttpClient } from '@angular/common/http'
+import { Component, ViewChild, OnInit } from '@angular/core'
+import { productsFake } from 'src/data/products'
+import { favoriteProductsFake } from 'src/data/products'
+// import { IUser } from 'src/common/user';
+// import $ from 'jquery';
 import 'bootstrap'
 import 'slick-carousel'
+import { ProductService } from '../product-page/product.service'
+import { IProducts } from 'src/common/products'
 @Component({
    selector: 'app-home',
    templateUrl: './home.component.html',
    styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
-   constructor(private http: HttpClient) {}
+export class HomeComponent implements OnInit {
+   constructor(private productService: ProductService) {}
+   products: IProducts[] = []
+   loading = false
+   async handleGetProducts() {
+      try {
+         this.loading = true
+         const res = await this.productService.getAllProduct()
+         if (res?.docs?.length! > 0) {
+            this.products = res?.docs!
+         }
+      } catch (error) {
+         this.loading = false
+         console.log(error)
+      }
+   }
    ngOnInit(): void {
-      this.getProduct(1)
+      this.handleGetProducts()
    }
-   homeProducts: any
-
-   getProduct(page: number): void {
-      const limit = 6 // chỉ định số lượng sản phẩm cần lấy
-      const apiUrl = `http://localhost:8000/api/products/?_limit=${limit}&_page=${page}`
-      this.http.get(apiUrl).subscribe((res: any) => {
-         console.log(res)
-         this.homeProducts = res.docs
-      })
-   }
-
    slideConfig = {
       slidesToShow: 4,
       slidesToScroll: 1,

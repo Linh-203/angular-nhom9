@@ -167,22 +167,7 @@
       <p style="font-size: 20px;text-align: center;color: seagreen; ">Sản phẩm liên quan: </p>
     </div>
     <div class="products">
-      <div class="row" style="padding: 0 70px;text-align: center;">
-        <div class="col-md-4" *ngFor="let product of favoriteProducts">
-          <a href="products/{{product._id}}">
-            <div class="imgFavorite">
-              <img [src]="product.image" width="200px" [alt]="product.name" />
-            </div>
-            <h2>{{ product.name }}</h2>
-            <h5 style="color: red;font-size: 20px;">{{ product.price }}.000₫ </h5>
-          </a>
-          <div class="cart_eye">
-            <i title="Thêm giỏ hàng" class="fa-solid fa-cart-shopping"></i>
-            <a title="Xem chi tiết" href="products/{{product._id}}"> <i class="fa-solid fa-eye"></i></a>
-            <i title="Thêm yêu thích" class="fa-sharp fa-regular fa-heart "></i>
-          </div>
-        </div>
-      </div>
+        <app-products [listProduct]="favoriteProducts"></app-products>
     </div>
 
   </div>

@@ -13,7 +13,7 @@ export class ListproductsComponent {
    adminProducts: any
 
    getProduct(page: number): void {
-      const limit = 12 // chỉ định số lượng sản phẩm cần lấy
+      const limit = 20 // chỉ định số lượng sản phẩm cần lấy
       const apiUrl = `http://localhost:8000/api/products/?_limit=${limit}&_page=${page}`
       this.http.get(apiUrl).subscribe((res: any) => {
          console.log(res)
