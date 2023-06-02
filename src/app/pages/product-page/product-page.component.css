@@ -133,3 +133,7 @@
   width: 1rem !important;
   height: 1rem !important;
 }
+input{
+  border: 1px solid #ccc;
+}
+
