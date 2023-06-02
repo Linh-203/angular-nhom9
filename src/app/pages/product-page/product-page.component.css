@@ -122,6 +122,9 @@
  
 
 }
+.cate button:focus{
+  background-color: #ef7147;
+}
 .list-group-item{
   display: flex;
   justify-content: start;
