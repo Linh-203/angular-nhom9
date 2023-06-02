@@ -146,6 +146,9 @@
           <div class="body">
             <p>{{item.content}}</p>
           </div>
+          <ng-container *ngIf="idLocal == item.idUser._id">
+           <i (click)="removeComment(item._id)" class="fa fa-eraser" style="color: #ee4d2d;cursor: pointer;" aria-hidden="true"></i>
+          </ng-container>
         </div>
       </div>
     </div>

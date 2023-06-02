@@ -40,7 +40,8 @@ export const getAll=async (req, res)=>{
 
 export const get=async (req, res)=>{
     try {
-     const products = await Products.findById(req.params.id).populate('categoryId')
+      const products = await Products.findById(req.params.id).populate({ path: 'categoryId', populate: { path: 'name' } });
+
      if(!products){
          return res.jon({
              message:"Ko có sản phẩm"

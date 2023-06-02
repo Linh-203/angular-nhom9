@@ -38,8 +38,10 @@ export class FavoriteComponent {
       )
     }
   }
-  removeFv(id:string){
-    let api = "http://localhost:8000/api/favorites/"+id
+  idUser:any
+  removeFv(idP:string){
+    this.idUser = JSON.parse(localStorage.getItem('user')!)._id
+    let api = "http://localhost:8000/api/favorites/"+this.idUser + "/" +idP
     this.http.delete(api).subscribe(
       (res:any)=>{
         console.log(res);
