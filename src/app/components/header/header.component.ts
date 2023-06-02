@@ -8,6 +8,9 @@ import { RegisterComponent } from '../register/register.component'
 import { LoginComponent } from '../login/login.component'
 import { AuthService } from 'src/app/pages/auth/auth.service'
 import { GlobalStateService } from 'src/app/global-state.service'
+interface IUser {
+   _id: string
+}
 @Component({
    selector: 'app-header',
    templateUrl: './header.component.html',
@@ -45,4 +48,5 @@ export class HeaderComponent {
    handleLogout() {
       return this.authService.logout()
    }
+   user: IUser = JSON.parse(localStorage.getItem('user')!)
 }

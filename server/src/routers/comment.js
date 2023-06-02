@@ -7,5 +7,5 @@ router.post("/comment",createComment )
 router.put("/comment/:id", checkComment,updateComment )
 router.get("/comment/:idProduct", getCommentFromProduct )
 router.post("/comment/:id", getOneComment )
-router.delete("/comment/:id", checkComment,removeComment )
+router.delete("/comment/:id",removeComment )
 export default router

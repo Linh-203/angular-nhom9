@@ -72,6 +72,30 @@ export class ProductPageComponent {
       })
    }
 
+   // selectCate(id: any) {
+   //    const apiUrl = `http://localhost:8000/api/categories/${id}`
+   //    this.http.get(apiUrl).subscribe((res: any) => {
+   //       this.filteredProducts = res.products
+   //    })
+   // }
+
+   // getCategory() {
+   //    const apiUrl = 'http://localhost:8000/api/categories'
+   //    this.http.get(apiUrl).subscribe((res: any) => {
+   //       this.categories = res.categories
+   //    })
+   // }
+
+   //    onSortOrderChange() {
+   //       if (this.selectedSortOrder) {
+   //          const apiUrl = `http://localhost:8000/api/products/?_sort=price&_order=${this.selectedSortOrder}`
+   //          this.http.get(apiUrl).subscribe((res: any) => {
+   //             this.filteredProducts = res.docs
+   //          })
+   //       }
+   //     )
+   //   }
+
    selectCate(id: any) {
       const apiUrl = `http://localhost:8000/api/categories/${id}`
       this.http.get(apiUrl).subscribe((res: any) => {
@@ -93,5 +117,22 @@ export class ProductPageComponent {
             this.filteredProducts = res.docs
          })
       }
+   }
+   formSearch = {
+      search: ''
+   }
+   error: any
+   search() {
+      console.log(this.formSearch.search)
+      let api = 'http://localhost:8000/api/products/?q=' + this.formSearch.search
+      this.http.get(api).subscribe((res: any) => {
+         console.log(res)
+         this.filteredProducts = res.docs
+         if (this.filteredProducts.length == 0) {
+            this.error = 'Không tìm thấy kết quả nào'
+         } else {
+            this.error = ''
+         }
+      })
    }
 }

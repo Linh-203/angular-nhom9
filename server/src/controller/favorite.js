@@ -53,9 +53,9 @@ export const getFavoriteIP = async(req ,res)=>{
         favoriteProduct
     })
   }
-  return res.status(204).json({
-    message: "Ko tìm thấy sp"
-  })
+  // return res.status(204).json({
+  //   message: "Ko tìm thấy sp"
+  // })
   } catch (error) {
     return res.status(404).json({
         message: error.message
@@ -63,19 +63,26 @@ export const getFavoriteIP = async(req ,res)=>{
   }
 }
 export const getFavoriteIU = async(req ,res)=>{
+  const { _order="asc",  _sort="createAt"} = req.query
+  const options={
+   
+    sort:{
+      [_sort]:_order == "desc" ? -1 : 1,
+    },
+
+  }
   try {
     const {id} = req.params
     console.log(req.params);
-    const favoriteProduct = await FavoriteProducts.find({idUser:id})
+    const favoriteProduct = await FavoriteProducts.find({idUser:id}).populate({ path: 'idProduct',
+    select: 'name price image ',})
     if(favoriteProduct){
     return res.status(201).json({
         message :"Lấy thành công sản phẩm yêu thích theo id user ",
         favoriteProduct
     })
   }
-  return res.status(205).json({
-    message: "Ko tìm thấy sản phẩm"
-  })
+ 
   } catch (error) {
     return res.status(404).json({
         message: error.message
@@ -87,7 +94,7 @@ export const removeFavorite = async(req ,res)=>{
     const {idUser} = req.params
     const {idProduct} = req.params
     console.log(req.params);
-    const favoriteProduct = await FavoriteProducts.findOneAndDelete({idUser:idUser, idProduct:idProduct})
+    const favoriteProduct = await FavoriteProducts.findOneAndDelete({idUser:idUser,idProduct:idProduct })
     
     if(favoriteProduct){
     return res.status(201).json({
