@@ -11,43 +11,6 @@ import { MatDialogRef } from '@angular/material/dialog'
    styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-<<<<<<< HEAD
-  public signupForm!: FormGroup;
-  constructor(
-    private formBuilder: FormBuilder,
-    private http: HttpClient,
-    private router: Router
-  ) {}
-  ngOnInit(): void {
-    this.signupForm = this.formBuilder.group({
-      userName: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
-    });
-  }
-  signUp() {
-    const newUser = { ...this.signupForm.value }; // Assign unique id to user
-    this.http
-      .post<any>('http://localhost:3000/signUpUsers', newUser) // Send the user to the server
-      .subscribe(
-        (res) => {
-          alert('Successfully signed up');
-          this.http // Fetch the updated users from the server and set them to localStorage
-            .get<any>('http://localhost:3000/signUpUsers')
-            .subscribe((users) => {
-              localStorage.setItem('signUpUsers:', JSON.stringify(users));
-            });
-          this.signupForm.reset();
-          this.router.navigate(['login']);
-        },
-        (err) => {
-          alert('something went wrong');
-        }
-      );
-  }
-}
-=======
    public signupForm!: FormGroup
    loading = false
    msgFromServer = ''
@@ -99,4 +62,3 @@ export class RegisterComponent implements OnInit {
       }
    }
 }
->>>>>>> 4f567bb8f8c3ba76b014a8e3fd7aaabd2c5e361a

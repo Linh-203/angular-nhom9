@@ -14,31 +14,6 @@ import { GlobalStateService } from 'src/app/global-state.service'
    styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-<<<<<<< HEAD
-  slides = [
-    {
-      image: 'https://via.placeholder.com/600x400',
-      title: 'Slide 1',
-      text: 'This is slide 1',
-    },
-    {
-      image: 'https://via.placeholder.com/600x400',
-      title: 'Slide 2',
-      text: 'This is slide 2',
-    },
-    {
-      image: 'https://via.placeholder.com/600x400',
-      title: 'Slide 3',
-      text: 'This is slide 3',
-    },
-  ];
-
-  category = category
-  product = favoriteProductsFake
-
-
-
-=======
    constructor(private dialog: MatDialog, private authService: AuthService, private glbState: GlobalStateService) {}
    openDialog(type: 'signin' | 'signup') {
       if (type === 'signup') this.dialog.open(RegisterComponent)
@@ -70,5 +45,4 @@ export class HeaderComponent {
    handleLogout() {
       return this.authService.logout()
    }
->>>>>>> 4f567bb8f8c3ba76b014a8e3fd7aaabd2c5e361a
 }

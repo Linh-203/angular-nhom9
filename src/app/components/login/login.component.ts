@@ -42,11 +42,5 @@ export class LoginComponent implements OnInit {
          this.msgFromServer = 'Something wrong, try again !'
          console.log(error)
       }
-<<<<<<< HEAD
-    );
-  }
-}
-=======
    }
 }
->>>>>>> 4f567bb8f8c3ba76b014a8e3fd7aaabd2c5e361a
