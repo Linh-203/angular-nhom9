@@ -25,9 +25,9 @@ export class FavoriteComponent {
       let api = "http://localhost:8000/api/favorite/"+user
       this.http.get(api).subscribe(
         (res:any)=>{
-        
-          this.products = res.favoriteProduct
-          console.log( this.products);
+          
+         this.products = res.favoriteProduct
+          console.log( res);
          
          
         },
@@ -37,6 +37,22 @@ export class FavoriteComponent {
         }
       )
     }
+  }
+  idUser:any
+  removeFv(idP:string){
+    this.idUser = JSON.parse(localStorage.getItem('user')!)._id
+    let api = "http://localhost:8000/api/favorites/"+this.idUser + "/" +idP
+    this.http.delete(api).subscribe(
+      (res:any)=>{
+        console.log(res);
+        this.getData()
+        alert("Đã xóa khỏi sản phẩm yêu thích")
+        
+        
+      }
+    )
+
+    
   }
 
 }

@@ -62,6 +62,10 @@
 .img-icon {
   width: 6%;
 }
+.img-favorite{
+  height: 70%;
+  width: 65%;
+}
 .card-body {
   background-color: rgba(0, 0, 0, 0.1);
   position: absolute;
@@ -123,6 +127,9 @@
  
 
 }
+.cate button:focus{
+  background-color: #ef7147;
+}
 .list-group-item{
   display: flex;
   justify-content: start;
@@ -131,3 +138,7 @@
   width: 1rem !important;
   height: 1rem !important;
 }
+input{
+  border: 1px solid #ccc;
+}
+
