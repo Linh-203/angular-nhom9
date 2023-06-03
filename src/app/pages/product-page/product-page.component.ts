@@ -106,6 +106,25 @@ export class ProductPageComponent {
       )
     }
   }
+  formSearch ={
+    search:""
+  }
+  error:any
+  search(){
+  console.log(this.formSearch.search);
+  let api = "http://localhost:8000/api/products/?q="+this.formSearch.search
+  this.http.get(api).subscribe(
+    (res: any) => {
+      console.log(res);
+      this.filteredProducts = res.docs;
+      if(this.filteredProducts.length ==0){
+        this.error = "Không tìm thấy kết quả nào"
+      }else{
+        this.error = ""
+      }
+    }
+  )
+  }
 
 
 }

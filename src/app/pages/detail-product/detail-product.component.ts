@@ -5,6 +5,7 @@ import { favoriteProductsFake } from 'src/data/products'
 import { HttpClient } from '@angular/common/http'
 import { GlobalStateService } from 'src/app/global-state.service'
 
+
 @Component({
    selector: 'app-detail-product',
    templateUrl: './detail-product.component.html',
@@ -18,16 +19,20 @@ export class DetailProductComponent implements OnInit {
    constructor(private http: HttpClient, private route: ActivatedRoute) {}
    userDontOverwride = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!) : {}
    idLocal = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!)?._id : ''
+   
+   
    countFv: any
    idP: any
    ngOnInit(): void {
-      console.log('run detail')
+      console.log(this.idLocal)
       this.route.paramMap.subscribe((params) => {
          this.id = params.get('id') || ''
          console.log(this.id)
          let apiUrl = 'http://localhost:8000/api/products/' + this.id
          this.http.get(apiUrl).subscribe((response: any) => {
             this.product = response
+            console.log(response);
+            
          })
          // this.product = favoriteProductsFake.find(p => p.id === this.id);
          this.formData.idProduct = this.id
@@ -58,8 +63,13 @@ export class DetailProductComponent implements OnInit {
 
       let apiGet = 'http://localhost:8000/api/favorites/' + this.idP
       this.http.get(apiGet).subscribe((res: any) => {
-         this.countFv = res.favoriteProduct.length
-         console.log(this.countFv)
+         if(res.favoriteProduct){
+            this.countFv = res.favoriteProduct.length
+            console.log(this.countFv)
+         }else{
+            this.countFv=0
+         }
+         
       })
    }
    comment: any
@@ -68,10 +78,12 @@ export class DetailProductComponent implements OnInit {
       this.http.get(apiUrlCMT).subscribe(
          (response: any) => {
             this.comment = response.comment
-
+            this.countCMT= this.comment.length
+            console.log( this.comment);
             for (let item of this.comment) {
                this.infoUser = item.idUser
-               // console.log( this.infoUser.name);
+               
+               
             }
          },
          (error: any) => {
@@ -79,6 +91,7 @@ export class DetailProductComponent implements OnInit {
          }
       )
    }
+   
    isFavorite: boolean = false
    heart: any
    checkHeart() {
@@ -145,9 +158,10 @@ export class DetailProductComponent implements OnInit {
                   'http://localhost:8000/api/favorites/' + this.favoriteData.idUser + '/' + this.favoriteData.idProduct
                this.http.delete(removeFv).subscribe((res: any) => {
                   console.log(res)
-                  this.getFavorite()
+                  
                   this.isFavorite = false
                   alert('Đã xóa khỏi sản phẩm yêu thích')
+                  this.getFavorite()
                })
             } else {
                this.http.post(apiUrl, this.favoriteData).subscribe((res: any) => {
@@ -159,8 +173,20 @@ export class DetailProductComponent implements OnInit {
             }
          })
       } else {
-         alert('no')
+         alert('Bạn chưa đăng nhập')
       }
+   }
+   removeComment(id:string){
+      console.log(id);
+      let api = "http://localhost:8000/api/comment/"+this.id
+      this.http.delete(api).subscribe(
+         (res:any)=>{
+            console.log(res);
+            
+            // this.getCMT()
+         }
+      )
+      
    }
    increaseQuantity() {
       this.quantity++

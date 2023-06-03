@@ -6,27 +6,10 @@
   <h1>Danh sách sản phẩm</h1>
   <div class="row">
     <div class="col-md-3">
-      <!-- <form class="form-inline my-2 my-lg-0 d-flex justify-content-start gap-2 align-items-center">
-          <input class="form-control mr-sm-2 p-2" type="search" placeholder="Tìm kiếm sản phẩm" aria-label="Search"  ng-model="searchText"/>
-          <button class="btn btn-outline-success fs-6 my-sm-0" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form> -->
-
-      <!-- <form
-        (submit)="search($event)"
-        class="form-inline my-2 my-lg-0 d-flex justify-content-start gap-2 align-items-center"
-      >
-        <input
-          name="searchKeyword"
-          class="form-control mr-sm-2 p-2"
-          type="search"
-          placeholder="Tìm kiếm sản phẩm"
-        />
-        <button class="btn btn-outline-success fs-6 my-sm-0" type="submit">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </form> -->
+      <form id="formSearch" action="" (ngSubmit) = "search()" style="display: flex;align-items: center;border: 1px solid #ccc;border-radius: 20px;padding: 10px;margin-bottom: 20px;">
+        <input [(ngModel)]="formSearch.search" type="search" name="search" id="search" placeholder="...Search" >
+        <button style="border: none;background: none;"><i class="fa fa-search" aria-hidden="true"></i></button>
+      </form>
       <div>
         <label for="">Sắp xếp theo giá</label>
         <select class="form-select" [(ngModel)]="selectedSortOrder" (ngModelChange)="onSortOrderChange()">
@@ -143,9 +126,14 @@
 
 
 
-
-
+       <div style="text-align: center;margin-top: 30px;">
+      <ng-container *ngIf="error">
+        <img width="80px" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/a60759ad1dabe909c46a817ecbf71878.png" alt="">
+        <h1 style="color: #f8452d;">{{error}}</h1>
+        </ng-container>
+      </div>
     </div>
 
   </div>
+  
 </div>
