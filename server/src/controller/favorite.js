@@ -47,7 +47,7 @@ export const getFavoriteIP = async(req ,res)=>{
     const {id} = req.params
     console.log(req.params);
     const favoriteProduct = await FavoriteProducts.find({idProduct:id})
-    if(favoriteProduct){
+    if(favoriteProduct.length>0){
     return res.status(201).json({
         message :"Lấy thành công sản phẩm yêu thích theo id sp ",
         favoriteProduct
@@ -63,11 +63,20 @@ export const getFavoriteIP = async(req ,res)=>{
   }
 }
 export const getFavoriteIU = async(req ,res)=>{
+  const { _order="asc",  _sort="createAt"} = req.query
+  const options={
+   
+    sort:{
+      [_sort]:_order == "desc" ? -1 : 1,
+    },
+
+  }
   try {
     const {id} = req.params
     console.log(req.params);
-    const favoriteProduct = await FavoriteProducts.find({idUser:id})
-    if(favoriteProduct){
+    const favoriteProduct = await FavoriteProducts.find({idUser:id}).populate({ path: 'idProduct',
+    select: 'name price image ',})
+    if(favoriteProduct.length > 0){
     return res.status(201).json({
         message :"Lấy thành công sản phẩm yêu thích theo id user ",
         favoriteProduct

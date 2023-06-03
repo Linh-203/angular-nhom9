@@ -5,6 +5,7 @@ import { favoriteProductsFake } from 'src/data/products'
 import { HttpClient } from '@angular/common/http'
 import { GlobalStateService } from 'src/app/global-state.service'
 
+
 @Component({
    selector: 'app-detail-product',
    templateUrl: './detail-product.component.html',
