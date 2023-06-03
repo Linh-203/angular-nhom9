@@ -32,9 +32,9 @@
 
   </div> -->
  
+<!-- 
 
-
-   <!-- <div class="d-flex justify-content-center p-5 modal-auth position-relative">
+   <div class="d-flex justify-content-center p-5 modal-auth position-relative">
     <form class="form form-login mt-4" [formGroup]="signupForm" (ngSubmit)="signUp()">
       <h1 mat-dialog-title class="fw-semibold">Thêm mới sản phẩm</h1>
       <mat-form-field class="mb-2">
@@ -103,35 +103,51 @@
         </clipPath>
       </defs>
     </svg>
-  </div>  -->
+  
+  </div>  
+ -->
 
 
-  <h1 mat-dialog-title class="fw-semibold">Thêm mới sản phẩm</h1> 
-  <form (ngSubmit)="addProduct()" [formGroup]="productForm">
-    <mat-form-field>
-      <input matInput placeholder="Tên sản phẩm" formControlName="name">
+
+
+
+
+
+
+
+
+<div class="d-flex justify-content-center p-5 modal-auth position-relative">
+  
+  <form class="form form-login mt-4" (ngSubmit)="addProduct()" [formGroup]="productForm">
+    <h1 mat-dialog-title class="fw-semibold">Thêm mới sản phẩm</h1> 
+    <mat-form-field class="mb-2">
+      <mat-label for="name" class="form-label">Tên sản phẩm</mat-label>
+      <input class="form-control fs-5" matInput placeholder="Tên sản phẩm" formControlName="name">
     </mat-form-field>
   
-    <mat-form-field>
-      <input matInput placeholder="Giá" formControlName="price">
+    <mat-form-field class="mb-2">
+      <mat-label for="name" class="form-label">Giá sản phẩm</mat-label>
+      <input class="form-control fs-5" matInput placeholder="Giá" formControlName="price">
     </mat-form-field>
   
-    <mat-form-field>
-      <input matInput placeholder="Ảnh" formControlName="image">
+    <mat-form-field class="mb-2">
+      <mat-label for="name" class="form-label">Image</mat-label>
+      <input class="form-control fs-5" matInput placeholder="Ảnh" formControlName="image">
     </mat-form-field>
   
  
-      <select   formControlName="categoryId">
-        <option value="">chọn danh mục</option>
+      <select class="mb-2" style="width: 100%; height: 50px;"  formControlName="categoryId">
+        <option class="form-control fs-5"  value="">Chọn danh mục</option>
         <option *ngFor="let cate of categories" [value]="cate._id">{{cate.name}}</option>
         
       </select>
 
   
-  
-    <mat-form-field>
-      <input matInput placeholder="Mô tả" formControlName="desc">
+    <mat-form-field class="mb-2">
+      <mat-label for="name" class="form-label">Mô tả</mat-label>
+      <input class="form-control fs-5" matInput placeholder="Mô tả" formControlName="desc">
     </mat-form-field>
   
     <button type="submit" class="btn btn-submit w-full" mat-raised-button >Thêm sản phẩm</button>
   </form>
+</div>  
