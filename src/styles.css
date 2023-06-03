@@ -9,6 +9,9 @@
   --primary-color: #f4ce0f;
   --2light-color: #E893CF;
 }
+.cursor-pointer{
+  cursor: pointer;
+}
 input{
   border: none !important ;
   background-color: transparent !important;
@@ -32,6 +35,47 @@ input{
 }
 .mdc-dialog__container{
  border-radius: 10px;
+}
+.carousel{
+  max-height: 400px !important;
+}
+.slick-prev{
+  width: 2rem;
+  height: 2rem;
+  position: absolute !important;
+  top:50% !important;
+  left: -3rem !important;
+  border-radius: 50% !important;
+  color: #E893CF !important;
+  box-shadow: 1px 1px 10px rgb(185, 184, 184) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slick-next{
+  width: 2rem;
+  height: 2rem;
+  position: absolute !important;
+  top:50% !important;
+  right: -3rem !important;
+  border-radius: 50% !important;
+  color: #E893CF !important;
+  box-shadow: 1px 1px 10px rgb(185, 184, 184) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slick-next::before{
+  color: #E893CF;
+  font-weight: bold;
+  font-size: 1rem;
+  display: block;
+}
+.slick-prev::before{
+  color: #E893CF;
+  font-weight: bold;
+  font-size: 1rem;
+  display: block;
 }
 html {
   overflow-y: overlay !important;

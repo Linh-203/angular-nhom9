@@ -19,30 +19,32 @@ import { DetailProductComponent } from './pages/detail-product/detail-product.co
 import { FormsModule } from '@angular/forms'
 import { LoginComponent } from './components/login/login.component'
 import { RegisterComponent } from './components/register/register.component'
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator'
 
+import { ProductComponent } from './components/product/product.component'
 import { CartComponent } from './components/cart/cart.component'
-import { ProductComponent } from './pages/product/product.component'
+import { ProductPageComponent } from './pages/product-page/product-page.component'
 import { NewComponent } from './pages/new/new.component'
 import { LayoutAdminComponent } from './components/layouts/layout-admin/layout-admin.component'
 import { MatInputModule } from '@angular/material/input'
-import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field'
+import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatCheckboxModule } from '@angular/material/checkbox'
 import { MatButtonModule } from '@angular/material/button'
 import { CommonModule } from '@angular/common'
 import { ReactiveFormsModule } from '@angular/forms'
 import { FavoriteComponent } from './pages/favorite/favorite.component'
-import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { HttpClientModule } from '@angular/common/http';
-import { RadioComponent } from './components/radio/radio.component';
-import { ProductsComponent } from './components/products/products.component';
-import { PayComponent } from './components/pay/pay.component';
-import { SidebarComponent } from './admin/sidebar/sidebar.component';
-import { ListproductsComponent } from './admin/listproducts/listproducts.component';
-import { StatisticalComponent } from './admin/statistical/statistical.component';
-import { AddproductComponent } from './admin/addproduct/addproduct.component';
-import { DashboardComponent } from './admin/dashboard/dashboard.component';
-import { UpdateComponent } from './admin/update/update.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel'
+import { HttpClientModule } from '@angular/common/http'
+import { RadioComponent } from './components/radio/radio.component'
+import { ProductsComponent } from './components/products/products.component'
+import { PayComponent } from './components/pay/pay.component'
+import { MatTabsModule } from '@angular/material/tabs'
+import { SidebarComponent } from './admin/sidebar/sidebar.component'
+import { ListproductsComponent } from './admin/listproducts/listproducts.component'
+import { StatisticalComponent } from './admin/statistical/statistical.component'
+import { AddproductComponent } from './admin/addproduct/addproduct.component'
+import { DashboardComponent } from './admin/dashboard/dashboard.component'
+import { UpdateComponent } from './admin/update/update.component'
 
 import { httpInterceptorProviders } from './http-interceptors'
 import { MatDialogModule } from '@angular/material/dialog'
@@ -55,7 +57,6 @@ import { GlobalStateService } from './global-state.service'
       HomeComponent,
       FooterComponent,
       HeaderComponent,
-
       ProductInCartComponent,
       BannerComponent,
       CategoryComponentComponent,
@@ -71,11 +72,13 @@ import { GlobalStateService } from './global-state.service'
       SidebarComponent,
       ListproductsComponent,
       StatisticalComponent,
-            FavoriteComponent,
+      FavoriteComponent,
       RadioComponent,
       AddproductComponent,
-         DashboardComponent,
-         UpdateComponent,
+      DashboardComponent,
+      ProductsComponent,
+      UpdateComponent,
+      ProductPageComponent
    ],
    imports: [
       BrowserModule,
@@ -93,7 +96,8 @@ import { GlobalStateService } from './global-state.service'
       MatDialogModule,
       HttpClientModule,
       MatProgressSpinnerModule,
-      MatPaginatorModule
+      MatPaginatorModule,
+      MatTabsModule
    ],
    providers: [httpInterceptorProviders, GlobalStateService],
    bootstrap: [AppComponent]

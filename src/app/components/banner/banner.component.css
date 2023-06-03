@@ -26,6 +26,10 @@
   top: 0;
   opacity: 0;
 }
+.py-5 {
+  padding-top: 10rem !important;
+  padding-bottom: 3rem !important;
+}
 /* .carousel-item {
   position: relative;
   display: none;
