@@ -43,13 +43,13 @@ import Comment from "../models/comment"
   export const removeComment= async(req,res)=>{
   const { id } = req.params;
   try {
-    await Comment.findByIdAndRemove(id);
+    await Comment.findByIdAndDelete(id);
     return res.status(200).json({
-      message: 'Xóa thành comment thành công',
+      message: 'Xóa comment thành công',
     });
   } catch (error) {
     res.status(400).json({
-      message: error,
+      message: error.message,
     });
   }
 }
@@ -59,7 +59,7 @@ export const getCommentFromProduct = async (req, res) => {
   try {
     const comment = await Comment.find({ idProduct: idProduct }).populate({
       path: 'idUser',
-      select: 'name email',
+      select: 'name email defaultAvatar',
     });
     if (!comment) {
       return res.status(404).json({

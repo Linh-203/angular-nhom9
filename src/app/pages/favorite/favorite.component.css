@@ -1,0 +1,49 @@
+.banner img{
+    width: 100%;
+}
+.colum{
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+   
+    
+}
+.info button{
+    font-size: 12px;
+    font-weight: 700;
+    font-family: "Noto Serif",serif;
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    border: 1px solid #f8452d;
+    background: #f8452d;
+    border-radius: 20px;
+    height: 40px;
+    line-height: 40px;
+    text-transform: uppercase;
+    padding: 0 15px;
+    box-shadow: none
+}
+.product{
+    padding: 30px 150px;
+}
+.image img{
+    width: 250px;
+    margin-right: 30px;
+}
+#desc{
+    width: 550px;
+    color: #666;
+}
+h1{
+    font-size: 30px;
+}
+.info i{
+   
+   color: #f8452d;
+    font-size: 20px;
+    margin-left: 20px;
+    border-radius: 50%;
+    border: 1px solid #f8452d;
+    padding: 5px;
+}
