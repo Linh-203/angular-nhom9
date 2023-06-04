@@ -1,9 +1,7 @@
 <div class="w-100"  style="max-height: 400px;">
   <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-    <div ngxSlickItem *ngFor="let imgSlide of listProduct" class="slide slider-item">
+    <div ngxSlickItem *ngFor="let imgSlide of listProduct" class="slide slider-item" >
       <app-product [product]="imgSlide"></app-product>
     </div>
   </ngx-slick-carousel>
-  <!-- <button class="slick-prev" (click)="slickModal.slickPrev()">prev</button>
-  <button class="slick-next" (click)="slickModal.slickNext()">></button> -->
 </div>

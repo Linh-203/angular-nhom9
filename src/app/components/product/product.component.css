@@ -22,11 +22,19 @@
   }  
   .imgFavorite{
     overflow: hidden;
-   
+    height: 30%;
+    display: flex;
+    justify-content: center;
   }
   .product-block{
+    display: flex;
+    flex-direction: column;
     position: relative;
     margin-bottom: 3rem;
+    max-height: 400px;
+  }
+  .wrapper{
+     display: block;
   }
   .product-block:hover .cart_eye{
     display: block;
@@ -36,9 +44,8 @@
     transition: 1s;
   }
   .img-product{
-   width: 100%;
-   aspect-ratio: 1/1;
-   height: auto;
+    width: 50%;
+   object-fit: cover;
   }
   .info-product{
     display: flex;

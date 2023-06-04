@@ -9,7 +9,6 @@ export class GlobalStateService {
    public userInfo = {} as {
       name: string
       email: string
-      token: string
       defaultAvatar: string
       role: string
    }

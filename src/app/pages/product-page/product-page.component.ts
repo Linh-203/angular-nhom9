@@ -111,8 +111,7 @@ export class ProductPageComponent {
   }
   error:any
   search(){
-  console.log(this.formSearch.search);
-  let api = "http://localhost:8000/api/products/?q="+this.formSearch.search
+  let api = "http://localhost:8000/api/products/?_q="+this.formSearch.search
   this.http.get(api).subscribe(
     (res: any) => {
       console.log(res);
