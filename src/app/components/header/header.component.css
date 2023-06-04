@@ -6,11 +6,12 @@
   text-align: center;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-
   height: 75px;
   margin-top: 20px;
   margin-bottom: 40px;
+
 }
+
 
 .logo {
   margin-right: 20px;
@@ -21,7 +22,8 @@
 }
 
 .navbar-nav li {
-  width: 120px;
+  /* width: 120px; */
+  font-size: 18px;
   align-items: center;
 }
 
