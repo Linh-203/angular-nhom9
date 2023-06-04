@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
    styleUrls: ['./update.component.css']
 })
 export class UpdateComponent {
+ 
    public productForm: FormGroup = this.formBuilder.group({
       name: ['', Validators.required],
       price: ['', Validators.required],
@@ -21,7 +22,7 @@ export class UpdateComponent {
 productId: string = "";
    categories!: any[]
 
-   constructor(private formBuilder: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private router: Router) {
+   constructor(private formBuilder: FormBuilder, private http: HttpClient, private route: ActivatedRoute) {
       this.route.params.subscribe(params => {
          this.productId = params["id"]
          this.http.get(`http://localhost:8000/api/products/${params['id']}`).subscribe((response: any) => {
@@ -66,11 +67,9 @@ this.http.patch("http://localhost:8000/api/products/"+this.productId,product,{
     }
 }).subscribe((res: any) => {
    console.log(res);
-   this.router.navigate(['admin/products']);
  });
 
 
    }
-
 
 }
