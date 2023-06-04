@@ -1,4 +1,4 @@
-<header >
+<header>
   <nav class="px-5 py-4 navbar navbar-expand-lg navbar-light bg-light container-fluid">
     <a routerLink="/" class="w-25">
       <img src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/logo.png?1676358260059"
@@ -32,10 +32,12 @@
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </form>
+
       <ng-container *ngIf="user">
       <a  routerLink="/favorite">
         <i style="color: #e5d300;font-size: 20px;" title="Sản phẩm yêu thích" class="fa fa-heart" aria-hidden="true"></i>
       </a></ng-container>
+
 
       <div class="p-1 dropdown">
         <a routerLink="/cart" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false"><i
@@ -52,7 +54,7 @@
             <li>
               <a class="dropdown-item" routerLink="#"><app-product-in-cart></app-product-in-cart></a>
             </li>
-           
+
           </div>
           <li>
             <hr class="dropdown-divider" />

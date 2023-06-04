@@ -33,6 +33,7 @@ const routes: Routes = [
          { path: 'pay', component: PayComponent },
          { path: 'products', component: ProductPageComponent },
          { path: 'favorite', component: FavoriteComponent }
+         
       ]
    },
    // Ứng dụng phía admin
@@ -43,7 +44,10 @@ const routes: Routes = [
          { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
          // { path: 'dashboard', component: DashboardComponent },
          { path: 'products', component: ListproductsComponent },
-         { path: 'statistical', component: StatisticalComponent }
+         { path: 'statistical', component: StatisticalComponent },
+         { path: 'addproduct', component: AddproductComponent },
+         { path: 'updateproduct/:id', component: UpdateComponent }
+        
       ]
    },
    { path: '**', component: NotFoundPageComponentComponent }
