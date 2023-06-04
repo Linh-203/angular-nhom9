@@ -12,7 +12,7 @@ const validateproduct = joi.object({
 
 
 export const getAll=async (req, res)=>{
-  const {_page=1, _order="asc", _limit=9, _sort="createAt"} = req.query
+  const {_page=1, _order="asc", _limit=9, _sort="createAt", q=""} = req.query
   const options={
     page:_page,
     limit:_limit,
@@ -21,8 +21,13 @@ export const getAll=async (req, res)=>{
     },
 
   }
+  const query = {};
+  if (q !== "") {
+    query.name = { $regex: q, $options: "i" };
+  }
    try {   //find().populate('categoryId')
-    const products = await Products.paginate({},options)
+   
+    const products = await Products.paginate(query,options)
     if(products.length===0){
         return res.jon({
             message:"Ko có sản phẩm"
@@ -40,7 +45,8 @@ export const getAll=async (req, res)=>{
 
 export const get=async (req, res)=>{
     try {
-     const products = await Products.findById(req.params.id)
+      const products = await Products.findById(req.params.id).populate({ path: 'categoryId', populate: { path: 'name' } });
+
      if(!products){
          return res.jon({
              message:"Ko có sản phẩm"
