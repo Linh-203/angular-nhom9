@@ -18,6 +18,7 @@ export class ListproductsComponent {
 
   ngOnInit(): void {
      this.getAllProducts()
+     
   }
 
   adminProducts: any

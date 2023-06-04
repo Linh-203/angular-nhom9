@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 import { category } from 'src/data/products';
+import { Router } from '@angular/router';
 
 @Component({
    selector: 'app-update',
@@ -20,7 +21,7 @@ export class UpdateComponent {
 productId: string = "";
    categories!: any[]
 
-   constructor(private formBuilder: FormBuilder, private http: HttpClient, private route: ActivatedRoute) {
+   constructor(private formBuilder: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private router: Router) {
       this.route.params.subscribe(params => {
          this.productId = params["id"]
          this.http.get(`http://localhost:8000/api/products/${params['id']}`).subscribe((response: any) => {
@@ -65,6 +66,7 @@ this.http.patch("http://localhost:8000/api/products/"+this.productId,product,{
     }
 }).subscribe((res: any) => {
    console.log(res);
+   this.router.navigate(['admin/products']);
  });
 
 
