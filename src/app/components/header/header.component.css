@@ -11,7 +11,11 @@
   margin-bottom: 40px;
 
 }
-
+.active-link{
+  font-size: 1.5rem;
+  font-weight: bold;
+   border-bottom: 1px solid var(--2light-color) !important;
+}
 
 .logo {
   margin-right: 20px;
@@ -39,7 +43,7 @@
 
 .drop-user {
   position: absolute;
-  min-width: 100px;
+  min-width: 150px;
   right: 0;
 }
 
@@ -55,16 +59,20 @@
 }
 
 .cart-footer {
+  padding-left: 1rem;
+  padding-right: 1rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .btn-logout{
+  width: 100%;
   border: 1px solid var(--primary-color) !important;
   color:var(--primary-color) !important;
   background-color: white !important;
   padding: 0.2rem;
   border-radius: 5px;
+  margin-top: 1rem;
 }
 .open-modal{
   cursor: pointer;

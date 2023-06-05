@@ -37,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { RadioComponent } from './components/radio/radio.component'
 import { ProductsComponent } from './components/products/products.component'
 import { PayComponent } from './components/pay/pay.component'
+import { MatBadgeModule } from '@angular/material/badge'
 import { MatTabsModule } from '@angular/material/tabs'
 import { SidebarComponent } from './admin/sidebar/sidebar.component'
 import { ListproductsComponent } from './admin/listproducts/listproducts.component'
@@ -96,7 +97,8 @@ import { GlobalStateService } from './global-state.service'
       HttpClientModule,
       MatProgressSpinnerModule,
       MatPaginatorModule,
-      MatTabsModule
+      MatTabsModule,
+      MatBadgeModule
    ],
    providers: [httpInterceptorProviders, GlobalStateService],
    bootstrap: [AppComponent]
