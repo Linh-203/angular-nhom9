@@ -1,9 +1,12 @@
+import { IProducts } from './../../../common/products'
 import { Component, NgZone } from '@angular/core'
 import { OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { favoriteProductsFake } from 'src/data/products'
 import { HttpClient } from '@angular/common/http'
 import { GlobalStateService } from 'src/app/global-state.service'
+import { CartExtService } from 'src/app/components/cart/cart.service'
+import { InputCart } from 'src/common/cart'
 
 @Component({
    selector: 'app-detail-product',
@@ -12,13 +15,19 @@ import { GlobalStateService } from 'src/app/global-state.service'
 })
 export class DetailProductComponent implements OnInit {
    id: string = ''
-   product: any = {}
    infoUser: any
    countCMT: any
-   constructor(private http: HttpClient, private route: ActivatedRoute) {}
+   product: IProducts = {} as IProducts
+   private productState: IProducts = {} as IProducts
+   constructor(
+      private http: HttpClient,
+      private route: ActivatedRoute,
+      private cartService: CartExtService,
+      private globalState: GlobalStateService
+   ) {}
+
    userDontOverwride = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!) : {}
    idLocal = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!)?._id : ''
-
    countFv: any
    idP: any
    ngOnInit(): void {
@@ -27,6 +36,8 @@ export class DetailProductComponent implements OnInit {
          let apiUrl = 'http://localhost:8000/api/products/' + this.id
          this.http.get(apiUrl).subscribe((response: any) => {
             this.product = response
+            this.globalState.setProductData(response)
+            this.productState = this.globalState.getProductData()
          })
          // this.product = favoriteProductsFake.find(p => p.id === this.id);
          this.formData.idProduct = this.id
@@ -194,8 +205,8 @@ export class DetailProductComponent implements OnInit {
          name: '80'
       }
    ]
-   private dataSubmit = {
-      product: this.product,
+
+   public options = {
       quantity: this.quantity,
       options: {
          size: this.fakeSize[0].value,
@@ -204,6 +215,24 @@ export class DetailProductComponent implements OnInit {
       }
    }
    onChangeRadio(event: any) {
-      this.dataSubmit.options = { ...this.dataSubmit.options, [event.target.name]: event.target.value }
+      this.options.options = { ...this.options.options, [event.target.name]: event.target.value }
+   }
+   loadingBtn = false
+   async handleAddToCart() {
+      const data: InputCart = {
+         productId: this.productState._id,
+         name: this.productState.name,
+         price: this.productState.price,
+         image: this.productState.image,
+         ...this.options
+      }
+      try {
+         this.loadingBtn = true
+         const res = await this.cartService.addToCart(data, this.userDontOverwride._id)
+         console.log(res)
+      } catch (error) {
+         this.loadingBtn = false
+         console.log(error)
+      }
    }
 }

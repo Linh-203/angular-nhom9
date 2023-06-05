@@ -1,8 +1,7 @@
 import dotenv from 'dotenv'
-import Cart from '../models/cart.js'
-import User from '../models/user.js'
-import { categorySchema } from '../schemas/category.js'
-import { productInCartSchema } from '../schemas/product.js'
+import Cart from '../models/cart'
+import User from '../models/user'
+import { productInCartSchema } from '../schema/product'
 
 dotenv.config()
 

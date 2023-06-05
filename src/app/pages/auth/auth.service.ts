@@ -38,4 +38,11 @@ export class AuthService {
       }
       this.router.navigateByUrl('/')
    }
+   getToken() {
+      const token = localStorage.getItem('token')
+      return token
+   }
+   clearToken() {
+      return localStorage.removeItem('token')
+   }
 }

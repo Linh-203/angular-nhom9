@@ -11,11 +11,4 @@ export class ApiService {
          'Content-Type': 'application/json'
       })
    }
-   getToken() {
-      const token = localStorage.getItem('token')
-      return token
-   }
-   clearToken() {
-      return localStorage.removeItem('token')
-   }
 }

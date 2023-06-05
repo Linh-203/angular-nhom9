@@ -1,4 +1,5 @@
-import { Component } from '@angular/core'
+import { HttpErrorResponse } from '@angular/common/http'
+import { Component, OnInit } from '@angular/core'
 import { ProductInCartComponent } from '../product-in-cart/product-in-cart.component'
 import { productsFake } from 'src/data/products'
 import { favoriteProductsFake } from 'src/data/products'
@@ -8,19 +9,46 @@ import { RegisterComponent } from '../register/register.component'
 import { LoginComponent } from '../login/login.component'
 import { AuthService } from 'src/app/pages/auth/auth.service'
 import { GlobalStateService } from 'src/app/global-state.service'
-interface IUser{
-   _id:string
+import { Icart } from 'src/common/cart'
+import { CartExtService } from '../cart/cart.service'
+import { IProducts } from 'src/common/products'
+interface IUser {
+   _id: string
 }
 @Component({
    selector: 'app-header',
    templateUrl: './header.component.html',
    styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
-   constructor(private dialog: MatDialog, private authService: AuthService, private glbState: GlobalStateService) {}
+export class HeaderComponent implements OnInit {
+   constructor(
+      private dialog: MatDialog,
+      private authService: AuthService,
+      private cartService: CartExtService,
+      private glbState: GlobalStateService
+   ) {}
    openDialog(type: 'signin' | 'signup') {
       if (type === 'signup') this.dialog.open(RegisterComponent)
       if (type === 'signin') this.dialog.open(LoginComponent)
+   }
+   loading = false
+   cart: Icart = {} as Icart
+   productsInCart = [] as IProducts[]
+   userId = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!)._id : ''
+   ngOnInit(): void {
+      ;(async () => {
+         try {
+            if (this.userId === '') return
+            const res = await this.cartService.getCart(this.userId)
+            this.cart = res!
+            this.productsInCart = this.cart?.data.products
+         } catch (error: any) {
+            this.loading = false
+            if (error.error?.unAuth) {
+               this.authService.logout()
+            }
+         }
+      })()
    }
    slides = [
       {
@@ -48,7 +76,5 @@ export class HeaderComponent {
    handleLogout() {
       return this.authService.logout()
    }
-    user: IUser = JSON.parse(localStorage.getItem('user')!);
-   
-   
+   user: IUser = JSON.parse(localStorage.getItem('user')!)
 }
