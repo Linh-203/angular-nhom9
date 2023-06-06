@@ -1,10 +1,12 @@
+import { IProducts } from './../../../common/products'
 import { Component, NgZone } from '@angular/core'
 import { OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { favoriteProductsFake } from 'src/data/products'
 import { HttpClient } from '@angular/common/http'
 import { GlobalStateService } from 'src/app/global-state.service'
-
+import { CartExtService } from 'src/app/components/cart/cart.service'
+import { InputCart } from 'src/common/cart'
 
 @Component({
    selector: 'app-detail-product',
@@ -13,26 +15,29 @@ import { GlobalStateService } from 'src/app/global-state.service'
 })
 export class DetailProductComponent implements OnInit {
    id: string = ''
-   product: any = {}
    infoUser: any
    countCMT: any
-   constructor(private http: HttpClient, private route: ActivatedRoute) {}
+   product: IProducts = {} as IProducts
+   private productState: IProducts = {} as IProducts
+   constructor(
+      private http: HttpClient,
+      private route: ActivatedRoute,
+      private cartService: CartExtService,
+      private globalState: GlobalStateService
+   ) {}
+
    userDontOverwride = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!) : {}
    idLocal = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!)?._id : ''
-   
-   
    countFv: any
    idP: any
    ngOnInit(): void {
-      console.log(this.idLocal)
       this.route.paramMap.subscribe((params) => {
          this.id = params.get('id') || ''
-         console.log(this.id)
          let apiUrl = 'http://localhost:8000/api/products/' + this.id
          this.http.get(apiUrl).subscribe((response: any) => {
             this.product = response
-            console.log(response);
-            
+            this.globalState.setProductData(response)
+            this.productState = this.globalState.getProductData()
          })
          // this.product = favoriteProductsFake.find(p => p.id === this.id);
          this.formData.idProduct = this.id
@@ -59,17 +64,13 @@ export class DetailProductComponent implements OnInit {
 
    fv: any
    getFavorite() {
-      console.log(this.idP)
-
       let apiGet = 'http://localhost:8000/api/favorites/' + this.idP
       this.http.get(apiGet).subscribe((res: any) => {
-         if(res.favoriteProduct){
+         if (res.favoriteProduct) {
             this.countFv = res.favoriteProduct.length
-            console.log(this.countFv)
-         }else{
-            this.countFv=0
+         } else {
+            this.countFv = 0
          }
-         
       })
    }
    comment: any
@@ -78,12 +79,9 @@ export class DetailProductComponent implements OnInit {
       this.http.get(apiUrlCMT).subscribe(
          (response: any) => {
             this.comment = response.comment
-            this.countCMT= this.comment.length
-            console.log( this.comment);
+            this.countCMT = this.comment.length
             for (let item of this.comment) {
                this.infoUser = item.idUser
-               
-               
             }
          },
          (error: any) => {
@@ -91,21 +89,18 @@ export class DetailProductComponent implements OnInit {
          }
       )
    }
-   
+
    isFavorite: boolean = false
    heart: any
    checkHeart() {
       let api = 'http://localhost:8000/api/favorites/'
       this.http.get(api).subscribe((res: any) => {
-         console.log(res)
          this.heart = res.favoriteProduct
          const check = this.heart.find((item: any) => item.idUser == this.idLocal && item.idProduct == this.idP)
          if (check) {
             this.isFavorite = true
-            console.log(this.isFavorite)
          } else {
             this.isFavorite = false
-            console.log(this.isFavorite)
          }
       })
    }
@@ -115,9 +110,7 @@ export class DetailProductComponent implements OnInit {
       let apiUrl = 'http://localhost:8000/api/products'
       this.http.get(apiUrl).subscribe(
          (response: any) => {
-            console.log(response)
             this.favoriteProducts = response.docs
-            console.log(this.favoriteProducts)
          },
          (error: any) => {
             console.log(error)
@@ -125,14 +118,11 @@ export class DetailProductComponent implements OnInit {
       )
    }
    addComment() {
-      console.log(this.formData)
       if (this.formData.idUser) {
          let apiUrl = 'http://localhost:8000/api/comment'
          this.http.post(apiUrl, this.formData).subscribe(
             (response: any) => {
-               console.log(response)
                this.comments = response
-               console.log(this.comments)
                this.getCMT()
             },
             (error: any) => {
@@ -147,7 +137,6 @@ export class DetailProductComponent implements OnInit {
       if (this.idLocal) {
          let apiUrl = 'http://localhost:8000/api/favorites'
          this.http.get(apiUrl).subscribe((res: any) => {
-            console.log(res.favoriteProduct)
             this.fv = res.favoriteProduct
             let checkP = this.fv.find(
                (item: any) => item.idUser == this.favoriteData.idUser && item.idProduct == this.favoriteData.idProduct
@@ -157,15 +146,12 @@ export class DetailProductComponent implements OnInit {
                let removeFv =
                   'http://localhost:8000/api/favorites/' + this.favoriteData.idUser + '/' + this.favoriteData.idProduct
                this.http.delete(removeFv).subscribe((res: any) => {
-                  console.log(res)
-                  
                   this.isFavorite = false
                   alert('Đã xóa khỏi sản phẩm yêu thích')
                   this.getFavorite()
                })
             } else {
                this.http.post(apiUrl, this.favoriteData).subscribe((res: any) => {
-                  console.log(res)
                   this.getFavorite()
                   this.isFavorite = true
                   alert('Đã thêm vào sản phẩm yêu thích')
@@ -176,17 +162,11 @@ export class DetailProductComponent implements OnInit {
          alert('Bạn chưa đăng nhập')
       }
    }
-   removeComment(id:string){
-      console.log(id);
-      let api = "http://localhost:8000/api/comment/"+this.id
-      this.http.delete(api).subscribe(
-         (res:any)=>{
-            console.log(res);
-            
-            // this.getCMT()
-         }
-      )
-      
+   removeComment(id: string) {
+      let api = 'http://localhost:8000/api/comment/' + this.id
+      this.http.delete(api).subscribe((res: any) => {
+         // this.getCMT()
+      })
    }
    increaseQuantity() {
       this.quantity++
@@ -221,20 +201,38 @@ export class DetailProductComponent implements OnInit {
          name: '50'
       },
       {
-         value: '100',
-         name: '100'
+         value: '80',
+         name: '80'
       }
    ]
-   private dataSubmit = {
-      product: this.product,
+
+   public options = {
       quantity: this.quantity,
       options: {
          size: this.fakeSize[0].value,
-         ice: this.fakeIce[0].value,
-         sugar: this.fakeIce[0].value
+         ice: this.fakeIce[2].value,
+         sugar: this.fakeIce[2].value
       }
    }
    onChangeRadio(event: any) {
-      this.dataSubmit.options = { ...this.dataSubmit.options, [event.target.name]: event.target.value }
+      this.options.options = { ...this.options.options, [event.target.name]: event.target.value }
+   }
+   loadingBtn = false
+   async handleAddToCart() {
+      const data: InputCart = {
+         productId: this.productState._id,
+         name: this.productState.name,
+         price: this.productState.price,
+         image: this.productState.image,
+         ...this.options
+      }
+      try {
+         this.loadingBtn = true
+         const res = await this.cartService.addToCart(data, this.userDontOverwride._id)
+         console.log(res)
+      } catch (error) {
+         this.loadingBtn = false
+         console.log(error)
+      }
    }
 }

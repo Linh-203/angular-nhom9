@@ -15,7 +15,7 @@ export class ProductsComponent {
    slideConfig = {
       slidesToShow: 5,
       slidesToScroll: 1,
-      autoplay: true,
+      autoplay: false,
       autoplaySpeed: 1500
    }
    @ViewChild('slickModal') slickModal: any

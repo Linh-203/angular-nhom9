@@ -51,7 +51,9 @@ const routes: Routes = [
          { path: 'statistical', component: StatisticalComponent },
          { path: 'addcategory', component: AddCateComponent },
          { path: 'updateCate/:id', component: UpdateCateComponent },
-         { path: 'deleteCate', component: DeleteCateComponent }
+         { path: 'deleteCate', component: DeleteCateComponent },
+         { path: 'addproduct', component: AddproductComponent },
+         { path: 'updateproduct/:id', component: UpdateComponent }
       ]
    },
    { path: '**', component: NotFoundPageComponentComponent }

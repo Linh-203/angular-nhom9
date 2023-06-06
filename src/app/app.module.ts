@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { IgxCarouselModule } from 'igniteui-angular'
-// import { ToastrModule } from 'ngx-toastr'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { HomeComponent } from './pages/home/home.component'
@@ -38,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { RadioComponent } from './components/radio/radio.component'
 import { ProductsComponent } from './components/products/products.component'
 import { PayComponent } from './components/pay/pay.component'
+import { MatBadgeModule } from '@angular/material/badge'
 import { MatTabsModule } from '@angular/material/tabs'
 import { SidebarComponent } from './admin/sidebar/sidebar.component'
 import { ListproductsComponent } from './admin/listproducts/listproducts.component'
@@ -52,7 +52,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { GlobalStateService } from './global-state.service'
 import { AddCateComponent } from './admin/add-cate/add-cate.component'
 import { UpdateCateComponent } from './admin/update-cate/update-cate.component'
-import { DeleteCateComponent } from './admin/delete-cate/delete-cate.component';
+import { DeleteCateComponent } from './admin/delete-cate/delete-cate.component'
 import { ListcateComponent } from './admin/listcate/listcate.component'
 
 @NgModule({
@@ -105,7 +105,8 @@ import { ListcateComponent } from './admin/listcate/listcate.component'
       HttpClientModule,
       MatProgressSpinnerModule,
       MatPaginatorModule,
-      MatTabsModule
+      MatTabsModule,
+      MatBadgeModule
    ],
    providers: [httpInterceptorProviders, GlobalStateService],
    bootstrap: [AppComponent]
