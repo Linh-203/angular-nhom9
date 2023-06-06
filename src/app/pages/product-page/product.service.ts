@@ -13,4 +13,11 @@ export class ProductService {
       const response = await this.http.get<IProductRes>(`${this.api.baseUrl}/products`, this.api.httpOptions).toPromise()
       return response
    }
+
+   // deleteProduct(id : number) {
+   //    return this.http.delete(`${this.API_URL}/${id}`)
+   // }
+
+
+
 }

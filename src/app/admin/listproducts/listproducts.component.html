@@ -1,27 +1,30 @@
 <h1>Danh sách sản phẩm</h1>
-<a routerLink="/admin/addproduct"><button type="button" class="btn btn-warning">Thêm sản phẩm</button></a>
+<a routerLink="/admin/addproduct"><button type="button" class="btn btn-warning">AddNewProducts</button></a>
 <table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Price</th>
-      <th scope="col">Image</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody *ngFor="let product of filteredProducts">
-    <tr>
-      <td> </td>
-      <td>{{product.name}}</td>
-      <td>{{product.price}} $</td>
-      <td  id="tdimg"><img src="{{product.image}}" alt=""></td>
-      <td>
-        <button routerLink="/admin/updateproduct/{{product._id}}" type="button" class="btn btn-outline-primary">Sửa sản phẩm</button>
-        <button (click)="deleteProduct(product._id)"  type="button" class="btn btn-outline-danger">Xóa sản phẩm</button>
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
+   <thead class="thead-dark">
+      <tr>
+         <th>Stt</th>
+         <th scope="col">Name</th>
+         <th scope="col">Price</th>
+         <th scope="col">Image</th>
+         <th scope="col">Action</th>
+      </tr>
+   </thead>
 
+   <tbody *ngFor="let product of adminProducts; let i = index">
+      <tr>
+         <th>{{ i + 1 }}</th>
+         <td>{{ product.categoryId }}</td>
+         <td>{{ product.name }}</td>
+         <td>{{ product.price }} $</td>
+         <td id="tdimg"><img src="{{ product.image }}" alt="{{ product.name }}" /></td>
+         <td>
+            <button routerLink="/admin/updateproduct/{{ product._id }}" type="button" class="btn btn-outline-primary">
+               Update
+            </button>
+            <button type="button" class="btn btn-outline-danger" (click)="deleteProduct(product._id)">Delete</button>
+            <span>{{ product.id }}</span>
+         </td>
+      </tr>
+   </tbody>
+</table>

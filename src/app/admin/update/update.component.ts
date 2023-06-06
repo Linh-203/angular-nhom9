@@ -1,57 +1,75 @@
-import { Component } from '@angular/core'
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
-
 import { ActivatedRoute } from '@angular/router'
-import { IProducts } from 'src/common/products'
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core'
+import { FormGroup, FormBuilder, Validators } from '@angular/forms'
+import { HttpClient } from '@angular/common/http'
+import { Router } from '@angular/router'
+
 @Component({
    selector: 'app-update',
    templateUrl: './update.component.html',
    styleUrls: ['./update.component.css']
 })
 export class UpdateComponent {
-   public updateproductForm!: FormGroup
-   product: IProducts | undefined = {} as IProducts
-   id: string = ''
-   constructor(private route: ActivatedRoute,
-       private http: HttpClient,
-       private FormBuilder: FormBuilder,) {}
+   public productForm: FormGroup = this.formBuilder.group({
+      name: ['', Validators.required],
+      price: ['', Validators.required],
+      image: ['', Validators.required],
+      categoryId: ['', Validators.required],
+      desc: ['', Validators.required]
+   })
+   productId: string = ''
+   categories!: any[]
 
-   ngOnInit(): void {
-
-      
-      this.updateproductForm = this.FormBuilder.group({
-       
-         productname: new FormControl('', [Validators.required, Validators.minLength(6)]),
-         productprice: new FormControl('', [Validators.required, Validators.minLength(6), Validators.min(1)]),
-         productdesc: new FormControl('', [Validators.required, Validators.minLength(6)])
-      })
-      
-      this.route.paramMap.subscribe((params) => {
-         this.id = params.get('id') || ''
-         let apiUrl = 'http://localhost:8000/api/products/' + this.id
-         this.http.get(apiUrl).subscribe((response: any) => {
-            this.product = response
-            console.log(response);
-            
+   constructor(
+      private formBuilder: FormBuilder,
+      private http: HttpClient,
+      private route: ActivatedRoute,
+      private router: Router
+   ) {
+      this.route.params.subscribe((params) => {
+         this.productId = params['id']
+         this.http.get(`http://localhost:8000/api/products/${params['id']}`).subscribe((response: any) => {
+            this.productForm.patchValue({
+               name: response.name,
+               price: response.price,
+               image: response.image,
+               categoryId: response.categoryId,
+               desc: response.desc
+            })
          })
       })
 
 
 
-     this.getCategory()
+     
    }
-   categories:any
-   getCategory(){
-    const apiUrl = "http://localhost:8000/api/categories" ;
-    this.http.get(apiUrl).subscribe(
-      (res: any) => {
-        this.categories = res.categories;
-        console.log(this.categories);
-        
-      }
-    )
-  }
 
-  
+   ngOnInit() {
+      this.http.get('http://localhost:8000/api/categories').subscribe((data: any) => {
+         this.categories = data.categories
+
+         console.log(data)
+      })
+   }
+
+   updateProduct() {
+      const product = {
+         name: this.productForm.value.name,
+         price: this.productForm.value.price,
+         image: this.productForm.value.image,
+         categoryId: this.productForm.value.categoryId,
+         desc: this.productForm.value.desc
+      }
+
+      this.http
+         .patch('http://localhost:8000/api/products/' + this.productId, product, {
+            headers: {
+               authorization: 'Bearer' + localStorage.getItem('token')
+            }
+         })
+         .subscribe((res: any) => {
+            console.log(res)
+            this.router.navigate(['admin/products'])
+         })
+   }
 }

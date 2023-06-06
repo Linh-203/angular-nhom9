@@ -1,37 +1,49 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core'
+import { FormGroup, FormBuilder, Validators } from '@angular/forms'
+import { HttpClient } from '@angular/common/http'
+import { Router } from '@angular/router'
 @Component({
-  selector: 'app-addproduct',
-  templateUrl: './addproduct.component.html',
-  styleUrls: ['./addproduct.component.css']
+   selector: 'app-addproduct',
+   templateUrl: './addproduct.component.html',
+   styleUrls: ['./addproduct.component.css']
 })
-export class AddproductComponent {
-  public addproductForm!: FormGroup
-  constructor(
-    private FormBuilder: FormBuilder,
-    private http: HttpClient
-    
- ) {}
-  ngOnInit(): void {
-    this.addproductForm = this.FormBuilder.group({
-       
-       productname: new FormControl('', [Validators.required, Validators.minLength(6)]),
-       productprice: new FormControl('', [Validators.required, Validators.minLength(6), Validators.min(1)]),
-       productdesc: new FormControl('', [Validators.required, Validators.minLength(6)])
-    })
-    this.getCategory()
- }
+export class AddproductComponent implements OnInit {
+   public productForm!: FormGroup
 
- categories:any
- getCategory(){
-  const apiUrl = "http://localhost:8000/api/categories" ;
-  this.http.get(apiUrl).subscribe(
-    (res: any) => {
-      this.categories = res.categories;
-      console.log(this.categories);
-      
-    }
-  )
-}
+   categories!: any[]
+
+   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {}
+
+   ngOnInit() {
+      this.http.get('http://localhost:8000/api/categories').subscribe((data: any) => {
+         this.categories = data.categories
+         console.log(data)
+      })
+
+      this.productForm = this.formBuilder.group({
+         name: ['', Validators.required],
+         price: ['', Validators.required],
+         image: ['', Validators.required],
+         categoryId: ['', Validators.required],
+         desc: ['', Validators.required]
+      })
+   }
+
+   addProduct() {
+      // Thực hiện thêm sản phẩm
+      const product = this.productForm.value
+      console.log(this.productForm)
+
+      const apiUrl = `http://localhost:8000/api/products/`
+      this.http
+         .post(apiUrl, product, {
+            headers: {
+               authorization: 'Bearer' + localStorage.getItem('token')
+            }
+         })
+         .subscribe((res: any) => {
+            console.log(res)
+            this.router.navigate(['admin/products'])
+         })
+   }
 }

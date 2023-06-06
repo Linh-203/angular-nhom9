@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GlobalStateService } from 'src/app/global-state.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,5 +7,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-
 }

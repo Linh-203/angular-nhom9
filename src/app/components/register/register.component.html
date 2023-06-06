@@ -1,60 +1,88 @@
 <div class="d-flex justify-content-center p-5 modal-auth position-relative">
-  <form class="form form-login mt-4" [formGroup]="signupForm" (ngSubmit)="signUp()">
-    <h1 mat-dialog-title class="fw-semibold">Create an account</h1>
-    <mat-form-field class="mb-2">
-      <mat-label for="username" class="form-label">User Name</mat-label>
-      <input type="text" class="form-control fs-5" aria-describedby="emailHelp" id="name" name="name"
-        placeholder="Enter name" formControlName="name" required matInput />
-      <mat-error *ngIf="signupForm.get('name')?.hasError('required')">
-        This field is required !
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field class="mb-2">
-      <mat-label for="email" class="form-label">Email address</mat-label>
-      <input type="email" class="form-control fs-5" aria-describedby="emailHelp" id="email" name="email"
-        placeholder="Enter email" formControlName="email" required matInput />
-      <mat-error *ngIf="signupForm.get('email')?.hasError('required')">
-        This field is required !
-      </mat-error>
-      <mat-error *ngIf="signupForm.get('email')?.hasError('email')">
-        Enter valid email !
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field class="mb-2">
-      <mat-label for="password" class="form-label">Password</mat-label>
-      <input type="password" class="form-control fs-5" id="password" name="password" formControlName="password"
-        placeholder="Password" required matInput />
-      <mat-error *ngIf="signupForm.get('password')?.hasError('required')">
-        This field is required !
-      </mat-error>
-      <mat-error *ngIf="signupForm.get('password')?.hasError('minLength')">
-        Enter at least 6-characters !
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field class="mb-2">
-      <mat-label for="password" class="form-label">Confirm Password</mat-label>
-      <input type="password" class="form-control fs-5" id="repassword" name="confirmPassword"
-        formControlName="confirmPassword" placeholder="Confirm Password" required matInput />
-      <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('required')">
-        This field is required !
-      </mat-error>
-      <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('not_match')">
-        This password doesn't match !
-      </mat-error>
-    </mat-form-field>
-    <span class="text-danger fs-6 mb-2">{{this.msgFromServer}}</span>
-    <button type="submit" class="btn btn-submit w-full" >Submit</button>
-  </form>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="wavy">
-    <path fill-opacity="1"
-      d="M0,32L48,58.7C96,85,192,139,288,165.3C384,192,480,192,576,165.3C672,139,768,85,864,74.7C960,64,1056,96,1152,122.7C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
-    </path>
-    <defs>
-      <clipPath id="wavy-mask">
-        <path fill-opacity="1"
-          d="M0,32L48,58.7C96,85,192,139,288,165.3C384,192,480,192,576,165.3C672,139,768,85,864,74.7C960,64,1056,96,1152,122.7C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
-        </path>
-      </clipPath>
-    </defs>
-  </svg>
+   <form class="form form-login mt-4" [formGroup]="signupForm" (ngSubmit)="signUp()">
+      <h1 mat-dialog-title class="fw-semibold">Create an account</h1>
+      <mat-form-field class="mb-2">
+         <mat-label for="username" class="form-label">User Name</mat-label>
+         <input
+            type="text"
+            class="form-control fs-5"
+            aria-describedby="emailHelp"
+            id="name"
+            name="name"
+            placeholder="Enter name"
+            formControlName="name"
+            required
+            matInput
+         />
+         <mat-error *ngIf="signupForm.get('name')?.hasError('required')"> This field is required ! </mat-error>
+      </mat-form-field>
+      <mat-form-field class="mb-2">
+         <mat-label for="email" class="form-label">Email address</mat-label>
+         <input
+            type="email"
+            class="form-control fs-5"
+            aria-describedby="emailHelp"
+            id="email"
+            name="email"
+            placeholder="Enter email"
+            formControlName="email"
+            required
+            matInput
+         />
+         <mat-error *ngIf="signupForm.get('email')?.hasError('required')"> This field is required ! </mat-error>
+         <mat-error *ngIf="signupForm.get('email')?.hasError('email')"> Enter valid email ! </mat-error>
+      </mat-form-field>
+      <mat-form-field class="mb-2">
+         <mat-label for="password" class="form-label">Password</mat-label>
+         <input
+            type="password"
+            class="form-control fs-5"
+            id="password"
+            name="password"
+            formControlName="password"
+            placeholder="Password"
+            required
+            matInput
+         />
+         <mat-error *ngIf="signupForm.get('password')?.hasError('required')"> This field is required ! </mat-error>
+         <mat-error *ngIf="signupForm.get('password')?.hasError('minLength')">
+            Enter at least 6-characters !
+         </mat-error>
+      </mat-form-field>
+      <mat-form-field class="mb-2">
+         <mat-label for="password" class="form-label">Confirm Password</mat-label>
+         <input
+            type="password"
+            class="form-control fs-5"
+            id="repassword"
+            name="confirmPassword"
+            formControlName="confirmPassword"
+            placeholder="Confirm Password"
+            required
+            matInput
+         />
+         <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('required')">
+            This field is required !
+         </mat-error>
+         <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('not_match')">
+            This password doesn't match !
+         </mat-error>
+      </mat-form-field>
+      <span class="text-danger fs-6 mb-2">{{ this.msgFromServer }}</span>
+      <button type="submit" class="btn btn-submit w-full">Submit</button>
+   </form>
+   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="wavy">
+      <path
+         fill-opacity="1"
+         d="M0,32L48,58.7C96,85,192,139,288,165.3C384,192,480,192,576,165.3C672,139,768,85,864,74.7C960,64,1056,96,1152,122.7C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+      ></path>
+      <defs>
+         <clipPath id="wavy-mask">
+            <path
+               fill-opacity="1"
+               d="M0,32L48,58.7C96,85,192,139,288,165.3C384,192,480,192,576,165.3C672,139,768,85,864,74.7C960,64,1056,96,1152,122.7C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+         </clipPath>
+      </defs>
+   </svg>
 </div>
