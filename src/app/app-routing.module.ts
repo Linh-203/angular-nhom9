@@ -19,6 +19,10 @@ import { StatisticalComponent } from './admin/statistical/statistical.component'
 import { AddproductComponent } from './admin/addproduct/addproduct.component'
 import { DashboardComponent } from './admin/dashboard/dashboard.component'
 import { UpdateComponent } from './admin/update/update.component'
+import { AddCateComponent } from './admin/add-cate/add-cate.component'
+import { UpdateCateComponent } from './admin/update-cate/update-cate.component'
+import { DeleteCateComponent } from './admin/delete-cate/delete-cate.component'
+import { ListcateComponent } from './admin/listcate/listcate.component'
 
 const routes: Routes = [
    {
@@ -29,11 +33,10 @@ const routes: Routes = [
          { path: 'categories', component: CategoryComponentComponent },
          { path: 'products/:id', component: DetailProductComponent },
          { path: 'new', component: NewComponent },
-         { path: 'cart', component: CartComponent },
+         { path: 'abc', component: CartComponent },
          { path: 'pay', component: PayComponent },
          { path: 'products', component: ProductPageComponent },
          { path: 'favorite', component: FavoriteComponent }
-         
       ]
    },
    // Ứng dụng phía admin
@@ -41,13 +44,16 @@ const routes: Routes = [
       path: 'admin',
       component: LayoutAdminComponent,
       children: [
-         { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-         // { path: 'dashboard', component: DashboardComponent },
+         // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+         { path: '', component: DashboardComponent },
          { path: 'products', component: ListproductsComponent },
+         { path: 'category', component: ListcateComponent },
          { path: 'statistical', component: StatisticalComponent },
+         { path: 'addcategory', component: AddCateComponent },
+         { path: 'updateCate/:id', component: UpdateCateComponent },
+         { path: 'deleteCate', component: DeleteCateComponent },
          { path: 'addproduct', component: AddproductComponent },
          { path: 'updateproduct/:id', component: UpdateComponent }
-        
       ]
    },
    { path: '**', component: NotFoundPageComponentComponent }

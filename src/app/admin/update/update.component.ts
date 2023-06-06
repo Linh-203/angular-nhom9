@@ -1,8 +1,8 @@
-import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
+import { Component } from '@angular/core'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
-import { HttpClient } from '@angular/common/http';
-import { category } from 'src/data/products';
+import { HttpClient } from '@angular/common/http'
+import { Router } from '@angular/router'
 
 @Component({
    selector: 'app-update',
@@ -16,38 +16,36 @@ export class UpdateComponent {
       image: ['', Validators.required],
       categoryId: ['', Validators.required],
       desc: ['', Validators.required]
-   });
-productId: string = "";
+   })
+   productId: string = ''
    categories!: any[]
 
-   constructor(private formBuilder: FormBuilder, private http: HttpClient, private route: ActivatedRoute) {
-      this.route.params.subscribe(params => {
-         this.productId = params["id"]
+   constructor(
+      private formBuilder: FormBuilder,
+      private http: HttpClient,
+      private route: ActivatedRoute,
+      private router: Router
+   ) {
+      this.route.params.subscribe((params) => {
+         this.productId = params['id']
          this.http.get(`http://localhost:8000/api/products/${params['id']}`).subscribe((response: any) => {
-
             this.productForm.patchValue({
                name: response.name,
                price: response.price,
                image: response.image,
                categoryId: response.categoryId,
                desc: response.desc
-
-
             })
          })
       })
    }
 
    ngOnInit() {
-      this.http.get("http://localhost:8000/api/categories").subscribe(
-         (data: any) => {
-            this.categories = data.categories;
+      this.http.get('http://localhost:8000/api/categories').subscribe((data: any) => {
+         this.categories = data.categories
 
-            console.log(data);
-
-         }
-
-      )
+         console.log(data)
+      })
    }
 
    updateProduct() {
@@ -59,16 +57,15 @@ productId: string = "";
          desc: this.productForm.value.desc
       }
 
-this.http.patch("http://localhost:8000/api/products/"+this.productId,product,{
-   headers: {
-      "authorization": "Bearer" + localStorage.getItem("token")
-    }
-}).subscribe((res: any) => {
-   console.log(res);
- });
-
-
+      this.http
+         .patch('http://localhost:8000/api/products/' + this.productId, product, {
+            headers: {
+               authorization: 'Bearer' + localStorage.getItem('token')
+            }
+         })
+         .subscribe((res: any) => {
+            console.log(res)
+            this.router.navigate(['admin/products'])
+         })
    }
-
-
 }
