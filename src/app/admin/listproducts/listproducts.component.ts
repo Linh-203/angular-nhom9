@@ -7,14 +7,16 @@ import { HttpClient } from '@angular/common/http'
 })
 export class ListproductsComponent {
    constructor(private http: HttpClient) {}
+
    ngOnInit(): void {
-      this.getProduct(1)
+      this.getAllProducts()
    }
+
    adminProducts: any
 
-   getProduct(page: number): void {
-      const limit = 20 // chỉ định số lượng sản phẩm cần lấy
-      const apiUrl = `http://localhost:8000/api/products/?_limit=${limit}&_page=${page}`
+   getAllProducts(): void {
+      const limit = 140 // lấy toàn bộ sản phẩm
+      const apiUrl = `http://localhost:8000/api/products?_limit=${limit}`
       this.http.get(apiUrl).subscribe((res: any) => {
          console.log(res)
          this.adminProducts = res.docs

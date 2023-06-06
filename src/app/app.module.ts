@@ -50,6 +50,10 @@ import { httpInterceptorProviders } from './http-interceptors'
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { GlobalStateService } from './global-state.service'
+import { AddCateComponent } from './admin/add-cate/add-cate.component'
+import { UpdateCateComponent } from './admin/update-cate/update-cate.component'
+import { DeleteCateComponent } from './admin/delete-cate/delete-cate.component';
+import { ListcateComponent } from './admin/listcate/listcate.component'
 
 @NgModule({
    declarations: [
@@ -78,7 +82,11 @@ import { GlobalStateService } from './global-state.service'
       DashboardComponent,
       ProductsComponent,
       UpdateComponent,
-      ProductPageComponent
+      ProductPageComponent,
+      AddCateComponent,
+      UpdateCateComponent,
+      DeleteCateComponent,
+      ListcateComponent
    ],
    imports: [
       BrowserModule,

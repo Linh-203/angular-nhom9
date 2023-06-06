@@ -19,6 +19,10 @@ import { StatisticalComponent } from './admin/statistical/statistical.component'
 import { AddproductComponent } from './admin/addproduct/addproduct.component'
 import { DashboardComponent } from './admin/dashboard/dashboard.component'
 import { UpdateComponent } from './admin/update/update.component'
+import { AddCateComponent } from './admin/add-cate/add-cate.component'
+import { UpdateCateComponent } from './admin/update-cate/update-cate.component'
+import { DeleteCateComponent } from './admin/delete-cate/delete-cate.component'
+import { ListcateComponent } from './admin/listcate/listcate.component'
 
 const routes: Routes = [
    {
@@ -43,7 +47,11 @@ const routes: Routes = [
          // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
          { path: '', component: DashboardComponent },
          { path: 'products', component: ListproductsComponent },
-         { path: 'statistical', component: StatisticalComponent }
+         { path: 'category', component: ListcateComponent },
+         { path: 'statistical', component: StatisticalComponent },
+         { path: 'addcategory', component: AddCateComponent },
+         { path: 'updateCate/:id', component: UpdateCateComponent },
+         { path: 'deleteCate', component: DeleteCateComponent }
       ]
    },
    { path: '**', component: NotFoundPageComponentComponent }

@@ -57,11 +57,6 @@ export class ProductPageComponent {
          this.formattedPagination.pageSizeOptions = [3, 6]
          this.formattedPagination.totalPages = res.totalPages
          this.formattedPagination.page = res.page
-         // this.formattedPagination.pagingCounter = res.pagingCounter;
-         // this.formattedPagination.hasNextPage = res.hasNextPage;
-         // this.formattedPagination.hasPrevPage = res.hasPrevPage;
-         // this.formattedPagination.prevPage = res.prevPage;
-         // this.formattedPagination.nextPage = res.nextPage;
       })
    }
 
@@ -71,31 +66,6 @@ export class ProductPageComponent {
          this.filteredProducts = res.docs
       })
    }
-
-   // selectCate(id: any) {
-   //    const apiUrl = `http://localhost:8000/api/categories/${id}`
-   //    this.http.get(apiUrl).subscribe((res: any) => {
-   //       this.filteredProducts = res.products
-   //    })
-   // }
-
-   // getCategory() {
-   //    const apiUrl = 'http://localhost:8000/api/categories'
-   //    this.http.get(apiUrl).subscribe((res: any) => {
-   //       this.categories = res.categories
-   //    })
-   // }
-
-   //    onSortOrderChange() {
-   //       if (this.selectedSortOrder) {
-   //          const apiUrl = `http://localhost:8000/api/products/?_sort=price&_order=${this.selectedSortOrder}`
-   //          this.http.get(apiUrl).subscribe((res: any) => {
-   //             this.filteredProducts = res.docs
-   //          })
-   //       }
-   //     )
-   //   }
-
    selectCate(id: any) {
       const apiUrl = `http://localhost:8000/api/categories/${id}`
       this.http.get(apiUrl).subscribe((res: any) => {
