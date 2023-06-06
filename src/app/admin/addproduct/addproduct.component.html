@@ -26,7 +26,11 @@
           <mat-error *ngIf="addproductForm.get('productprice')?.hasError('minLength')">
             Enter at least 6-characters !
           </mat-error>
+          <mat-error *ngIf="addproductForm.get('productprice')?.hasError('min')">
+            Enter at least > 0
+          </mat-error>
         </mat-form-field>
+        
           <div class="form-group">
             <div class="mb-4 d-flex ">
                 <img src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg"
@@ -46,7 +50,13 @@
               This field is required !
             </mat-error>
           </div> -->
-
+          <select class="form-select" aria-label="Default select example">
+            <ng-container *ngFor="let category of categories" >
+               
+              <option value="{{category._id}}">{{category.name}}</option>
+            </ng-container>
+            
+          </select>
 
           <mat-form-field class="mb-2">
             <mat-label for="productdesc" class="form-label">Nhập mô tả sản phẩm</mat-label>

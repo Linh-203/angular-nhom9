@@ -1,16 +1,39 @@
 
 <div class="container">
     <h1>Cập nhật sản phẩm</h1>
-      <form >
+      <form [formGroup]="updateproductForm " >
         
-          <div class="form-group">
-            <label for="formGroupExampleInput">Tên sản phẩm</label>
-            <input value="{{ product?.name }}" type="text" class="form-control" id="formGroupExampleInput" placeholder="Nhập tên sản phẩm">
-          </div>
-          <div class="form-group">
-            <label for="formGroupExampleInput2">Giá sản phẩm</label>
-            <input value="{{ product?.price }}" type="number" class="form-control" id="formGroupExampleInput2" placeholder="Nhập giá sản phẩm">
-          </div>
+          
+
+          <mat-form-field class="mb-2">
+            <mat-label for="productname" class="form-label">Nhập tên sản phẩm</mat-label>
+            <input type="text" class="form-control fs-5" value="{{ product?.name }}" id="productname" name="productname" formControlName="productname"
+              placeholder="productname" required matInput />
+            <mat-error *ngIf="updateproductForm.get('productname')?.hasError('required')">
+              This field is required !
+            </mat-error>
+            <mat-error *ngIf="updateproductForm.get('productname')?.hasError('minLength')">
+              Enter at least 6-characters !
+            </mat-error>
+          </mat-form-field>
+
+          
+
+          <mat-form-field class="mb-2">
+            <mat-label for="productprice" class="form-label">Nhập giá sản phẩm</mat-label>
+            <input type="number" class="form-control fs-5" value="{{ product?.price }}" id="productprice" name="productprice" formControlName="productprice"
+              placeholder="productprice" required matInput />
+            <mat-error *ngIf="updateproductForm.get('productprice')?.hasError('required')">
+              This field is required !
+            </mat-error>
+            <mat-error *ngIf="updateproductForm.get('productprice')?.hasError('minLength')">
+              Enter at least 6-characters !
+            </mat-error>
+            <mat-error *ngIf="updateproductForm.get('productprice')?.hasError('min')">
+              Enter at least > 0
+            </mat-error>
+          </mat-form-field>
+
           <div class="form-group">
             <div class="mb-4 d-flex ">
                 <img src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg"
@@ -23,10 +46,27 @@
                 </div>
             </div>
         </div>
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1">Mô tả</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          </div>
+
+        <select class="form-select" aria-label="Default select example">
+          <ng-container *ngFor="let category of categories" >
+             
+            <option value="{{category._id}}">{{category.name}}</option>
+          </ng-container>
+          
+        </select>
+        <mat-form-field class="mb-2">
+          <mat-label for="productdesc" class="form-label">Nhập mô tả sản phẩm</mat-label>
+          <!-- <input type="text" class="form-control fs-5" id="productname" name="productname" formControlName="productname"
+            placeholder="productname" required matInput /> -->
+
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="productdesc" required matInput></textarea>
+          <mat-error *ngIf="updateproductForm.get('productdesc')?.hasError('required')">
+            This field is required !
+          </mat-error>
+          <mat-error *ngIf="updateproductForm.get('productdesc')?.hasError('minLength')">
+            Enter at least 6-characters !
+          </mat-error>
+        </mat-form-field>
           <button type="button" class="btn btn-outline-success"> Cập nhật</button>
         </form>
 

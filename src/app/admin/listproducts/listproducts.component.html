@@ -10,15 +10,15 @@
       <th scope="col">Action</th>
     </tr>
   </thead>
-  <tbody *ngFor="let product of favoriteProducts">
+  <tbody *ngFor="let product of filteredProducts">
     <tr>
-      <td>{{product._id}}</td>
+      <td> </td>
       <td>{{product.name}}</td>
       <td>{{product.price}} $</td>
       <td  id="tdimg"><img src="{{product.image}}" alt=""></td>
       <td>
         <button routerLink="/admin/updateproduct/{{product._id}}" type="button" class="btn btn-outline-primary">Sửa sản phẩm</button>
-        <button  type="button" class="btn btn-outline-danger">Xóa sản phẩm</button>
+        <button (click)="deleteProduct(product._id)"  type="button" class="btn btn-outline-danger">Xóa sản phẩm</button>
       </td>
     </tr>
     
