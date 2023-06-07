@@ -1,6 +1,6 @@
 import { ActivatedRoute } from '@angular/router'
 import { Component } from '@angular/core'
-import { FormGroup, FormBuilder, Validators } from '@angular/forms'
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router'
 
@@ -11,8 +11,8 @@ import { Router } from '@angular/router'
 })
 export class UpdateComponent {
    public productForm: FormGroup = this.formBuilder.group({
-      name: ['', Validators.required],
-      price: ['', Validators.required],
+      name: new FormControl ('', [Validators.required]),
+      price: new FormControl ('', [Validators.required, Validators.min(1)]),
       image: ['', Validators.required],
       categoryId: ['', Validators.required],
       desc: ['', Validators.required]

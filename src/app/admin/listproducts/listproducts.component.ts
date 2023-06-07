@@ -30,26 +30,25 @@ export class ListproductsComponent {
       })
    }
 
-   //   deleteProduct(product: any) {
-   //   const index = this.adminProducts.indexOf(product);
-   //   if (index >=0 ) {
-   //     this.adminProducts.splice(index, 1);
-   //   }
-   // }
+   
+   
 
    deleteProduct(id: any): void {
-      const apiUrl = `http://localhost:8000/api/products/${id}`
-      this.http
-         .delete(apiUrl, {
-            headers: {
-               authorization: 'Bearer' + JSON.stringify(localStorage.getItem('token'))
-            }
-         })
-         .subscribe((res: any) => {
-            console.log(res)
 
-            // xóa sản phẩm khỏi danh sách hiển thị
-            this.adminProducts = this.adminProducts.filter((product: any) => id !== product._id)
-         })
-   }
+     const confirm = window.confirm("Xóa")
+      if(confirm){ const apiUrl = `http://localhost:8000/api/products/${id}`
+     this.http
+        .delete(apiUrl, {
+           headers: {
+              authorization: 'Bearer' + JSON.stringify(localStorage.getItem('token'))
+           }
+        })
+        .subscribe((res: any) => {
+           console.log(res)
+
+           // xóa sản phẩm khỏi danh sách hiển thị
+           this.adminProducts = this.adminProducts.filter((product: any) => id !== product._id)
+        })
+  }}
+     
 }
