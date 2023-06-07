@@ -32,12 +32,7 @@ export class ListproductsComponent {
      })
   }
 
-//   deleteProduct(product: any) {
-//   const index = this.adminProducts.indexOf(product);
-//   if (index >=0 ) {
-//     this.adminProducts.splice(index, 1);
-//   }
-// }
+
 
 deleteProduct(id: any): void {
   const apiUrl = `http://localhost:8000/api/products/${id}`;
