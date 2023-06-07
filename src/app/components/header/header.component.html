@@ -33,7 +33,7 @@
         </button>
       </form>
 
-      <ng-container *ngIf="user">
+      <ng-container *ngIf="getUserInfo()!==null">
         <a routerLink="/favorite" matBadgePosition="after" matBadgeColor="warn" matBadgeSize="small">
           <i style="color: #e5d300;font-size: 20px;" title="Sản phẩm yêu thích" class="fa fa-heart"
             aria-hidden="true"></i>
@@ -50,9 +50,8 @@
           <div class="cart-body" *ngFor="let product of productsInCart">
             <p class="text-warn" *ngIf="this.cart?.data?.products?.length === 0 || !this.cart">Cart Empty</p>
             <li>
-              <a class="dropdown-item" [routerLink]="product?.productId"><app-product-in-cart
-                  [product]="product"></app-product-in-cart>
-              </a>
+              <div class="dropdown-item"><app-product-in-cart [product]="product"></app-product-in-cart>
+              </div>
             </li>
           </div>
           <li>
