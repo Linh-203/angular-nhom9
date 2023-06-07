@@ -1,0 +1,12 @@
+<div class="d-flex justify-content-center p-5 modal-auth position-relative">
+   <form class="form form-login mt-4" (ngSubmit)="updateCate()" [formGroup]="cateForm">
+      <h1 mat-dialog-title class="fw-semibold">Update Cate</h1>
+      <mat-form-field class="mb-2">
+         <mat-label for="name" class="form-label">Tên danh mục</mat-label>
+         <input class="form-control fs-5" matInput placeholder="Tên danh mục" formControlName="name" />
+         <mat-error *ngIf="cateForm.get('name')?.hasError('minLength')"> This field is required ! </mat-error>
+      </mat-form-field>
+
+      <button type="submit" class="btn btn-submit w-full" mat-raised-button>Update Cate</button>
+   </form>
+</div>

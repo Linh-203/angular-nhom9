@@ -1,32 +1,32 @@
 {
-  "signUpUsers": [
-    {
-      "userName": "admin@gmail.com",
-      "email": "hlinh2003.5.9@gmail.com",
-      "password": "123",
-      "confirmPassword": "123",
-      "id": 1
-    },
-    {
-      "userName": "nam",
-      "email": "admin3@gmail.com",
-      "password": "123",
-      "confirmPassword": "123",
-      "id": 2
-    },
-    {
-      "userName": "thanh",
-      "email": "thanhtvph@gmail.com",
-      "password": "123",
-      "confirmPassword": "123",
-      "id": 3
-    },
-    {
-      "userName": "đức",
-      "email": "duc@gmail.com",
-      "password": "123456",
-      "confirmPassword": "123456",
-      "id": 4
-    }
-  ]
+   "signUpUsers": [
+      {
+         "userName": "admin@gmail.com",
+         "email": "hlinh2003.5.9@gmail.com",
+         "password": "123",
+         "confirmPassword": "123",
+         "id": 1
+      },
+      {
+         "userName": "nam",
+         "email": "admin3@gmail.com",
+         "password": "123",
+         "confirmPassword": "123",
+         "id": 2
+      },
+      {
+         "userName": "thanh",
+         "email": "thanhtvph@gmail.com",
+         "password": "123",
+         "confirmPassword": "123",
+         "id": 3
+      },
+      {
+         "userName": "đức",
+         "email": "duc@gmail.com",
+         "password": "123456",
+         "confirmPassword": "123456",
+         "id": 4
+      }
+   ]
 }

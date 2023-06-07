@@ -1,0 +1,35 @@
+<h1>Danh sách danh mục</h1>
+<a routerLink="/admin/addcategory"><button type="button" class="btn btn-warning">Thêm danh mục</button></a>
+<table class="table">
+   <thead class="thead-dark">
+      <tr>
+         <th scope="col">Id</th>
+         <th scope="col">Name</th>
+         <th scope="col">Action</th>
+      </tr>
+   </thead>
+   <tbody *ngFor="let cate of adminCate">
+      <tr>
+         <td scope="row">{{ cate._id }}</td>
+         <td>{{ cate.name }}</td>
+         <td>
+            <button
+               routerLink="/admin/updateCate/{{ cate._id }}"
+               type="button"
+               *ngIf="!cate.isDefaultCategory"
+               class="btn btn-outline-primary"
+            >
+               Sửa danh mục
+            </button>
+            <button
+               (click)="deleteCate(cate._id)"
+               *ngIf="!cate.isDefaultCategory"
+               type="button"
+               class="btn btn-outline-danger"
+            >
+               Xóa danh mục
+            </button>
+         </td>
+      </tr>
+   </tbody>
+</table>
