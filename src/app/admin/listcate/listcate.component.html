@@ -13,10 +13,22 @@
          <td scope="row">{{ cate._id }}</td>
          <td>{{ cate.name }}</td>
          <td>
-            <button routerLink="/admin/updateCate/{{ cate._id }}" type="button" class="btn btn-outline-primary">
+            <button
+               routerLink="/admin/updateCate/{{ cate._id }}"
+               type="button"
+               *ngIf="!cate.isDefaultCategory"
+               class="btn btn-outline-primary"
+            >
                Sửa danh mục
             </button>
-            <button (click)="deleteCate(cate._id)" type="button" class="btn btn-outline-danger">Xóa danh mục</button>
+            <button
+               (click)="deleteCate(cate._id)"
+               *ngIf="!cate.isDefaultCategory"
+               type="button"
+               class="btn btn-outline-danger"
+            >
+               Xóa danh mục
+            </button>
          </td>
       </tr>
    </tbody>
