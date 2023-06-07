@@ -21,33 +21,22 @@ interface IUser {
    styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-   constructor(
-      private dialog: MatDialog,
-      private authService: AuthService,
-      private cartService: CartExtService,
-      private glbState: GlobalStateService
-   ) {}
+   constructor(private dialog: MatDialog, private authService: AuthService, private glbState: GlobalStateService) {}
    openDialog(type: 'signin' | 'signup') {
       if (type === 'signup') this.dialog.open(RegisterComponent)
       if (type === 'signin') this.dialog.open(LoginComponent)
    }
-   loading = false
-   cart: Icart = {} as Icart
-   productsInCart = [] as IProducts[]
+   loading = this.glbState.loading
+   cart: Icart = this.glbState.cartInfo
+   productsInCart = this.glbState.productsInCart
    userId = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!)._id : ''
    ngOnInit(): void {
       ;(async () => {
-         try {
-            if (this.userId === '') return
-            const res = await this.cartService.getCart(this.userId)
-            this.cart = res!
-            this.productsInCart = this.cart?.data.products
-         } catch (error: any) {
-            this.loading = false
-            if (error.error?.unAuth) {
-               this.authService.logout()
-            }
-         }
+         this.loading = true
+         await this.glbState.handleGetCart(this.userId)
+         this.cart = this.glbState.cartInfo
+         this.productsInCart = this.glbState.productsInCart
+         this.loading = false
       })()
    }
    slides = [
