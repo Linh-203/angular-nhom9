@@ -3,15 +3,13 @@ import { RouterModule, Routes } from '@angular/router'
 import { HomeComponent } from './pages/home/home.component'
 import { CategoryComponentComponent } from './pages/category/category-component/category-component.component'
 import { NotFoundPageComponentComponent } from './pages/not-found-page/not-found-page-component/not-found-page-component.component'
-import { LoginComponent } from './components/login/login.component'
-import { RegisterComponent } from './components/register/register.component'
-import { FavoriteComponent } from './pages/favorite/favorite.component'
+
 import { CartComponent } from './components/cart/cart.component'
 
-import { DetailProductComponent } from './pages/detail-product/detail-product.component'
-import { NewComponent } from './pages/new/new.component'
-import { DefaultLayoutComponent } from './components/layouts/default-layout/default-layout.component'
-import { LayoutAdminComponent } from './components/layouts/layout-admin/layout-admin.component'
+import { DetailProductComponent } from './pages/detail-product/detail-product.component';
+import { NewComponent } from './pages/new/new.component';
+import { DefaultLayoutComponent } from './components/layouts/default-layout/default-layout.component';
+import { LayoutAdminComponent } from './components/layouts/layout-admin/layout-admin.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component'
 import { PayComponent } from './components/pay/pay.component'
 import { ListproductsComponent } from './admin/listproducts/listproducts.component'
@@ -23,6 +21,7 @@ import { AddCateComponent } from './admin/add-cate/add-cate.component'
 import { UpdateCateComponent } from './admin/update-cate/update-cate.component'
 import { DeleteCateComponent } from './admin/delete-cate/delete-cate.component'
 import { ListcateComponent } from './admin/listcate/listcate.component'
+import { FavoriteComponent } from './pages/favorite/favorite.component'
 
 const routes: Routes = [
    {

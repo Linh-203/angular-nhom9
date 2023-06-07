@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { FormGroup, FormBuilder, Validators } from '@angular/forms'
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router'
 @Component({
@@ -21,8 +21,8 @@ export class AddproductComponent implements OnInit {
       })
 
       this.productForm = this.formBuilder.group({
-         name: ['', Validators.required],
-         price: ['', Validators.required],
+         name: new FormControl ('', [Validators.required, Validators.minLength(3)]),
+         price: new FormControl ('', [Validators.required, Validators.min(1)]),
          image: ['', Validators.required],
          categoryId: ['', Validators.required],
          desc: ['', Validators.required]
