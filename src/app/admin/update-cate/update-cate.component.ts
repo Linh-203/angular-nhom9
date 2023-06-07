@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router, ActivatedRoute } from '@angular/router'
 import { HttpClient } from '@angular/common/http'
 @Component({
@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http'
 })
 export class UpdateCateComponent implements OnInit {
    public cateForm: FormGroup = this.formBuilder.group({
-      name: ['', Validators.required]
+      name: new FormControl ('', [Validators.required, Validators.minLength(6)]),
    })
    cateId: string = ''
    constructor(
