@@ -8,7 +8,7 @@ import { IUser } from 'src/common/user'
 })
 export class GlobalStateService {
    constructor() {}
-   public userInfo = {} as {
+   public userInfo = JSON.parse(localStorage.getItem('user')!) as {
       name: string
       email: string
       defaultAvatar: string
