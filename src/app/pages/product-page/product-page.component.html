@@ -47,24 +47,31 @@
 
         <ul class="list-group">
           <li class="list-group-item">
-            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
-            100.000đ - 200.000đ
+            <input class="checkbox-input me-1" type="radio" name="price" value="" aria-label="..."
+              (click)="ByPrice(10000,20000)" />
+            10.000đ - 20.000đ
           </li>
           <li class="list-group-item">
-            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
-            200.000đ - 300.000đ
+            <input class="checkbox-input me-1" type="radio" name="price" value="" aria-label="..."
+              (click)="ByPrice(20000,30000)" />
+            20.000đ - 30.000đ
           </li>
           <li class="list-group-item">
-            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
-            300.000đ - 500.000đ
+
+            <input class="checkbox-input me-1" type="radio" name="price" value="" aria-label="..."
+              (click)="ByPrice(30000,50000)" />
+            30.000đ - 50.000đ
+
           </li>
           <li class="list-group-item">
-            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
-            500.000đ - 1.000.000đ
+            <input class="checkbox-input me-1" type="radio" name="price" value="" aria-label="..."
+              (click)="ByPrice(50000,100000)" />
+            50.000đ - 100.000đ
           </li>
           <li class="list-group-item">
-            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
-            Giá trên 1.000.000đ
+            <input class="checkbox-input me-1" type="radio" name="price" value="" aria-label="..."
+              (click)="ByPrice(100000,10000000000)" />
+            Giá trên 100.000đ
           </li>
         </ul>
       </div>
@@ -119,21 +126,7 @@
         </mat-paginator>
 
       </div>
-
-
-
-
-
-
-
-       <div style="text-align: center;margin-top: 30px;">
-      <ng-container *ngIf="error">
-        <img width="80px" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/a60759ad1dabe909c46a817ecbf71878.png" alt="">
-        <h1 style="color: #f8452d;">{{error}}</h1>
-        </ng-container>
-      </div>
     </div>
 
   </div>
-  
 </div>

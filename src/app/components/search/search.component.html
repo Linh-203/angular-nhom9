@@ -1,0 +1,14 @@
+<div class="p-3 search-wrapper">
+    <mat-form-field class="mb-2">
+        <mat-label for="search" class="form-label">Search Products</mat-label>
+        <input value={{value}} type="text" class="form-control fs-5 p-2" aria-describedby="emailHelp" id="search"
+            name="search" placeholder="Search your product..." matInput [(ngModel)]="value"
+            (input)="handleChange()" />
+        <button *ngIf="value !== ''" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+    <div class="d-flex flex-column search-body pt-2">
+        <p class="fs-2">Result</p>
+    </div>
+</div>

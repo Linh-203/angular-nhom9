@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/pages/auth/auth.service'
 import { GlobalStateService } from 'src/app/global-state.service'
 import { Icart } from 'src/common/cart'
 import { Router } from '@angular/router'
+import { SearchComponent } from '../search/search.component'
 interface IUser {
    _id: string
 }
@@ -41,6 +42,9 @@ export class HeaderComponent implements OnInit {
    }
    ngOnInit(): void {
       this.handleGetCart()
+   }
+   handleOpenSearch() {
+      this.dialog.open(SearchComponent, { disableClose: true })
    }
    slides = [
       {

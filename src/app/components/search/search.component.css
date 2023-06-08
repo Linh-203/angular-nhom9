@@ -1,0 +1,14 @@
+.search-wrapper{
+    min-width:500px;
+    width: 1200px;
+    aspect-ratio: 3/2;
+    height: auto;
+}
+input{
+    border:none !important;
+    outline: none !important;
+}
+.search-body{
+    max-height: 1000px;
+    overflow: auto;
+}
