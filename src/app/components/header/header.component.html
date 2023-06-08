@@ -33,7 +33,7 @@
             </button>
          </form>
 
-         <ng-container *ngIf="userInfo!==null">
+         <ng-container *ngIf="getUserInfo()!==null">
             <a routerLink="/favorite" matBadgePosition="after" matBadgeColor="warn" matBadgeSize="small">
                <i style="color: #e5d300;font-size: 20px;" title="Sản phẩm yêu thích" class="fa fa-heart"
                   aria-hidden="true"></i>
@@ -47,12 +47,10 @@
             </a>
             <ul class="dropdown-menu drop-cart" aria-labelledby="dropdownMenuButton">
                <h3 class="dropdown-header">Cart</h3>
+               <p class="ms-3" *ngIf="this.cart?.data?.products?.length === 0 || !this.cart">Cart Empty</p>
                <div class="cart-body" *ngFor="let product of productsInCart">
-                  <p class="text-warn" *ngIf="this.cart?.data?.products?.length === 0 || !this.cart">Cart Empty</p>
                   <li>
-                     <a class="dropdown-item" [routerLink]="product?.productId"><app-product-in-cart
-                           [product]="product"></app-product-in-cart>
-                     </a>
+                     <app-product-in-cart [product]="product"></app-product-in-cart>
                   </li>
                </div>
                <li>
@@ -64,7 +62,7 @@
                </div>
             </ul>
          </div>
-         <div class="p-1 dropdown" *ngIf="userInfo === null">
+         <div class="p-1 dropdown" *ngIf="getUserInfo() === null">
             <a id="dropdownUserButton" data-mdb-toggle="dropdown" aria-expanded="false" (click)="openDialog('signin')">
                <i class="fa-solid fa-user fs-5" style="color: #e5d300"></i>
             </a>
@@ -75,15 +73,15 @@
                </div>
             </ul>
          </div>
-         <div class="p-1 dropdown w-10" *ngIf="userInfo !== null">
+         <div class="p-1 dropdown w-10" *ngIf="getUserInfo() !== null">
             <a routerLink="/profile" id="dropdownUserButton" data-mdb-toggle="dropdown" aria-expanded="false">
-               <img src="{{ userInfo?.defaultAvatar }}" alt="avatar" class="w-75" />
+               <img src="{{ getUserInfo()?.defaultAvatar }}" alt="avatar" class="w-75" />
             </a>
             <ul class="dropdown-menu drop-user p-2" aria-labelledby="dropdownUserButton">
                <div class="d-flex flex-column align-items-start">
                   <a routerLink="/profile" class="d-flex flex-column">
                      Signed in as :
-                     <span class="fw-semibold"> {{ userInfo?.name }}</span>
+                     <span class="fw-semibold"> {{getUserInfo()?.name }}</span>
                   </a>
                   <button class="btn-logout" (click)="handleLogout()">Log out</button>
                </div>

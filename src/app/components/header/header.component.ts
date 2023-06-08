@@ -1,7 +1,4 @@
-import { HttpErrorResponse } from '@angular/common/http'
-import { Component, OnInit } from '@angular/core'
-import { ProductInCartComponent } from '../product-in-cart/product-in-cart.component'
-import { productsFake } from 'src/data/products'
+import { Component, OnInit, ChangeDetectorRef, Input } from '@angular/core'
 import { favoriteProductsFake } from 'src/data/products'
 import { category } from 'src/data/products'
 import { MatDialog } from '@angular/material/dialog'
@@ -10,8 +7,6 @@ import { LoginComponent } from '../login/login.component'
 import { AuthService } from 'src/app/pages/auth/auth.service'
 import { GlobalStateService } from 'src/app/global-state.service'
 import { Icart } from 'src/common/cart'
-import { CartExtService } from '../cart/cart.service'
-import { IProducts } from 'src/common/products'
 interface IUser {
    _id: string
 }
@@ -30,14 +25,16 @@ export class HeaderComponent implements OnInit {
    cart: Icart = this.glbState.cartInfo
    productsInCart = this.glbState.productsInCart
    userId = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!)._id : ''
+   async handleGetCart() {
+      this.loading = true
+      await this.glbState.handleGetCart(this.userId)
+      this.cart = this.glbState.cartInfo
+      this.productsInCart = this.glbState.productsInCart
+      this.loading = false
+      return this.productsInCart
+   }
    ngOnInit(): void {
-      ;(async () => {
-         this.loading = true
-         await this.glbState.handleGetCart(this.userId)
-         this.cart = this.glbState.cartInfo
-         this.productsInCart = this.glbState.productsInCart
-         this.loading = false
-      })()
+      this.handleGetCart()
    }
    slides = [
       {
@@ -57,13 +54,11 @@ export class HeaderComponent implements OnInit {
       }
    ]
    getUserInfo() {
-      this.glbState.userInfo = JSON.parse(localStorage.getItem('user')!)
-      return this.glbState.userInfo
+      return this.glbState.getUserInfo()
    }
    category = category
    product = favoriteProductsFake
    handleLogout() {
       return this.authService.logout()
    }
-   user: IUser = JSON.parse(localStorage.getItem('user')!)
 }

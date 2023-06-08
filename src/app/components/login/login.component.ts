@@ -18,9 +18,10 @@ export class LoginComponent implements OnInit {
       private FormBuilder: FormBuilder,
       private loginService: AuthService,
       public dialogRef: MatDialogRef<LoginComponent>,
-      private globalState : GlobalStateService,
-      private router :Router
+      private globalState: GlobalStateService,
+      private router: Router
    ) {}
+
    ngOnInit(): void {
       this.loginForm = this.FormBuilder.group({
          email: new FormControl('', [Validators.required, Validators.email]),
@@ -41,7 +42,7 @@ export class LoginComponent implements OnInit {
          if (res?.data) {
             this.dialogRef.close()
             this.globalState.userInfo = res?.data
-            if(res.data.role === 'admin'){
+            if (res.data.role === 'admin') {
                this.router.navigateByUrl('/admin')
             }
          }
