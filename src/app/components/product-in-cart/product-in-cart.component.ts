@@ -1,4 +1,7 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
+import { MatDialog } from '@angular/material/dialog'
+import { GlobalStateService } from 'src/app/global-state.service'
+import { AuthService } from 'src/app/pages/auth/auth.service'
 import { IProducts } from 'src/common/products'
 
 @Component({
@@ -7,13 +10,12 @@ import { IProducts } from 'src/common/products'
    styleUrls: ['./product-in-cart.component.css']
 })
 export class ProductInCartComponent {
-   fakeData: IProducts = {
-      _id: '1',
-      idcate: '',
-      name: 'Tra buoi',
-      price: 2000,
-      desc: 'Tra buoi to',
-      image:
-         'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/07-550de86d-8a95-4083-8490-8ee5fcb930c6.jpg?v=1510561744770'
+   @Input() product: IProducts = {} as IProducts
+   userId = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!)._id : ''
+   constructor(private dialog: MatDialog, private authService: AuthService, private glbState: GlobalStateService) {}
+   async handleRemoveCart(productId: string) {
+      console.log(productId)
+      const res = await this.glbState.handleRemoveCart(this.userId, productId)
+      console.log(res)
    }
 }

@@ -1,74 +1,81 @@
-@import "~bootstrap/dist/css/bootstrap.css";
+@import '~bootstrap/dist/css/bootstrap.css';
 
 .row {
-  width: 100%;
-  align-items: center;
-  text-align: center;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  height: 75px;
-  margin-top: 20px;
-  margin-bottom: 40px;
-
+   width: 100%;
+   align-items: center;
+   text-align: center;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   height: 75px;
+   margin-top: 20px;
+   margin-bottom: 40px;
+}
+.active-link {
+   font-size: 1.5rem;
+   font-weight: bold;
+   border-bottom: 1px solid var(--2light-color) !important;
 }
 
-
 .logo {
-  margin-right: 20px;
+   margin-right: 20px;
 }
 
 .navbar-nav ul {
-  align-items: center;
+   align-items: center;
 }
 
 .navbar-nav li {
-  /* width: 120px; */
-  font-size: 18px;
-  align-items: center;
+   /* width: 120px; */
+   font-size: 18px;
+   align-items: center;
 }
 
-.dropdown:hover>.dropdown-menu {
-  display: block;
+.dropdown:hover > .dropdown-menu {
+   display: block;
 }
 
 .drop-cart {
-  position: absolute;
-  min-width: 300px;
-  right: 0;
+   position: absolute;
+   min-width: 300px;
+   right: 0;
 }
 
 .drop-user {
-  position: absolute;
-  min-width: 100px;
-  right: 0;
+   position: absolute;
+   min-width: 150px;
+   right: 0;
 }
 
-.dropdown>.dropdown-toggle:active {
-  /*Without this, clicking will make it sticky*/
-  pointer-events: none;
+.dropdown > .dropdown-toggle:active {
+   /*Without this, clicking will make it sticky*/
+   pointer-events: none;
 }
 
 .cart-body {
-  min-height: 100px;
-  max-height: 500px;
-  overflow-y: auto;
+   min-height: 100px;
+   max-height: 500px;
+   overflow-y: auto;
 }
 
 .cart-footer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+   padding-left: 1rem;
+   padding-right: 1rem;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
 }
-.btn-logout{
-  border: 1px solid var(--primary-color) !important;
-  color:var(--primary-color) !important;
-  background-color: white !important;
-  padding: 0.2rem;
-  border-radius: 5px;
+.btn-logout {
+   width: 100%;
+   border: 1px solid var(--primary-color) !important;
+   color: var(--primary-color) !important;
+   background-color: white !important;
+   padding: 0.2rem;
+   border-radius: 5px;
+   margin-top: 1rem;
 }
-.open-modal{
-  cursor: pointer;
-  font-weight: 600;
+.open-modal {
+   cursor: pointer;
+   font-weight: 600;
 }
 /* .menu {
   margin-left: 100px;

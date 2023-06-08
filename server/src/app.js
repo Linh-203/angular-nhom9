@@ -19,6 +19,6 @@ app.use('/api', routerCart)
 app.use('/api', routerUsers)
 app.use('/api', routerFavorite)
 
-mongoose.connect('mongodb://127.0.0.1:27017/angular-n6')
+mongoose.connect('mongodb://127.0.0.1:27017/angular')
 
 export const viteNodeApp = app

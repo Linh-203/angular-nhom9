@@ -1,13 +1,11 @@
-<a href="#">
-    <div class="d-flex justify-content-between align-items-center w-full">
-        <img src={{fakeData.image}} style="width:30%;aspect-ratio: 1/1; border-radius: 10px;">
-        <div class="d-flex flex-column align-items-start flex-full">
-            <p>{{fakeData.name}}</p>
-            <p>{{fakeData.price}} vnd</p>
-        </div>
-        <button class="rounded-circle border-0 btn-cart-remove d-flex justify-content-center align-items-center p-3"
-            style="width: 10px; height: 10px;">
-            <i class="fa-solid fa-x fs-6"></i>
-        </button>
+<div class="d-flex justify-content-between align-items-center w-full">
+    <img src={{product.image}} style="width:30%;aspect-ratio: 1/1; border-radius: 10px;">
+    <div class="d-flex flex-column align-items-start flex-full">
+        <p>{{product.name}}</p>
+        <p>{{product.price}} vnd</p>
     </div>
-</a>
+    <button class="rounded-circle border-0 btn-cart-remove d-flex justify-content-center align-items-center p-3"
+        style="width: 10px; height: 10px;" (click)="handleRemoveCart(product._id)">
+        <i class="fa-solid fa-x fs-6"></i>
+    </button>
+</div>

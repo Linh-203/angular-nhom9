@@ -4,16 +4,21 @@
   <mat-form-field class="mb-2">
     <mat-label for="name" class="form-label">Tên sản phẩm</mat-label>
     <input class="form-control fs-5" matInput placeholder="Tên sản phẩm" formControlName="name">
+    <mat-error *ngIf="productForm.get('name')?.hasError('required')"> This field is required ! </mat-error>
   </mat-form-field>
 
   <mat-form-field class="mb-2">
     <mat-label for="name" class="form-label">Giá sản phẩm</mat-label>
     <input class="form-control fs-5" matInput placeholder="Giá" formControlName="price">
+    <mat-error *ngIf="productForm.get('price')?.hasError('required')"> This field is required ! </mat-error>
+         <mat-error *ngIf="productForm.get('price')?.hasError('min')"> This field is > 0 ! </mat-error>
   </mat-form-field>
 
   <mat-form-field class="mb-2">
     <mat-label for="name" class="form-label">Image</mat-label>
     <input class="form-control fs-5" matInput placeholder="Ảnh" formControlName="image">
+
+    <mat-error *ngIf="productForm.get('image')?.hasError('required')"> This field is required ! </mat-error>
   </mat-form-field>
 
 
@@ -26,6 +31,7 @@
   <mat-form-field class="mb-2">
     <mat-label for="name" class="form-label">Mô tả</mat-label>
     <input class="form-control fs-5" matInput placeholder="Mô tả" formControlName="desc">
+    <mat-error *ngIf="productForm.get('desc')?.hasError('required')"> This field is required ! </mat-error>
   </mat-form-field>
 
   <button type="submit" class="btn btn-submit w-full" mat-raised-button >Update Product</button>

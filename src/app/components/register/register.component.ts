@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
          const res = await this.authService.signUp(data)
          this.loading = false
          this.msgFromServer = res?.message!
-         if (res?.token) {
+         if (res?.data) {
             this.dialogRef.close()
          }
       } catch (error) {

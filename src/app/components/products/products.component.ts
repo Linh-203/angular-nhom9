@@ -13,7 +13,7 @@ export class ProductsComponent {
    @Input() listProduct: IProducts[] = []
    loading = false
    slideConfig = {
-      slidesToShow: 4,
+      slidesToShow: 5,
       slidesToScroll: 1,
       autoplay: false,
       autoplaySpeed: 1500
