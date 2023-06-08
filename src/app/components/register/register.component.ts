@@ -54,6 +54,7 @@ export class RegisterComponent implements OnInit {
          this.msgFromServer = res?.message!
          if (res?.data) {
             this.dialogRef.close()
+            location.reload()
          }
       } catch (error) {
          this.loading = false
