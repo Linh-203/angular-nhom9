@@ -30,25 +30,20 @@ export class ListproductsComponent {
       })
    }
 
-   
-   
-
    deleteProduct(id: any): void {
-
-     const confirm = window.confirm("Xóa")
-      if(confirm){ const apiUrl = `http://localhost:8000/api/products/${id}`
-     this.http
-        .delete(apiUrl, {
-           headers: {
-              authorization: 'Bearer' + JSON.stringify(localStorage.getItem('token'))
-           }
-        })
-        .subscribe((res: any) => {
-           console.log(res)
-
-           // xóa sản phẩm khỏi danh sách hiển thị
-           this.adminProducts = this.adminProducts.filter((product: any) => id !== product._id)
-        })
-  }}
-     
+      const confirm = window.confirm('bạn chắc chưa')
+      if (confirm) {
+         const apiUrl = `http://localhost:8000/api/products/${id}`
+         this.http
+            .delete(apiUrl, {
+               headers: {
+                  authorization: 'Bearer' + JSON.stringify(localStorage.getItem('token'))
+               }
+            })
+            .subscribe((res: any) => {
+               console.log(res)
+               this.adminProducts = this.adminProducts.filter((product: any) => id !== product._id)
+            })
+      }
+   }
 }
