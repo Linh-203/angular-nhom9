@@ -19,7 +19,9 @@ export class AddCateComponent implements OnInit {
         if (value && value.trim().length === 0) {
           return { 'whitespace': true };
         }
-        return null;
+        return {
+      
+        };
       }
       console.log(whitespaceValidator);
       this.cateForm = this.formBuilder.group({

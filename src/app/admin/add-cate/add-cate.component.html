@@ -5,18 +5,18 @@
       <mat-form-field class="mb-2">
          <mat-label for="name" class="form-label">Tên danh mục</mat-label>
          <input class="form-control fs-5" matInput placeholder="Tên danh  mục" formControlName="name" />
-         <!-- <mat-error *ngIf="cateForm.get('name')?.hasError('required')"> This field is required ! </mat-error>
-         <mat-error *ngIf="cateForm.get('name')?.hasError('minLength')">
-            Enter at least 6-characters !
+         <mat-error *ngIf="cateForm.get('name')?.hasError('required')"> This field is required ! </mat-error>
+         <mat-error *ngIf="cateForm.get('name')?.hasError('minlength')">
+            Enter at least 3-characters !
          </mat-error>
          <mat-error *ngIf="cateForm.get('name')?.hasError('whitespace')">
             Name cannot contain only whitespace
-         </mat-error> -->
-         <mat-error *ngIf="cateForm.get('name')?.invalid && (cateForm.get('name')?.dirty || cateForm.get('name')?.touched)">
+         </mat-error>
+         <!-- <mat-error *ngIf="cateForm.get('name')?.invalid && (cateForm.get('name')?.dirty || cateForm.get('name')?.touched)">
             <span *ngIf="cateForm.get('name')?.hasError('required')">Name is required</span>
             <span *ngIf="cateForm.get('name')?.hasError('minlength')">Name must be at least 3 characters long</span>
             <span *ngIf="cateForm.get('name')?.hasError('whitespace')">Name cannot contain only whitespace</span>
-        </mat-error>
+        </mat-error> -->
       </mat-form-field>
 
       <button type="submit" class="btn btn-submit w-full" mat-raised-button>Thêm danh mục</button>
