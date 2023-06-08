@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { ChangeDetectorRef, Injectable } from '@angular/core'
 import { Icart } from 'src/common/cart'
 import { IProducts } from 'src/common/products'
 import { IUser } from 'src/common/user'
@@ -10,16 +10,14 @@ import { CartExtService } from './components/cart/cart.service'
 })
 export class GlobalStateService {
    constructor(private authService: AuthService, private cartService: CartExtService) {}
-   public userInfo = {} as {
-      name: string
-      email: string
-      defaultAvatar: string
-      role: string
-   }
+   public userInfo = JSON.parse(localStorage.getItem('user')!) 
    public loading = false
    public productInfo: IProducts = {} as IProducts
    public productsInCart = [] as IProducts[]
    public cartInfo: Icart = {} as Icart
+   getUserInfo() {
+      return this.userInfo
+   }
    setProductData(payload: IProducts) {
       this.productInfo = payload
    }
