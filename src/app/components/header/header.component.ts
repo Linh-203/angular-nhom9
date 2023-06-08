@@ -46,6 +46,8 @@ export class HeaderComponent implements OnInit {
    handleOpenSearch() {
       this.dialog.open(SearchComponent, { disableClose: true })
    }
+   
+
    slides = [
       {
          image: 'https://via.placeholder.com/600x400',
