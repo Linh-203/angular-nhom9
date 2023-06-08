@@ -70,16 +70,17 @@
           <div id="updateQuantity"
             style="background-color: #f5f5f5;border-radius: 25px;padding: 10px;margin-left: 10px;display: flex; justify-content: space-around;align-items:center ;">
             <span (click)="decreaseQuantity()" style="margin-left: 10px;">-</span>
-            <input value="1" type="text" [(ngModel)]="quantity"
+            <input value={{quantity}} type="number" [(ngModel)]="quantity"
               style="flex:1;text-align: center;border:none; background-color: #f5f5f5;outline: none;">
             <span (click)="increaseQuantity()">+</span>
           </div>
 
         </h4>
         <p style="color: gray;">101 sản phẩm có sẵn</p>
-        <button type="button" class="btn btn-success"
-          style="margin-top: 30px;border-radius: 25px;padding: 10px 20px;">Thêm giỏ hàng</button>
-
+        <button type="button" class="btn btn-success d-flex align-items-center"
+          style="margin-top: 30px;border-radius: 25px;padding: 10px 20px;" (click)="handleAddToCart()"><span
+            *ngIf="loadingBtn"><mat-spinner color="white"></mat-spinner></span> Thêm giỏ
+          hàng</button>
       </div>
     </div>
     <div class="service-product">
@@ -146,6 +147,10 @@
           <div class="body">
             <p>{{item.content}}</p>
           </div>
+          <ng-container *ngIf="idLocal == item.idUser._id">
+            <i (click)="removeComment(item._id)" class="fa fa-eraser" style="color: #ee4d2d;cursor: pointer;"
+              aria-hidden="true"></i>
+          </ng-container>
         </div>
       </div>
     </div>
@@ -167,7 +172,7 @@
       <p style="font-size: 20px;text-align: center;color: seagreen; ">Sản phẩm liên quan: </p>
     </div>
     <div class="products">
-        <app-products [listProduct]="favoriteProducts"></app-products>
+      <app-products [listProduct]="favoriteProducts"></app-products>
     </div>
 
   </div>

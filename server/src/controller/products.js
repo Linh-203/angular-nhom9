@@ -1,7 +1,6 @@
-import mongoose from "mongoose";
-import Products from "../models/product";
-import joi from "joi";
-import Category from "../models/categories";
+import Products from '../models/product'
+import joi from 'joi'
+import Category from '../models/categories'
 const validateproduct = joi.object({
   name: joi.string().required(),
   price: joi.number().required(),
@@ -37,7 +36,6 @@ export const getAll = async (req, res) => {
 
   }
 }
-
 export const getAllByPrice = async (req, res, next) => {
   const { price_min = 0, price_max = Number.MAX_SAFE_INTEGER } = req.query;
 
@@ -67,8 +65,6 @@ export const getAllByPrice = async (req, res, next) => {
     });
   }
 };
-
-
 export const get = async (req, res) => {
   try {
     const products = await Products.findById(req.params.id).populate('categoryId')

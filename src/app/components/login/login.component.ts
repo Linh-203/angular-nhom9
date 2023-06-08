@@ -2,6 +2,8 @@ import { AuthService } from '../../pages/auth/auth.service'
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MatDialogRef } from '@angular/material/dialog'
+import { Router } from '@angular/router'
+import { GlobalStateService } from 'src/app/global-state.service'
 import { ILogin, ISignup } from 'src/common/user'
 @Component({
    selector: 'app-login',
@@ -15,7 +17,9 @@ export class LoginComponent implements OnInit {
    constructor(
       private FormBuilder: FormBuilder,
       private loginService: AuthService,
-      public dialogRef: MatDialogRef<LoginComponent>
+      public dialogRef: MatDialogRef<LoginComponent>,
+      private globalState : GlobalStateService,
+      private router :Router
    ) {}
    ngOnInit(): void {
       this.loginForm = this.FormBuilder.group({
@@ -34,8 +38,12 @@ export class LoginComponent implements OnInit {
          const res = await this.loginService.signIn(data)
          this.loading = false
          this.msgFromServer = res?.message!
-         if (res?.token) {
+         if (res?.data) {
             this.dialogRef.close()
+            this.globalState.userInfo = res?.data
+            if(res.data.role === 'admin'){
+               this.router.navigateByUrl('/admin')
+            }
          }
       } catch (error) {
          this.loading = false

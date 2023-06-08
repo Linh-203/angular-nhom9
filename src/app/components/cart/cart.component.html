@@ -1,5 +1,5 @@
 <h2 class="text-center">Giỏ hàng</h2>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light wrapper">
 
     <table id="cart" class="table table-hover table-condensed">
         <thead>
@@ -11,27 +11,27 @@
                 <th style="width:10%"> </th>
             </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let product of cart?.data?.products">
             <tr>
                 <td data-th="Product">
                     <div class="row">
-                        <div class="col-sm-2 hidden-xs"><img
-                                src="https://bizweb.dktcdn.net/thumb/large/100/270/285/products/05-a41e0c7f-e4c9-4ad2-9412-1e8c4d79a028.jpg?v=1510561983257"
-                                alt="Sản phẩm 1" class="img-responsive" width="100">
+                        <div class="col-sm-2 hidden-xs">
+                            <img src={{product.image}} alt="Sản phẩm 1" class="img-responsive" width="100">
                         </div>
                         <div class="col-sm-10">
-                            <h4 class="nomargin">Sản phẩm 1</h4>
-                            <p>Thơm ngon đậm vị</p>
+                            <h4 class="nomargin">{{product.name}}</h4>
                         </div>
                     </div>
                 </td>
-                <td data-th="Price">200.000 đ</td>
-                <td data-th="Quantity"><input class="form-control text-center" value="1" type="number">
+                <td data-th="Price">{{product.price}}đ</td>
+                <td data-th="Quantity"><input class="form-control text-center" value={{product?.quantity}}
+                        type="number">
                 </td>
-                <td data-th="Subtotal" class="text-center">200.000 đ</td>
+                <td data-th="Subtotal" class="text-center">{{product.price! * product.quantity!}} đ</td>
                 <td class="actions" data-th="">
                     <button class="btn btn-info btn-sm"><i class="fa fa-edit"></i>
                     </button>
+<<<<<<< HEAD
                     <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i>
                     </button>
                 </td>
@@ -58,6 +58,10 @@
                     <button class="btn btn-info btn-sm"><i class="fa fa-edit"></i>
                     </button>
                     <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i>
+=======
+                    <button class="btn btn-danger btn-sm">
+                        <i class="fa fa-trash-o"></i>
+>>>>>>> 39c5a2c07235c98a30c005bae51babff44877944
                     </button>
                 </td>
             </tr>
@@ -72,9 +76,10 @@
                         mua hàng</a>
                 </td>
                 <td colspan="2" class="hidden-xs"> </td>
-                <td class="hidden-xs text-center"><strong>Tổng tiền 500.000 đ</strong>
+                <td class="hidden-xs text-center"><strong>Tổng tiền {{cart?.data?.totalAmount}} đ</strong>
                 </td>
-                <td><a href="/pay" class="btn btn-success btn-block">Thanh toán <i class="fa fa-angle-right"></i></a>
+                <td><a href="/pay" class="btn btn-success btn-block text-white">Thanh toán <i
+                            class="fa fa-angle-right"></i></a>
                 </td>
             </tr>
         </tfoot>

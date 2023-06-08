@@ -8,20 +8,23 @@ import { Icart, InputCart } from 'src/common/cart'
 })
 export class CartExtService {
    constructor(private apiService: ApiService, private http: HttpClient) {
-      this.cart = {}
+      this.cart = {} as Icart
    }
    cart: Icart
-   getCart() {
-      this.http
-         .get(`${this.apiService.baseUrl}/cart`, this.apiService.httpOptions)
-         .subscribe((value) => (this.cart = value))
-      return this.cart
+   getCart(userId: string) {
+      return this.http.get<Icart>(`${this.apiService.baseUrl}/cart/${userId}`, this.apiService.httpOptions).toPromise()
    }
    addToCart(data: InputCart, userId: string) {
-      this.http
-         .post(`${this.apiService.baseUrl}cart/${userId}`, data, this.apiService.httpOptions)
+      return this.http.post<Icart>(`${this.apiService.baseUrl}/cart/${userId}`, data, this.apiService.httpOptions).toPromise()
+   }
+   removeProductInCart(userId: string, productId: string) {
+      return this.http
+         .delete<Icart>(`${this.apiService.baseUrl}/cart/${userId}?idProduct=${productId}`, this.apiService.httpOptions)
          .toPromise()
-         .then((res) => console.log(res))
-         .catch((err) => console.log(err))
+   }
+   changeQuantity(userId: string, productId: string) {
+      return this.http
+         .put<Icart>(`${this.apiService.baseUrl}/cart/${userId}?idProduct=${productId}`, this.apiService.httpOptions)
+         .toPromise()
    }
 }

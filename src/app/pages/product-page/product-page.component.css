@@ -46,6 +46,11 @@
   text-align: center;
   margin-top: 30px;
 }
+.img-favorite{
+  width: 60%;
+  height: auto;
+  aspect-ratio: 1/1;
+}
 .banner-bottom {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -122,6 +127,9 @@
  
 
 }
+.cate button:focus{
+  background-color: #ef7147;
+}
 .list-group-item{
   display: flex;
   justify-content: start;
@@ -130,3 +138,7 @@
   width: 1rem !important;
   height: 1rem !important;
 }
+input{
+  border: 1px solid #ccc;
+}
+
