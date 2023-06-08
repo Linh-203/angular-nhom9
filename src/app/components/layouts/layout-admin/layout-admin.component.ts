@@ -10,7 +10,8 @@ import { GlobalStateService } from 'src/app/global-state.service'
 export class LayoutAdminComponent implements OnInit {
    constructor(private globalState: GlobalStateService, private router: Router) {}
    ngOnInit(): void {
-      if (this.globalState.userInfo.role !== 'admin') {
+      console.log(this.globalState.userInfo?.role)
+      if (this.globalState.userInfo?.role !== 'admin') {
          this.router.navigateByUrl('/')
       }
    }

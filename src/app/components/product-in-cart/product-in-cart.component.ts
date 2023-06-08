@@ -14,7 +14,6 @@ export class ProductInCartComponent {
    userId = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!)._id : ''
    constructor(private dialog: MatDialog, private authService: AuthService, private glbState: GlobalStateService) {}
    async handleRemoveCart(productId: string) {
-      console.log(productId)
       const res = await this.glbState.handleRemoveCart(this.userId, productId)
       console.log(res)
    }
