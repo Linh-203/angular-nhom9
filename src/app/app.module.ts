@@ -111,4 +111,4 @@ import { ListcateComponent } from './admin/listcate/listcate.component'
    providers: [httpInterceptorProviders, GlobalStateService],
    bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
