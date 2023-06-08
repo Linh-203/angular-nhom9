@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { IgxCarouselModule } from 'igniteui-angular'
-import { ToastrModule } from 'ngx-toastr';
+
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { HomeComponent } from './pages/home/home.component'
@@ -49,7 +49,8 @@ import { UpdateComponent } from './admin/update/update.component'
 import { httpInterceptorProviders } from './http-interceptors'
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
-import { GlobalStateService } from './global-state.service'
+import { GlobalStateService } from './global-state.service';
+
 
 @NgModule({
    declarations: [
@@ -78,7 +79,8 @@ import { GlobalStateService } from './global-state.service'
       DashboardComponent,
       ProductsComponent,
       UpdateComponent,
-      ProductPageComponent
+      ProductPageComponent,
+
    ],
    imports: [
       BrowserModule,
@@ -102,4 +104,4 @@ import { GlobalStateService } from './global-state.service'
    providers: [httpInterceptorProviders, GlobalStateService],
    bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

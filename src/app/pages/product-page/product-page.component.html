@@ -6,27 +6,7 @@
   <h1>Danh sách sản phẩm</h1>
   <div class="row">
     <div class="col-md-3">
-      <!-- <form class="form-inline my-2 my-lg-0 d-flex justify-content-start gap-2 align-items-center">
-          <input class="form-control mr-sm-2 p-2" type="search" placeholder="Tìm kiếm sản phẩm" aria-label="Search"  ng-model="searchText"/>
-          <button class="btn btn-outline-success fs-6 my-sm-0" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form> -->
 
-      <!-- <form
-        (submit)="search($event)"
-        class="form-inline my-2 my-lg-0 d-flex justify-content-start gap-2 align-items-center"
-      >
-        <input
-          name="searchKeyword"
-          class="form-control mr-sm-2 p-2"
-          type="search"
-          placeholder="Tìm kiếm sản phẩm"
-        />
-        <button class="btn btn-outline-success fs-6 my-sm-0" type="submit">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </form> -->
       <div>
         <label for="">Sắp xếp theo giá</label>
         <select class="form-select" [(ngModel)]="selectedSortOrder" (ngModelChange)="onSortOrderChange()">
@@ -64,23 +44,30 @@
 
         <ul class="list-group">
           <li class="list-group-item">
-            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
+            <input class="checkbox-input me-1" type="radio" name="price" value="" aria-label="..."
+              (click)="ByPrice(100000,200000)" />
             100.000đ - 200.000đ
           </li>
           <li class="list-group-item">
-            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
+            <input class="checkbox-input me-1" type="radio" name="price" value="" aria-label="..."
+              (click)="ByPrice(200000,300000)" />
             200.000đ - 300.000đ
           </li>
           <li class="list-group-item">
-            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
+
+            <input class="checkbox-input me-1" type="radio" name="price" value="" aria-label="..."
+              (click)="ByPrice(300000,500000)" />
             300.000đ - 500.000đ
+
           </li>
           <li class="list-group-item">
-            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
+            <input class="checkbox-input me-1" type="radio" name="price" value="" aria-label="..."
+              (click)="ByPrice(500000,1000000)" />
             500.000đ - 1.000.000đ
           </li>
           <li class="list-group-item">
-            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
+            <input class="checkbox-input me-1" type="radio" name="price" value="" aria-label="..."
+              (click)="ByPrice(1000000,10000000000)" />
             Giá trên 1.000.000đ
           </li>
         </ul>
@@ -136,15 +123,6 @@
         </mat-paginator>
 
       </div>
-
-
-
-
-
-
-
-
-
     </div>
 
   </div>
