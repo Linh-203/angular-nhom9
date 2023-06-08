@@ -30,6 +30,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatCheckboxModule } from '@angular/material/checkbox'
 import { MatButtonModule } from '@angular/material/button'
 import { CommonModule } from '@angular/common'
+import { MatIconModule } from '@angular/material/icon'
 import { ReactiveFormsModule } from '@angular/forms'
 import { FavoriteComponent } from './pages/favorite/favorite.component'
 import { SlickCarouselModule } from 'ngx-slick-carousel'
@@ -54,6 +55,7 @@ import { AddCateComponent } from './admin/add-cate/add-cate.component'
 import { UpdateCateComponent } from './admin/update-cate/update-cate.component'
 import { DeleteCateComponent } from './admin/delete-cate/delete-cate.component'
 import { ListcateComponent } from './admin/listcate/listcate.component'
+import { SearchComponent } from './components/search/search.component'
 
 @NgModule({
    declarations: [
@@ -86,10 +88,12 @@ import { ListcateComponent } from './admin/listcate/listcate.component'
       AddCateComponent,
       UpdateCateComponent,
       DeleteCateComponent,
-      ListcateComponent
+      ListcateComponent,
+      SearchComponent
    ],
    imports: [
       BrowserModule,
+      MatIconModule,
       AppRoutingModule,
       BrowserAnimationsModule,
       FormsModule,
@@ -111,4 +115,4 @@ import { ListcateComponent } from './admin/listcate/listcate.component'
    providers: [httpInterceptorProviders, GlobalStateService],
    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
