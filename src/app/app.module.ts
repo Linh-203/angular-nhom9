@@ -55,6 +55,9 @@ import { UpdateCateComponent } from './admin/update-cate/update-cate.component'
 import { DeleteCateComponent } from './admin/delete-cate/delete-cate.component'
 import { ListcateComponent } from './admin/listcate/listcate.component'
 
+
+
+
 @NgModule({
    declarations: [
       AppComponent,
@@ -110,5 +113,7 @@ import { ListcateComponent } from './admin/listcate/listcate.component'
    ],
    providers: [httpInterceptorProviders, GlobalStateService],
    bootstrap: [AppComponent]
+
+   
 })
 export class AppModule {}

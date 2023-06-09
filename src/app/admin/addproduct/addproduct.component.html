@@ -15,13 +15,15 @@
          <mat-error *ngIf="productForm.get('price')?.hasError('min')"> This field is > 0 ! </mat-error>
       </mat-form-field>
 
-      <mat-form-field class="mb-2">
-         <mat-label for="name" class="form-label">Image</mat-label>
-         <input class="form-control fs-5" matInput placeholder="Ảnh" formControlName="image" />
-         <mat-error *ngIf="productForm.get('image')?.hasError('required')"> This field is required ! </mat-error>
+      <mat-form-field>
+         <mat-label>Upload file</mat-label>
+         <div class="input-group">
+            <input matInput type="text" class="form-control" placeholder="Choose file" readonly />
+            <button type="button" class="btn btn-outline-secondary" (click)="browseFiles()">Browse</button>
+            <input type="file" accept=".jpg,.jpeg,.png" style="display: none" (change)="onFileSelected($event)" />
+         </div>
       </mat-form-field>
 
-      
       <select class="mb-2" style="width: 100%; height: 50px" formControlName="categoryId">
          <option class="form-control fs-5" value="">Chọn danh mục</option>
          <option *ngFor="let cate of categories" [value]="cate._id">{{ cate.name }}</option>

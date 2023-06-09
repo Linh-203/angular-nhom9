@@ -43,6 +43,7 @@ export class ListproductsComponent {
             .subscribe((res: any) => {
                console.log(res)
                this.adminProducts = this.adminProducts.filter((product: any) => id !== product._id)
+               // this.getAllProducts()
             })
       }
    }

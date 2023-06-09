@@ -14,10 +14,4 @@ export class ProductService {
       return response
    }
 
-   // deleteProduct(id : number) {
-   //    return this.http.delete(`${this.API_URL}/${id}`)
-   // }
-
-
-
 }
