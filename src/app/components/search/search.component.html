@@ -1,21 +1,26 @@
 <div class="p-3 search-wrapper">
     <button mat-icon-button (click)="closeDialog()" class="btn-close"><mat-icon></mat-icon></button>
     <mat-form-field class="mb-2 mt-5">
-        <mat-label for="search" class="form-label">Search Products</mat-label>
+        <mat-label for="search" class="form-label fs-4">Tên sản phẩm</mat-label>
         <div class="d-flex justify-content-between align-items-center">
             <input value={{value}} type="text" class="form-control fs-5 p-2" aria-describedby="emailHelp" id="search"
-                name="search" placeholder="Search your product..." matInput [(ngModel)]="value"
-                (input)="handleChange()" />
+                name="search" matInput [(ngModel)]="value" (input)="handleChange()" />
             <button *ngIf="value !== ''" mat-icon-button aria-label="Clear" (click)="handleResetValue()">
                 <mat-icon>x</mat-icon>
             </button>
         </div>
     </mat-form-field>
     <div class="d-flex flex-column  pt-2">
-        <p class="fs-2">Result</p>
-        <div *ngIf="loading" class="d-flex justify-content-center align-items-center"><mat-spinner></mat-spinner></div>
-        <div class="search-body" *ngFor="let product of products">
-            <app-product-in-cart [product]="product"></app-product-in-cart>
+        <p class="fs-2">Kết quả:</p>
+        <div *ngIf="loading" class=" d-flex justify-content-center align-items-center">
+            <mat-spinner></mat-spinner>
+        </div>
+        <p *ngIf="products.length === 0 && loading === false">Không tìm thấy sản phẩm</p>
+        <div class="search-body">
+            <div *ngFor="let product of products">
+                <a routerLink='/products/{{product._id}}' (click)="this.dialogRef.close()"> <app-product-in-cart
+                        type="searchResult" [product]="product"></app-product-in-cart></a>
+            </div>
         </div>
     </div>
 </div>

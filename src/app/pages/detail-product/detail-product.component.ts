@@ -2,7 +2,7 @@ import { IProducts } from './../../../common/products'
 import { Component, NgZone } from '@angular/core'
 import { OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
-import { favoriteProductsFake } from 'src/data/products'
+import { fakeIce, fakeSize } from 'src/data/products'
 import { HttpClient } from '@angular/common/http'
 import { GlobalStateService } from 'src/app/global-state.service'
 import { CartExtService } from 'src/app/components/cart/cart.service'
@@ -179,44 +179,16 @@ export class DetailProductComponent implements OnInit {
          this.quantity--
       }
    }
-   fakeSize = [
-      {
-         value: 'm',
-         name: 'M'
-      },
-      {
-         value: 'l',
-         name: 'L'
-      },
-      {
-         value: 'xl',
-         name: 'XL'
-      }
-   ]
-   fakeIce = [
-      {
-         value: '10',
-         name: '10'
-      },
-      {
-         value: '50',
-         name: '50'
-      },
-      {
-         value: '80',
-         name: '80'
-      }
-   ]
+   fakeSize = fakeSize
+   fakeIce = fakeIce
 
    public options = {
-      options: {
-         size: this.fakeSize[0].value,
-         ice: this.fakeIce[2].value,
-         sugar: this.fakeIce[2].value
-      }
+      size: this.fakeSize[2].value,
+      ice: this.fakeIce[2].value,
+      sugar: this.fakeIce[2].value
    }
    onChangeRadio(event: any) {
-      this.options.options = { ...this.options.options, [event.target.name]: event.target.value }
+      this.options = { ...this.options, [event.target.name]: event.target.value }
    }
    loadingBtn = false
    async handleAddToCart() {
@@ -226,7 +198,7 @@ export class DetailProductComponent implements OnInit {
          price: this.productState.price,
          image: this.productState.image,
          quantity: this.quantity,
-         ...this.options
+         options: this.options
       }
       try {
          this.loadingBtn = true

@@ -2,6 +2,7 @@ import dotenv from 'dotenv'
 import Cart from '../models/cart'
 import User from '../models/user'
 import { productInCartSchema } from '../schema/product'
+import { optionsCartSchema } from '../schema/cart'
 
 dotenv.config()
 
@@ -105,11 +106,18 @@ export const getOne = async (req, res) => {
       })
    }
 }
-export const changeQuantity = async (req, res) => {
+export const changeOptions = async (req, res) => {
    try {
+      const { error } = optionsCartSchema.validate(req.body, { abortEarly: true })
+      if (error) {
+         return res.status(404).json({
+            message: 'Thay doi that bai',
+            error
+         })
+      }
       const idUser = req.params.id
       const { idProduct = '' } = req.query
-      const { quantity } = req.body
+      const { quantity, options } = req.body
       const userExist = await User.findOne({ _id: idUser })
       if (!userExist) {
          return res.json({
@@ -117,19 +125,23 @@ export const changeQuantity = async (req, res) => {
          })
       }
       const cart = await Cart.findOne({ userId: idUser })
-      const productExt = cart.products.find((product) => product.productId === idProduct)
+      let totalUpdated = cart.totalAmount
+      const productExt = cart.products.find((product) => product._id == idProduct)
       if (productExt) {
-         productExt.quantity = quantity
-         const productsUpdated = [...cart.products.filter((product) => product.productId !== idProduct), productExt]
-         const totalUpdated = productsUpdated.reduce((total, product) => {
-            return (total += product.quantity * product.price)
-         }, 0)
+         if (productExt.quantity !== quantity) {
+            productExt.quantity = quantity
+            const productsUpdated = [...cart.products.filter((product) => product._id != idProduct), productExt]
+            totalUpdated = productsUpdated.reduce((total, product) => {
+               return (total += product.quantity * product.price)
+            }, 0)
+         }
+         productExt.options = options
+         const productsUpdated = [...cart.products.filter((product) => product._id != idProduct), productExt]
          const cartUpdated = await Cart.findOneAndUpdate(
             { userId: idUser },
             { $set: { products: productsUpdated, totalAmount: totalUpdated } },
             { new: true }
          )
-
          return res.json({
             message: 'Thay doi san pham thành công',
             data: cartUpdated

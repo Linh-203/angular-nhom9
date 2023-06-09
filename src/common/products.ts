@@ -7,6 +7,11 @@ export interface IProducts {
    desc: string
    image: string
    quantity?: number
+   options?: {
+      size: string
+      ice: string
+      sugar: string
+   }
 }
 
 export interface IProductRes {

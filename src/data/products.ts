@@ -121,3 +121,33 @@ export const favoriteProductsFake: IProducts[] = [
          'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/2016910153030-tra-olong-sui-bot.jpg?v=1510561084490'
    }
 ]
+
+export const  fakeSize = [
+   {
+      value: 'm',
+      name: 'M'
+   },
+   {
+      value: 'l',
+      name: 'L'
+   },
+   {
+      value: 'xl',
+      name: 'XL'
+   }
+]
+
+export const fakeIce  = [
+   {
+      value: '10',
+      name: '10'
+   },
+   {
+      value: '50',
+      name: '50'
+   },
+   {
+      value: '80',
+      name: '80'
+   }
+]

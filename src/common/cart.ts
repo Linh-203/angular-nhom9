@@ -16,3 +16,8 @@ export interface Icart {
       userId: string
    }
 }
+
+export interface InputOptions {
+   quantity: number
+   options: Record<'size' | 'ice' | 'sugar', string>
+}
