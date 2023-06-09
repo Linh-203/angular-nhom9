@@ -31,6 +31,12 @@ export class AddCateComponent implements OnInit {
     
 
    addCate() {
+
+      if (this.cateForm.invalid) {
+         this.cateForm.markAllAsTouched()
+         this.cateForm.updateValueAndValidity()
+         return
+      }
       // Thực hiện thêm sản phẩm
       const cate = this.cateForm.value
       console.log(this.cateForm)

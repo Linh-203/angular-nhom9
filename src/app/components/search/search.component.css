@@ -1,0 +1,28 @@
+.search-wrapper{
+    min-width:500px;
+    width: 1200px;
+    aspect-ratio: 3/2;
+    height: auto;
+    position: relative;
+}
+.btn-close{
+    position: absolute;
+    right: 1rem;
+    top:1rem ;
+    background-color: beige;
+    z-index: 100;
+    font-size: 1rem;
+    background-color: rgba(0,0,0,0.2);
+    border: none !important;
+}
+.btn-close:focus{
+    border: none !important;
+}
+input{
+    border:none !important;
+    outline: none !important;
+}
+.search-body{
+    max-height: 1000px;
+    overflow: auto;
+}

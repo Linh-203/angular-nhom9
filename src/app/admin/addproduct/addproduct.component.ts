@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
+import { FormGroup, FormBuilder, Validators, FormControl, AbstractControl } from '@angular/forms'
 import { HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router'
 @Component({
@@ -19,9 +19,17 @@ export class AddproductComponent implements OnInit {
          this.categories = data.categories
          console.log(data)
       })
-
+      const whitespaceValidator = (control: AbstractControl): { [key: string]: any } | null => {
+         const value = control.value;
+         if (value && value.trim().length === 0) {
+           return { 'whitespace': true };
+         }
+         return {
+       
+         };
+       }
       this.productForm = this.formBuilder.group({
-         name: new FormControl ('', [Validators.required, Validators.minLength(3)]),
+         name: new FormControl ('', [Validators.required, Validators.minLength(3), whitespaceValidator]),
          price: new FormControl ('', [Validators.required, Validators.min(1)]),
          image: ['', Validators.required],
          categoryId: ['', Validators.required],
@@ -30,6 +38,12 @@ export class AddproductComponent implements OnInit {
    }
 
    addProduct() {
+
+      if (this.productForm.invalid) {
+         this.productForm.markAllAsTouched()
+         this.productForm.updateValueAndValidity()
+         return
+      }
       // Thực hiện thêm sản phẩm
       const product = this.productForm.value
       console.log(this.productForm)

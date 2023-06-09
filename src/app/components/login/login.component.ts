@@ -44,7 +44,9 @@ export class LoginComponent implements OnInit {
             this.globalState.userInfo = res?.data
             if (res.data.role === 'admin') {
                this.router.navigateByUrl('/admin')
+               return;
             }
+            location.reload()
          }
       } catch (error) {
          this.loading = false
