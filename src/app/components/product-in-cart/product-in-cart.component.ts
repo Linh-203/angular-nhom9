@@ -10,11 +10,12 @@ import { IProducts } from 'src/common/products'
    styleUrls: ['./product-in-cart.component.css']
 })
 export class ProductInCartComponent {
+   @Input() type?: 'searchResult' | 'cartHeader'
    @Input() product: IProducts = {} as IProducts
    userId = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!)._id : ''
    constructor(private dialog: MatDialog, private authService: AuthService, private glbState: GlobalStateService) {}
    async handleRemoveCart(productId: string) {
-      const res = await this.glbState.handleRemoveCart(this.userId, productId)
-      console.log(res)
+      await this.glbState.handleRemoveCart(this.userId, productId)
+      location.reload()
    }
 }

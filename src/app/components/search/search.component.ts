@@ -56,7 +56,9 @@ export class SearchComponent {
       }, 1000)
    }
    closeDialog() {
-      this.observable.unsubscribe()
       this.dialogRef.close()
+      if (this.observable !== ({} as Subscription)) {
+         this.observable.unsubscribe()
+      }
    }
 }

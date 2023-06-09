@@ -1,10 +1,16 @@
 <div class="d-flex justify-content-between align-items-center w-full">
-    <img src={{product.image}} style="width:30%;aspect-ratio: 1/1; border-radius: 10px;">
-    <div class="d-flex flex-column align-items-start flex-full">
-        <p>{{product.name}}</p>
-        <p>{{product.price}} vnd</p>
+    <img src={{product.image}} style="width:20%;aspect-ratio: 1/1; border-radius: 10px;">
+    <div class="d-flex flex-column align-items-start">
+        <a *ngIf="type === 'cartHeader'" routerLink="/products/{{product.productId}}">
+            <p class="fs-6">{{product.name}}</p>
+        </a>
+        <p *ngIf="type === 'searchResult'" class="fs-5">{{product.name}}</p>
+        <p *ngIf="type === 'cartHeader'">{{product.price}} vnd</p>
     </div>
-    <button class="rounded-circle border-0 btn-cart-remove d-flex justify-content-center align-items-center p-3"
+    <p *ngIf="type === 'searchResult'" style="color: var(--2light-color);font-weight: 500;font-size: 1.3rem;">
+        {{product.price}} vnd</p>
+    <button *ngIf="type === 'cartHeader'"
+        class="rounded-circle border-0 btn-cart-remove d-flex justify-content-center align-items-center p-3"
         style="width: 10px; height: 10px;" (click)="handleRemoveCart(product._id)">
         <i class="fa-solid fa-x fs-6"></i>
     </button>

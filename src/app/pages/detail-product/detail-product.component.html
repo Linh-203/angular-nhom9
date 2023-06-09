@@ -49,20 +49,23 @@
       <p>{{product.desc}}</p>
       <h4 class="size" style="display: flex;flex-direction: column;">
         <p>Size</p>
-        <app-radio [listRadio]="fakeSize" nameValue="size" (change)="onChangeRadio($event)"></app-radio>
+        <app-radio [listRadio]="fakeSize" nameValue="size" (change)="onChangeRadio($event)"
+          [radioValue]="options.size"></app-radio>
       </h4>
       <div class="ice-sugar">
         <div class="sugar-title" style="margin-top: 20px;">
           <p>Ice-%</p>
           <div class="sugar">
-            <app-radio [listRadio]="fakeIce" nameValue="ice" (change)="onChangeRadio($event)"></app-radio>
+            <app-radio [listRadio]="fakeIce" nameValue="ice" (change)="onChangeRadio($event)"
+              [radioValue]="options.ice"></app-radio>
           </div>
         </div>
         <div class="sugar-title" style="margin-top: 20px;">
           <p>Sugar-%</p>
           <div class="sugar">
             <div class="item-sugar">
-              <app-radio [listRadio]="fakeIce" nameValue="sugar" (change)="onChangeRadio($event)"></app-radio>
+              <app-radio [listRadio]="fakeIce" nameValue="sugar" (change)="onChangeRadio($event)"
+                [radioValue]="options.sugar"></app-radio>
             </div>
           </div>
         </div>

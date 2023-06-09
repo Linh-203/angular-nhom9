@@ -29,7 +29,7 @@
             aria-expanded="false" (click)="handleOpenSearch()">
             <i class="fa-solid fa-magnifying-glass text-white"></i>
          </button>
-         
+
          <ng-container *ngIf="getUserInfo()!==null">
             <a routerLink="/favorite" matBadgePosition="after" matBadgeColor="warn" matBadgeSize="small">
                <i style="color: white;font-size: 20px;" title="Sản phẩm yêu thích" class="fa fa-heart"
@@ -46,7 +46,7 @@
                <p class="ms-3" *ngIf="this.cart?.data?.products?.length === 0 || !this.cart">Cart Empty</p>
                <div class="cart-body" *ngFor="let product of productsInCart">
                   <li>
-                     <app-product-in-cart [product]="product"></app-product-in-cart>
+                     <app-product-in-cart [product]="product" type="cartHeader"></app-product-in-cart>
                   </li>
                </div>
                <li>

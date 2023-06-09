@@ -6,10 +6,6 @@
   <h1>Danh sách sản phẩm</h1>
   <div class="row">
     <div class="col-md-3">
-      <form id="formSearch" action="" (ngSubmit) = "search()" style="display: flex;align-items: center;border: 1px solid #ccc;border-radius: 20px;padding: 10px;margin-bottom: 20px;">
-        <input [(ngModel)]="formSearch.search" type="search" name="search" id="search" placeholder="...Search" >
-        <button style="border: none;background: none;"><i class="fa fa-search" aria-hidden="true"></i></button>
-      </form>
       <div>
         <label for="">Sắp xếp theo giá</label>
         <select class="form-select" [(ngModel)]="selectedSortOrder" (ngModelChange)="onSortOrderChange()">
@@ -18,29 +14,6 @@
         </select>
       </div>
 
-
-      <div class="brand">
-        <h4>Thương hiệu</h4>
-
-        <ul class="list-group">
-          <li class="list-group-item">
-            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
-            Gong Cha
-          </li>
-          <li class="list-group-item">
-            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
-            Good Tea
-          </li>
-          <li class="list-group-item">
-            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
-            Popapop
-          </li>
-          <li class="list-group-item">
-            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
-            Royal Tea
-          </li>
-        </ul>
-      </div>
 
       <div class="Price">
         <h4>Mức giá</h4>
@@ -72,33 +45,6 @@
             <input class="checkbox-input me-1" type="radio" name="price" value="" aria-label="..."
               (click)="ByPrice(100000,10000000000)" />
             Giá trên 100.000đ
-          </li>
-        </ul>
-      </div>
-
-      <div class="Size">
-        <h4>Kích thước</h4>
-
-        <ul class="list-group">
-          <li class="list-group-item">
-            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
-            XXL
-          </li>
-          <li class="list-group-item">
-            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
-            XL
-          </li>
-          <li class="list-group-item">
-            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
-            L
-          </li>
-          <li class="list-group-item">
-            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
-            M
-          </li>
-          <li class="list-group-item">
-            <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
-            S
           </li>
         </ul>
       </div>

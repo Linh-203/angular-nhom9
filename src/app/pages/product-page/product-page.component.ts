@@ -57,11 +57,6 @@ export class ProductPageComponent {
          this.formattedPagination.pageSizeOptions = [3, 6]
          this.formattedPagination.totalPages = res.totalPages
          this.formattedPagination.page = res.page
-         // this.formattedPagination.pagingCounter = res.pagingCounter;
-         // this.formattedPagination.hasNextPage = res.hasNextPage;
-         // this.formattedPagination.hasPrevPage = res.hasPrevPage;
-         // this.formattedPagination.prevPage = res.prevPage;
-         // this.formattedPagination.nextPage = res.nextPage;
       })
    }
    ByPrice(min: number, max: number) {
@@ -99,21 +94,5 @@ export class ProductPageComponent {
             this.filteredProducts = res.docs
          })
       }
-   }
-   formSearch = {
-      search: ''
-   }
-   error: any
-   search() {
-      let api = 'http://localhost:8000/api/products/?_q=' + this.formSearch.search
-      this.http.get(api).subscribe((res: any) => {
-         console.log(res)
-         this.filteredProducts = res.docs
-         if (this.filteredProducts.length == 0) {
-            this.error = 'Không tìm thấy kết quả nào'
-         } else {
-            this.error = ''
-         }
-      })
    }
 }

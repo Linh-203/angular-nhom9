@@ -1,3 +1,5 @@
+import { fakeSize } from 'src/data/products'
+import { fakeIce } from './../../../data/products'
 import { Icart } from './../../../common/cart'
 import { Component, OnInit } from '@angular/core'
 import { CartExtService } from './cart.service'
@@ -14,14 +16,18 @@ import { AuthService } from 'src/app/pages/auth/auth.service'
 export class CartComponent implements OnInit {
    constructor(private authService: AuthService, private router: Router, private cartService: CartExtService) {}
    cart = {} as Icart
+   products = this.cart?.data?.products
    loading = false
    userId = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!)._id : ''
+   fakeIce = fakeIce
+   fakeSize = fakeSize
    ngOnInit(): void {
       ;(async () => {
          try {
             if (this.userId === '') return
             const res = await this.cartService.getCart(this.userId)
             this.cart = res!
+            this.products = this.cart?.data?.products
          } catch (error: any) {
             this.loading = false
             if (error.error?.unAuth) {
@@ -35,12 +41,5 @@ export class CartComponent implements OnInit {
          return
       }
    }
-   async handleRemoveProductInCart(productId: string) {
-      try {
-         const res = await this.cartService.removeProductInCart(this.userId, productId)
-         console.log(res)
-      } catch (error) {
-         console.log(error)
-      }
-   }
+  
 }

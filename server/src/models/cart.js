@@ -13,8 +13,8 @@ const cartSchema = new mongoose.Schema({
          image: String,
          options: {
             size: String,
-            ice: Number,
-            sugar: Number
+            ice:String,
+            sugar: String
          },
          quantity: Number,
       }
