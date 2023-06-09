@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http'
 import { GlobalStateService } from 'src/app/global-state.service'
 import { CartExtService } from 'src/app/components/cart/cart.service'
 import { InputCart } from 'src/common/cart'
+import { MatDialog } from '@angular/material/dialog'
 
 @Component({
    selector: 'app-detail-product',
@@ -23,7 +24,8 @@ export class DetailProductComponent implements OnInit {
       private http: HttpClient,
       private route: ActivatedRoute,
       private cartService: CartExtService,
-      private globalState: GlobalStateService
+      private globalState: GlobalStateService,
+      private dialog: MatDialog
    ) {}
 
    userDontOverwride = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!) : {}
@@ -226,10 +228,14 @@ export class DetailProductComponent implements OnInit {
          image: this.productState.image,
          ...this.options
       }
+      console.log(this.options)
+      return
       try {
          this.loadingBtn = true
          const res = await this.cartService.addToCart(data, this.userDontOverwride._id)
-         console.log(res)
+         await this.globalState.handleGetCart(this.userDontOverwride._id)
+         
+         this.loadingBtn = false
       } catch (error) {
          this.loadingBtn = false
          console.log(error)

@@ -21,8 +21,8 @@ export class AddproductComponent implements OnInit {
       })
 
       this.productForm = this.formBuilder.group({
-         name: new FormControl ('', [Validators.required, Validators.minLength(3)]),
-         price: new FormControl ('', [Validators.required, Validators.min(1)]),
+         name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+         price: new FormControl('', [Validators.required, Validators.min(1)]),
          image: ['', Validators.required],
          categoryId: ['', Validators.required],
          desc: ['', Validators.required]

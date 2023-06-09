@@ -10,14 +10,15 @@ const validateproduct = joi.object({
 })
 
 export const getAll = async (req, res) => {
-   const { _page = 1, _order = 'asc', _limit = 10, _sort = 'createAt', _q = '' } = req.query
+   const { _page = 1, _order = 'asc', _limit = 9, _sort = 'createAt', _q = '' } = req.query
    const options = {
       page: _page,
       limit: _limit,
       sort: {
          [_sort]: _order == 'desc' ? -1 : 1
       },
-      collation: { locale: 'vi', strength: 1 }
+      collation: { locale: 'vi', strength: 1 },
+      populate: [{ path: 'categoryId', select: 'name' }]
    }
    // const query = {};
    // if (q !== "") {

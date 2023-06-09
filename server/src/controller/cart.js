@@ -20,8 +20,9 @@ export const resetCart = async (idUser) => {
 
 const addProduct = async (cartExist, productAdd, res) => {
    try {
+      const { options } = productAdd
       const productExist = cartExist.products.find((product) => product.productId === productAdd.productId)
-      if (productExist) {
+      if (productExist && options === productExist.options) {
          productExist.quantity += productAdd.quantity
          cartExist.totalAmount += productAdd.quantity * productAdd.price
       } else {
@@ -155,7 +156,7 @@ export const removeProduct = async (req, res) => {
          })
       }
       const cart = await Cart.findOne({ userId: idUser })
-      const productsUpdated = cart.products.filter((product) => product.productId !== idProduct)
+      const productsUpdated = cart.products.filter((product) => product._id != idProduct)
       const totalUpdated = productsUpdated.reduce((total, product) => {
          return (total += product.quantity * product.price)
       }, 0)

@@ -31,7 +31,7 @@ export class CartComponent implements OnInit {
       })()
       const token = this.authService.getToken()
       if (!token) {
-         this.router.navigateByUrl('/login')
+         this.router.navigateByUrl('/')
          return
       }
    }
