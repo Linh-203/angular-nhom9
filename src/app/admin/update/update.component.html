@@ -22,9 +22,9 @@
   </mat-form-field>
 
 
-    <select class="mb-2" style="width: 100%; height: 50px;"   formControlName="categoryId">
+    <select  class="mb-2" style="width: 100%; height: 50px;"   formControlName="categoryId">
     
-      <option *ngFor="let cate of categories" [value]="cate._id">{{cate.name}}</option>
+      <option selected="{{cate._id === productForm.get('categoryId')}}" *ngFor="let cate of categories" [value]="cate._id">{{cate.name}}</option>
       
     </select>
 

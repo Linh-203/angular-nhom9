@@ -1,6 +1,6 @@
-const cloudinary = require('../config/cloudinary')
+import cloudinary from "../config/cloudinary"
 
-exports.uploadImage = async (req, res) => {
+export const  uploadImage = async (req, res) => {
    const files = req.files
    if (!Array.isArray(files)) {
       return res.status(400).json({ error: 'No files were uploaded' })
@@ -22,7 +22,7 @@ exports.uploadImage = async (req, res) => {
    }
 }
 
-exports.deleteImage = async (req, res) => {
+export const deleteImage = async (req, res) => {
    const publicId = req.params.publicId
    try {
       const result = await cloudinary.uploader.destroy(publicId)
@@ -32,7 +32,7 @@ exports.deleteImage = async (req, res) => {
    }
 }
 
-exports.updateImage = async (req, res) => {
+export const updateImage = async (req, res) => {
    const files = req.files
    if (!Array.isArray(files)) {
       return res.status(400).json({ error: 'No files were uploaded' })

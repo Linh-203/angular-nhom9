@@ -28,7 +28,10 @@ export class AuthService {
    logout() {
       localStorage.removeItem('token')
       localStorage.removeItem('user')
-      this.router.navigateByUrl('/')
+      this.router.navigateByUrl('/products', { skipLocationChange: true }).then(() => {
+         console.log('run route')
+         this.router.navigate(['/'])
+      })
    }
    storeLocal(response: any) {
       this.dataUser = response?.data

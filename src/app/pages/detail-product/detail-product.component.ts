@@ -209,7 +209,6 @@ export class DetailProductComponent implements OnInit {
    ]
 
    public options = {
-      quantity: this.quantity,
       options: {
          size: this.fakeSize[0].value,
          ice: this.fakeIce[2].value,
@@ -226,15 +225,14 @@ export class DetailProductComponent implements OnInit {
          name: this.productState.name,
          price: this.productState.price,
          image: this.productState.image,
+         quantity: this.quantity,
          ...this.options
       }
-      console.log(this.options)
-      return
       try {
          this.loadingBtn = true
          const res = await this.cartService.addToCart(data, this.userDontOverwride._id)
          await this.globalState.handleGetCart(this.userDontOverwride._id)
-         
+         location.reload()
          this.loadingBtn = false
       } catch (error) {
          this.loadingBtn = false

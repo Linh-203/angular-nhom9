@@ -1,6 +1,6 @@
 import express from 'express'
 import multer from 'multer'
-import { deleteImage, updateImage, uploadImage } from '../controllers/upload'
+import { deleteImage, updateImage, uploadImage } from "../controller/upload"
 import { CloudinaryStorage } from 'multer-storage-cloudinary'
 import cloudinary from '../config/cloudinary'
 

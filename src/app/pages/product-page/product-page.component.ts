@@ -27,7 +27,7 @@ export class ProductPageComponent {
       totalPages: 1
    }
 
-   limit = 9
+   limit = 3
 
    formattedPagination: any = {}
 
@@ -57,6 +57,17 @@ export class ProductPageComponent {
          this.formattedPagination.pageSizeOptions = [3, 6]
          this.formattedPagination.totalPages = res.totalPages
          this.formattedPagination.page = res.page
+         // this.formattedPagination.pagingCounter = res.pagingCounter;
+         // this.formattedPagination.hasNextPage = res.hasNextPage;
+         // this.formattedPagination.hasPrevPage = res.hasPrevPage;
+         // this.formattedPagination.prevPage = res.prevPage;
+         // this.formattedPagination.nextPage = res.nextPage;
+      })
+   }
+   ByPrice(min: number, max: number) {
+      const apiUrl = `http://localhost:8000/api/products-price-range?price_min=${min}&price_max=${max}`
+      this.http.get(apiUrl).subscribe((res: any) => {
+         this.filteredProducts = res.docs
       })
    }
 

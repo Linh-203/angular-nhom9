@@ -37,6 +37,8 @@ export class UpdateComponent {
                categoryId: response.categoryId,
                desc: response.desc
             })
+            console.log(this.productForm.get('categoryId'));
+            
          })
       })
 
