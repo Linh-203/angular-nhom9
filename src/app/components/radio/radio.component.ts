@@ -13,6 +13,7 @@ export class RadioComponent {
       this.listRadio = []
       this.nameValue = ''
    }
+   @Input() radioValue: any // m
    @Input() onChangeRadio = (event: any) => {}
    @Input() nameValue: string
    @Input() listRadio: Iradio[]
@@ -20,4 +21,5 @@ export class RadioComponent {
    handleOnchange = (event: any) => {
       return this.onChangeRadio(event)
    }
+  
 }

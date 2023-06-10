@@ -1,7 +1,7 @@
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
+import { Component, OnInit } from '@angular/core'
+import { FormGroup, FormBuilder, Validators, FormControl, AbstractControl } from '@angular/forms'
 import { HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router'
-import { Component, OnInit } from '@angular/core'
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop'
 import axios from 'axios'
 @Component({
@@ -21,16 +21,29 @@ export class AddproductComponent implements OnInit {
       this.http.get('http://localhost:8000/api/categories').subscribe((data: any) => {
          this.categories = data.categories
       })
-
+      const whitespaceValidator = (control: AbstractControl): { [key: string]: any } | null => {
+         const value = control.value
+         if (value && value.trim().length === 0) {
+            return { whitespace: true }
+         }
+         return {}
+      }
       this.productForm = this.formBuilder.group({
-         name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+         name: new FormControl('', [Validators.required, Validators.minLength(3), whitespaceValidator]),
          price: new FormControl('', [Validators.required, Validators.min(1)]),
+         image: ['', Validators.required],
          categoryId: ['', Validators.required],
          desc: ['', Validators.required]
       })
    }
 
    addProduct() {
+      if (this.productForm.invalid) {
+         this.productForm.markAllAsTouched()
+         this.productForm.updateValueAndValidity()
+         return
+      }
+      // Thực hiện thêm sản phẩm
       const product = this.productForm.value
       console.log(product)
 

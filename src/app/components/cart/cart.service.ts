@@ -15,16 +15,26 @@ export class CartExtService {
       return this.http.get<Icart>(`${this.apiService.baseUrl}/cart/${userId}`, this.apiService.httpOptions).toPromise()
    }
    addToCart(data: InputCart, userId: string) {
-      return this.http.post<Icart>(`${this.apiService.baseUrl}/cart/${userId}`, data, this.apiService.httpOptions).toPromise()
+      return this.http
+         .post<Icart>(`${this.apiService.baseUrl}/cart/${userId}`, data, this.apiService.httpOptions)
+         .toPromise()
    }
    removeProductInCart(userId: string, productId: string) {
       return this.http
          .delete<Icart>(`${this.apiService.baseUrl}/cart/${userId}?idProduct=${productId}`, this.apiService.httpOptions)
          .toPromise()
    }
-   changeQuantity(userId: string, productId: string) {
+   changeOptions(
+      userId: string,
+      productId: string,
+      data: { quantity: number; options: { size: string; ice: string; sugar: string } }
+   ) {
       return this.http
-         .put<Icart>(`${this.apiService.baseUrl}/cart/${userId}?idProduct=${productId}`, this.apiService.httpOptions)
+         .put<Icart>(
+            `${this.apiService.baseUrl}/cart/${userId}?idProduct=${productId}`,
+            data,
+            this.apiService.httpOptions
+         )
          .toPromise()
    }
 }

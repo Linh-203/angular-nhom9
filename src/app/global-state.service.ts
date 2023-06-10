@@ -37,19 +37,7 @@ export class GlobalStateService {
          }
       }
    }
-   async handleChangeQuantity(userId: string, productId: string) {
-      try {
-         if (userId === '') return
-         const res = await this.cartService.changeQuantity(userId, productId)
-         this.cartInfo = res!
-         this.productsInCart = this.cartInfo?.data.products
-      } catch (error: any) {
-         this.loading = false
-         if (error.error?.unAuth) {
-            this.authService.logout()
-         }
-      }
-   }
+  
    async handleRemoveCart(userId: string, productId: string) {
       try {
          if (userId === '') return

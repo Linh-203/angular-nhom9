@@ -65,7 +65,7 @@
                <p class="ms-3" *ngIf="this.cart?.data?.products?.length === 0 || !this.cart">Cart Empty</p>
                <div class="cart-body" *ngFor="let product of productsInCart">
                   <li>
-                     <app-product-in-cart [product]="product"></app-product-in-cart>
+                     <app-product-in-cart [product]="product" type="cartHeader"></app-product-in-cart>
                   </li>
                </div>
                <li>

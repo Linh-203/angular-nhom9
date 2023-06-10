@@ -55,7 +55,8 @@ import { AddCateComponent } from './admin/add-cate/add-cate.component'
 import { UpdateCateComponent } from './admin/update-cate/update-cate.component'
 import { DeleteCateComponent } from './admin/delete-cate/delete-cate.component'
 import { ListcateComponent } from './admin/listcate/listcate.component'
-import { SearchComponent } from './components/search/search.component'
+import { SearchComponent } from './components/search/search.component';
+import { ProductInTableComponent } from './components/product-in-table/product-in-table.component'
 
 @NgModule({
    declarations: [
@@ -89,7 +90,8 @@ import { SearchComponent } from './components/search/search.component'
       UpdateCateComponent,
       DeleteCateComponent,
       ListcateComponent,
-      SearchComponent
+      SearchComponent,
+      ProductInTableComponent
    ],
    imports: [
       BrowserModule,
