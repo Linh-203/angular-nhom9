@@ -7,6 +7,8 @@ import { LoginComponent } from '../login/login.component'
 import { AuthService } from 'src/app/pages/auth/auth.service'
 import { GlobalStateService } from 'src/app/global-state.service'
 import { Icart } from 'src/common/cart'
+import { Router } from '@angular/router'
+import { SearchComponent } from '../search/search.component'
 interface IUser {
    _id: string
 }
@@ -16,7 +18,12 @@ interface IUser {
    styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-   constructor(private dialog: MatDialog, private authService: AuthService, private glbState: GlobalStateService) {}
+   constructor(
+      private dialog: MatDialog,
+      private authService: AuthService,
+      private glbState: GlobalStateService,
+      private route: Router
+   ) {}
    openDialog(type: 'signin' | 'signup') {
       if (type === 'signup') this.dialog.open(RegisterComponent)
       if (type === 'signin') this.dialog.open(LoginComponent)
@@ -36,6 +43,11 @@ export class HeaderComponent implements OnInit {
    ngOnInit(): void {
       this.handleGetCart()
    }
+   handleOpenSearch() {
+      this.dialog.open(SearchComponent, { disableClose: true })
+   }
+   
+
    slides = [
       {
          image: 'https://via.placeholder.com/600x400',
@@ -59,6 +71,7 @@ export class HeaderComponent implements OnInit {
    category = category
    product = favoriteProductsFake
    handleLogout() {
+      location.reload()
       return this.authService.logout()
    }
 }

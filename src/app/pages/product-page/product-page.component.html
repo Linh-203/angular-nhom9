@@ -57,24 +57,59 @@
 
             <ul class="list-group">
                <li class="list-group-item">
-                  <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
-                  100.000đ - 200.000đ
+                  <input
+                     class="checkbox-input me-1"
+                     type="radio"
+                     name="price"
+                     value=""
+                     aria-label="..."
+                     (click)="ByPrice(10, 20)"
+                  />
+                  10.000đ - 20.000đ
                </li>
                <li class="list-group-item">
-                  <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
-                  200.000đ - 300.000đ
+                  <input
+                     class="checkbox-input me-1"
+                     type="radio"
+                     name="price"
+                     value=""
+                     aria-label="..."
+                     (click)="ByPrice(20, 30)"
+                  />
+                  20.000đ - 30.000đ
                </li>
                <li class="list-group-item">
-                  <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
-                  300.000đ - 500.000đ
+                  <input
+                     class="checkbox-input me-1"
+                     type="radio"
+                     name="price"
+                     value=""
+                     aria-label="..."
+                     (click)="ByPrice(30, 50)"
+                  />
+                  30.000đ - 50.000đ
                </li>
                <li class="list-group-item">
-                  <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
-                  500.000đ - 1.000.000đ
+                  <input
+                     class="checkbox-input me-1"
+                     type="radio"
+                     name="price"
+                     value=""
+                     aria-label="..."
+                     (click)="ByPrice(50, 100)"
+                  />
+                  50.000đ - 100.000đ
                </li>
                <li class="list-group-item">
-                  <input class="checkbox-input me-1" type="checkbox" value="" aria-label="..." />
-                  Giá trên 1.000.000đ
+                  <input
+                     class="checkbox-input me-1"
+                     type="radio"
+                     name="price"
+                     value=""
+                     aria-label="..."
+                     (click)="ByPrice(100, 1000)"
+                  />
+                  Giá trên 100.000đ
                </li>
             </ul>
          </div>
@@ -131,17 +166,6 @@
                (page)="onPageChange($event)"
             >
             </mat-paginator>
-         </div>
-
-         <div style="text-align: center; margin-top: 30px">
-            <ng-container *ngIf="error">
-               <img
-                  width="80px"
-                  src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/a60759ad1dabe909c46a817ecbf71878.png"
-                  alt=""
-               />
-               <h1 style="color: #f8452d">{{ error }}</h1>
-            </ng-container>
          </div>
       </div>
    </div>

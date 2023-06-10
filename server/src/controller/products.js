@@ -20,12 +20,7 @@ export const getAll = async (req, res) => {
       collation: { locale: 'vi', strength: 1 },
       populate: [{ path: 'categoryId', select: 'name' }]
    }
-   // const query = {};
-   // if (q !== "") {
-   //   query.name = { $regex: q, $options: "i" };
-   // }
    try {
-      //find().populate('categoryId')
       const optionsSearch = _q !== '' ? { $text: { $search: _q } } : {}
       const products = await Products.paginate(optionsSearch, options)
       if (products.length === 0) {
@@ -41,14 +36,38 @@ export const getAll = async (req, res) => {
       })
    }
 }
+export const getAllByPrice = async (req, res, next) => {
+   const { price_min = 0, price_max = Number.MAX_SAFE_INTEGER } = req.query
 
+   const options = {
+      page: req.query._page || 1,
+      limit: req.query._limit || 9,
+      sort: {
+         [req.query._sort || 'createAt']: req.query._order === 'desc' ? -1 : 1
+      },
+      filter: {
+         price: { $gte: price_min, $lte: price_max }
+      }
+   }
+
+   try {
+      const products = await Products.paginate(options.filter, options)
+      if (products.length === 0) {
+         return res.json({
+            message: 'Không có sản phẩm nào'
+         })
+      } else {
+         return res.json(products)
+      }
+   } catch (error) {
+      return res.status(400).json({
+         message: error.message || 'Something went wrong!'
+      })
+   }
+}
 export const get = async (req, res) => {
    try {
-      const products = await Products.findById(req.params.id).populate({
-         path: 'categoryId',
-         populate: { path: 'name' }
-      })
-
+      const products = await Products.findById(req.params.id).populate('categoryId')
       if (!products) {
          return res.jon({
             message: 'Ko có sản phẩm'

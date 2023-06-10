@@ -1,8 +1,10 @@
-<header>
+<header class="h-100">
    <nav class="px-5 py-4 navbar navbar-expand-lg navbar-light bg-light container-fluid">
       <a routerLink="/" class="w-25">
-         <img src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/logo.png?1676358260059"
-            alt="logo của trang web" />
+         <img
+            src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/logo.png?1676358260059"
+            alt="logo của trang web"
+         />
       </a>
       <div class="flex-fill">
          <div class="menu">
@@ -15,7 +17,7 @@
                      <a class="nav-link" routerLink="/products" routerLinkActive="active-link">Sản phẩm</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" routerLink="#" routerLinkActive="active-link">Giới thiệu</a>
+                     <a class="nav-link" routerLink="/new" routerLinkActive="active-link">Giới thiệu</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" routerLink="/new" routerLinkActive="active-link">Tin tức</a>
@@ -25,25 +27,38 @@
          </div>
       </div>
       <div class="d-flex align-items-center justify-content-end gap-3 w-30">
-         <form class="form-inline my-2 my-lg-0 d-flex justify-content-start gap-2 align-items-center">
-            <input class="form-control mr-sm-2 p-2" type="search" placeholder="Tìm kiếm sản phẩm" aria-label="Search"
-               ng-model="searchText" />
-            <button class="btn btn-outline-success fs-6 my-sm-0" type="submit">
-               <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-         </form>
+         <button
+            class="btn-search fs-6 my-sm-0"
+            type="button"
+            id="dropdownSearchButton"
+            data-toggle="dropdown"
+            aria-expanded="false"
+            (click)="handleOpenSearch()"
+         >
+            <i class="fa-solid fa-magnifying-glass text-white"></i>
+         </button>
 
-         <ng-container *ngIf="getUserInfo()!==null">
+         <ng-container *ngIf="getUserInfo() !== null">
             <a routerLink="/favorite" matBadgePosition="after" matBadgeColor="warn" matBadgeSize="small">
-               <i style="color: #e5d300;font-size: 20px;" title="Sản phẩm yêu thích" class="fa fa-heart"
-                  aria-hidden="true"></i>
-            </a></ng-container>
-
-
-         <div class="p-1 dropdown" matBadge={{productsInCart?.length}} [matBadgeHidden]="productsInCart?.length === 0"
-            mat-raised-button matBadgePosition="after" matBadgeColor="warn" matBadgeSize="small">
+               <i
+                  style="color: white; font-size: 20px"
+                  title="Sản phẩm yêu thích"
+                  class="fa fa-heart"
+                  aria-hidden="true"
+               ></i>
+            </a>
+         </ng-container>
+         <div
+            class="p-1 dropdown"
+            matBadge="{{ productsInCart?.length }}"
+            [matBadgeHidden]="productsInCart?.length === 0"
+            mat-raised-button
+            matBadgePosition="after"
+            matBadgeColor="warn"
+            matBadgeSize="small"
+         >
             <a routerLink="/cart" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
-               <i class="fa fa-shopping-cart fs-5" style="color: #e5d300"></i>
+               <i class="fa fa-shopping-cart fs-5" style="color: white"></i>
             </a>
             <ul class="dropdown-menu drop-cart" aria-labelledby="dropdownMenuButton">
                <h3 class="dropdown-header">Cart</h3>
@@ -64,7 +79,7 @@
          </div>
          <div class="p-1 dropdown" *ngIf="getUserInfo() === null">
             <a id="dropdownUserButton" data-mdb-toggle="dropdown" aria-expanded="false" (click)="openDialog('signin')">
-               <i class="fa-solid fa-user fs-5" style="color: #e5d300"></i>
+               <i (click)="openDialog('signin')" class="fa-solid fa-user fs-5" style="color: white"></i>
             </a>
             <ul class="dropdown-menu drop-user p-2" aria-labelledby="dropdownUserButton">
                <div class="d-flex flex-column align-items-center">
@@ -74,14 +89,14 @@
             </ul>
          </div>
          <div class="p-1 dropdown w-10" *ngIf="getUserInfo() !== null">
-            <a routerLink="/profile" id="dropdownUserButton" data-mdb-toggle="dropdown" aria-expanded="false">
+            <a (click)="openDialog('signin')" id="dropdownUserButton" data-mdb-toggle="dropdown" aria-expanded="false">
                <img src="{{ getUserInfo()?.defaultAvatar }}" alt="avatar" class="w-75" />
             </a>
             <ul class="dropdown-menu drop-user p-2" aria-labelledby="dropdownUserButton">
                <div class="d-flex flex-column align-items-start">
                   <a routerLink="/profile" class="d-flex flex-column">
                      Signed in as :
-                     <span class="fw-semibold"> {{getUserInfo()?.name }}</span>
+                     <span class="fw-semibold"> {{ getUserInfo()?.name }}</span>
                   </a>
                   <button class="btn-logout" (click)="handleLogout()">Log out</button>
                </div>

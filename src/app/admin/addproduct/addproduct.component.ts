@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core'
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router'
+import { Component, OnInit } from '@angular/core'
+import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop'
+import axios from 'axios'
 @Component({
    selector: 'app-addproduct',
    templateUrl: './addproduct.component.html',
@@ -9,6 +11,7 @@ import { Router } from '@angular/router'
 })
 export class AddproductComponent implements OnInit {
    public productForm!: FormGroup
+   public imageUrl!: string
 
    categories!: any[]
 
@@ -17,24 +20,22 @@ export class AddproductComponent implements OnInit {
    ngOnInit() {
       this.http.get('http://localhost:8000/api/categories').subscribe((data: any) => {
          this.categories = data.categories
-         console.log(data)
       })
 
       this.productForm = this.formBuilder.group({
          name: new FormControl('', [Validators.required, Validators.minLength(3)]),
          price: new FormControl('', [Validators.required, Validators.min(1)]),
-         image: ['', Validators.required],
          categoryId: ['', Validators.required],
          desc: ['', Validators.required]
       })
    }
 
    addProduct() {
-      // Thực hiện thêm sản phẩm
       const product = this.productForm.value
-      console.log(this.productForm)
+      console.log(product)
 
       const apiUrl = `http://localhost:8000/api/products/`
+
       this.http
          .post(apiUrl, product, {
             headers: {
@@ -43,7 +44,7 @@ export class AddproductComponent implements OnInit {
          })
          .subscribe((res: any) => {
             console.log(res)
-            this.router.navigate(['admin/products'])
+            // this.router.navigate(['admin/products'])
          })
    }
 }
