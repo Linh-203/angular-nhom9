@@ -5,6 +5,7 @@
       <tr>
          <th>Stt</th>
          <th scope="col">Name</th>
+         <th scope="col">Category</th>
          <th scope="col">Price</th>
          <th scope="col">Image</th>
          <th scope="col">Action</th>
@@ -14,7 +15,9 @@
    <tbody *ngFor="let product of adminProducts; let i = index">
       <tr>
          <td>{{ i + 1 }}</td>
+
          <td>{{ product.name }}</td>
+         <td>{{ product.categoryId.name}}</td>
          <td>{{ product.price }} $</td>
          
          <td id="tdimg"><img src="{{ product.image }}" alt="{{ product.name }}" /></td>

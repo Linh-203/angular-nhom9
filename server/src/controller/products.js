@@ -17,6 +17,7 @@ export const getAll = async (req, res) => {
       sort: {
          [_sort]: _order == 'desc' ? -1 : 1
       },
+      populate: [{ path: 'categoryId', select: 'name' }],
       collation: { locale: 'vi', strength: 1 }
    }
    try {

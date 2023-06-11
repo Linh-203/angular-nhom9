@@ -37,7 +37,8 @@
      display: block;
   }
   .product-block:hover .cart_eye{
-    display: block;
+    display: flex;
+    gap:0.2rem;
   }
   .product-block:hover .img-product{
     transform: scale(1.5);

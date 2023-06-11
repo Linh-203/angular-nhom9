@@ -4,10 +4,10 @@
 
       <mat-form-field class="mb-2">
          <mat-label for="name" class="form-label">Tên danh mục</mat-label>
-         <input class="form-control fs-5" matInput placeholder="Tên danh  mục" formControlName="name" />
-         <!-- <mat-error *ngIf="cateForm.get('name')?.hasError('required')"> This field is required ! </mat-error>
-         <mat-error *ngIf="cateForm.get('name')?.hasError('minlength')">
-            Enter at least 3-characters !
+         <input class="form-control fs-5" matInput formControlName="name" />
+         <mat-error *ngIf="cateForm.get('name')?.hasError('required')"> This field is required ! </mat-error>
+         <mat-error *ngIf="cateForm.get('name')?.hasError('minLength')">
+            Enter at least 6-characters !
          </mat-error>
          <mat-error *ngIf="cateForm.get('name')?.hasError('whitespace')">
             Name cannot contain only whitespace
