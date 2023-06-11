@@ -3,9 +3,14 @@
       <h1 mat-dialog-title class="fw-semibold">Thêm mới sản phẩm</h1>
       <mat-form-field class="mb-2">
          <mat-label for="name" class="form-label">Tên sản phẩm</mat-label>
-         <input class="form-control fs-5" matInput formControlName="name" />
-         <mat-error *ngIf="productForm.get('name')?.hasError('required')"> This field is required ! </mat-error>
-         <mat-error *ngIf="productForm.get('name')?.hasError('minLength')"> This field is required ! </mat-error>
+
+         <input class="form-control fs-5" matInput placeholder="Tên sản phẩm" formControlName="name" />
+         <mat-error *ngIf="productForm.get('name')?.invalid && (productForm.get('name')?.dirty || productForm.get('name')?.touched)">
+            <span *ngIf="productForm.get('name')?.hasError('required')">Name is required</span>
+            <span *ngIf="productForm.get('name')?.hasError('minlength')">Name must be at least 3 characters long</span>
+            <span *ngIf="productForm.get('name')?.hasError('whitespace')">Name cannot contain only whitespace</span>
+        </mat-error>
+
       </mat-form-field>
 
       <mat-form-field class="mb-2">
@@ -32,6 +37,6 @@
          <mat-error *ngIf="productForm.get('desc')?.hasError('required')"> This field is required ! </mat-error>
       </mat-form-field>
 
-      <button type="submit" class="btn btn-submit w-full" mat-raised-button>Thêm sản phẩm</button>
+      <button type="submit" class="btn btn-submit w-full" mat-raised-button [disabled]="productForm.invalid">Thêm sản phẩm</button>
    </form>
 </div>
